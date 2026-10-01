@@ -5,8 +5,8 @@ Static showcase site for NxtDuo, the user's two-person app studio. Plain `index.
 ## Hosting and CI/CD
 - Repo: github.com/hemanthkrishna9/nxtduo-site (branch `main`).
 - Cloudflare **Workers static assets** (not Pages), Worker name `nxtduo`, connected to the repo with Workers Builds. **Every push to `main` goes live in ~30 s.** No manual deploy needed.
-- Preview URL: https://nxtduo.nxtduo1.workers.dev
-- `wrangler.jsonc` serves the repo root and uses `404.html` for unknown paths. `.assetsignore` keeps repo-only files (this one, wrangler.jsonc, README) off the site. Add any new non-public file to it.
+- Live at https://nxtduo.com. The custom domains (nxtduo.com, www.nxtduo.com) are declared in `wrangler.jsonc` `routes`, not set in the dashboard. The workers.dev URL is off since routes were added.
+- `worker.js` 301-redirects www.nxtduo.com to nxtduo.com, then serves files via the ASSETS binding (`run_worker_first: true`). `wrangler.jsonc` serves the repo root and uses `404.html` for unknown paths. `.assetsignore` keeps repo-only files (this one, wrangler.jsonc, README) off the site. Add any new non-public file to it.
 - `_headers` sets security and cache headers. It works with Workers assets.
 
 ## Rules
@@ -23,9 +23,10 @@ Static showcase site for NxtDuo, the user's two-person app studio. Plain `index.
 - Style: dark background, violet→pink→amber gradient, Plus Jakarta Sans, cards with an `--accent` colour each. Check desktop (1440) and phone (390) widths after layout changes.
 
 ## Status (2026-10-01)
-- [x] Site built, on GitHub, auto-deploying to the workers.dev URL
-- [ ] nxtduo.com added to Cloudflare + nameservers changed at the registrar
-- [ ] Custom domains nxtduo.com and www.nxtduo.com on the `nxtduo` Worker (Settings → Domains & Routes)
-- [ ] www → root redirect rule
+The office DNS may briefly cache "not found" for new hostnames; check with Cloudflare DoH before assuming a fault.
+
+- [x] Site built, on GitHub, auto-deploying on push
+- [x] nxtduo.com on Cloudflare (Free), nameservers hope/jake.ns.cloudflare.com set at GoDaddy, zone active
+- [x] Custom domains + www → root redirect (via wrangler.jsonc + worker.js)
 - [ ] Email Routing for hello@nxtduo.com
 - [ ] Update sitemap/canonical if the final URL differs; submit to Google Search Console
