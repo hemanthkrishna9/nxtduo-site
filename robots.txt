@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nxtduo.com/sitemap.xml
