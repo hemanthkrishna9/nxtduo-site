@@ -16,9 +16,9 @@ Static showcase site for NxtDuo, the user's two-person app studio. Plain `index.
 - Verify after a push: fetch the page (use `node --use-system-ca`, plain curl fails behind the corporate proxy).
 
 ## Content
-- Live: NxtDue (nxtdue.com), Meter Mele (meter-mele.pages.dev).
-- Coming soon: Chai Empire, NxtBrush, Saathi, Thodu. Images in `assets/` are copied from those projects under W:/apps.
-- Deliberately not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.
+- Since 2026-10-07 the site shows only Saathi (offline AI tutor, education) and Thodu (Telugu calls to parents, relationships), to position NxtDuo for the Claude startup program. NxtDue, Meter Mele, Chai Empire and NxtBrush were removed on purpose. No images: the phone mockups are HTML/CSS.
+- Keep status claims honest (prototype / next / pilot). Do not add invented stats or founder biography.
+- Also not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.
 - Contact: hello@nxtduo.com (needs Cloudflare Email Routing).
 - Style: dark background, violet→pink→amber gradient, Plus Jakarta Sans, cards with an `--accent` colour each. Check desktop (1440) and phone (390) widths after layout changes.
 
