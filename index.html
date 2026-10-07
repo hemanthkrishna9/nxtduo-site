@@ -10,7 +10,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="NxtDuo · A tutor in every pocket. A voice for every home." />
-  <meta property="og:description" content="Saathi: a private AI tutor that works without internet. Thodu: an AI that calls your parents in Telugu. Made in India." />
+  <meta property="og:description" content="Saathi: a private AI tutor that works without internet. Thodu: an AI, built on Claude, that calls your parents in Telugu. Made in India." />
   <meta property="og:url" content="https://nxtduo.com/" />
   <meta name="twitter:card" content="summary" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +34,7 @@
       <a href="#saathi">Saathi</a>
       <a href="#thodu">Thodu</a>
       <a href="#how">How it works</a>
+      <a href="#claude">Built with Claude</a>
       <a class="pill" href="#contact">Join the pilot</a>
     </nav>
   </header>
@@ -89,14 +90,16 @@
         <p class="eyebrow">Thodu · తోడు · relationships</p>
         <h2>Far from home.<br /><span class="grad-cool">Never out of touch.</span></h2>
         <p class="te-line" lang="te">దూరంగా ఉన్నా, దగ్గరగా.</p>
-        <p class="lead">Millions of Indian children live in another city or another country from their parents. Parents say "all is fine" and hide the rest. Thodu phones amma and nanna on a normal phone, in Telugu, asks what you would ask, and sends you a short, honest note.</p>
+        <p class="lead">Millions of Indian children live in another city or another country from their parents. Parents say "all is fine" and hide the rest. Thodu phones amma and nanna on a normal phone, in Telugu, asks what you would ask, and sends you a short, honest note. Then Claude, Anthropic's AI, looks across weeks of calls to understand the relationship, not just the day.</p>
         <ul class="points">
           <li><b>A bridge, never a replacement.</b> Every call is made on your behalf: "Namaskaram Amma, Ravi tarapuna call chestunna."</li>
           <li><b>Catches what gets hidden.</b> A missed tablet, a "gas" pain that sounds like the chest, a doctor visit skipped.</li>
           <li><b>No smartphone needed.</b> Parents just pick up the phone. Nothing to install, nothing to learn.</li>
-          <li><b>Your calls become about love,</b> not "did you eat?"</li>
+          <li><b>Understands the relationship.</b> Claude reads each call alongside the ones before it and notices slow changes: a parent who sounds lonelier, a pain that keeps coming back, a topic they avoid.</li>
+          <li><b>Your calls become about love,</b> not "did you eat?" Thodu suggests what to talk about next.</li>
         </ul>
         <ul class="chips">
+          <li>Being built on the Claude API</li>
           <li>Designed: 67 failure cases mapped</li>
           <li>Next: family pilot</li>
         </ul>
@@ -113,7 +116,8 @@
           <p>✓ BP tablet taken after breakfast</p>
           <p>✓ Walked to the temple with aunty</p>
           <p class="warn">! Knee pain back for 2 days. She did not want to "worry you".</p>
-          <p class="note-s">Suggested: ask about the doctor visit on Thursday.</p>
+          <p class="note-s"><b>This month:</b> knee pain mentioned 4 times. She sounds quieter on Sundays since your sister moved.</p>
+          <p class="note-s">Suggested: call her this Sunday and ask about the doctor visit on Thursday.</p>
         </div>
         <div class="phone-foot">Sent to Ravi in Toronto</div>
       </div>
@@ -135,12 +139,38 @@
         <article class="card reveal" style="--accent:#ff5d8f">
           <div class="num">02</div>
           <h3>Small phones, big models</h3>
-          <p>Saathi runs a compact AI model on the phone itself. Larger cloud models help us write and check lessons, questions and call plans before they reach a family.</p>
+          <p>Saathi runs a compact AI model on the phone itself. Thodu is designed around Claude in the cloud, to plan calls and understand each family over time. Claude also helps us write and check Saathi's lessons.</p>
         </article>
         <article class="card reveal" style="--accent:#ffb547">
           <div class="num">03</div>
           <h3>Safety in every language</h3>
           <p>Crisis and urgent-health checks in English, Hindi and Telugu, with the right helpline for the country. Tested on multi-day conversations, not one-line demos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CLAUDE -->
+    <section id="claude" class="section claude reveal">
+      <div class="section-head">
+        <p class="eyebrow">Built with Claude</p>
+        <h2>Claude is at the heart of how we build and what we build.</h2>
+        <p class="muted">Our users are children and elderly parents. We need an AI that is careful, honest and follows instructions, so we chose Claude.</p>
+      </div>
+      <div class="grid">
+        <article class="card" style="--accent:#d97757">
+          <div class="num">Thodu</div>
+          <h3>Claude API: understanding families</h3>
+          <p>Claude plans each Telugu check-in call, reads it alongside weeks of earlier calls, flags warning signs and notices slow changes in a parent's health and mood. It then writes the child a short, kind, honest note.</p>
+        </article>
+        <article class="card" style="--accent:#ff8a3d">
+          <div class="num">Saathi</div>
+          <h3>Claude API: lessons that ship offline</h3>
+          <p>Claude writes and reviews question banks and step-by-step explanations in Telugu, Hindi and English. Every lesson is checked before it ships to the phone, where the student studies with no internet.</p>
+        </article>
+        <article class="card" style="--accent:#7c5cff">
+          <div class="num">Team</div>
+          <h3>Claude Code: two people, shipping like ten</h3>
+          <p>We build with Claude Code every day: the offline memory engine, the safety checks in three languages, 240 automated tests and this website.</p>
         </article>
       </div>
     </section>
@@ -153,7 +183,7 @@
       </div>
       <ol class="steps">
         <li class="done"><b>Built</b><span>Offline memory engine and safety checks, with 240 automated tests and 16 multi-day test conversations.</span></li>
-        <li class="now"><b>Now</b><span>Building the Saathi exam tutor for Telugu and Hindi students, and Thodu's first Telugu calls, tested on our own families.</span></li>
+        <li class="now"><b>Now</b><span>Building the Saathi exam tutor for Telugu and Hindi students, and Thodu's first Telugu calls with Claude, tested on our own families.</span></li>
         <li><b>Next</b><span>Pilots with schools in small towns and with families who live away from their parents.</span></li>
         <li><b>Then</b><span>More Indian languages, more subjects, more states.</span></li>
       </ol>
