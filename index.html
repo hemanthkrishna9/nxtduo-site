@@ -3,229 +3,317 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NxtDuo · AI that teaches and cares, in India's languages, even offline</title>
-  <meta name="description" content="NxtDuo builds Saathi, a private AI tutor that runs on low-cost phones without internet, and Thodu, an AI that calls your parents in Telugu and tells you how they really are." />
-  <meta name="theme-color" content="#0b0b14" />
+  <title>NxtDuo — playful, useful apps made in India</title>
+  <meta name="description" content="NxtDuo is a two-person app studio from India. We build NxtDue, Meter Mele, Chai Empire, NxtBrush and more." />
+  <meta name="theme-color" content="#f6fbf9" />
   <link rel="canonical" href="https://nxtduo.com/" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/nxtduo-icon-512.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NxtDuo · A tutor in every pocket. A voice for every home." />
-  <meta property="og:description" content="Saathi: a private AI tutor that works without internet. Thodu: an AI, built on Claude, that calls your parents in Telugu. Made in India." />
+  <meta property="og:title" content="NxtDuo — playful, useful apps made in India" />
+  <meta property="og:description" content="Two people, a lot of chai, and apps that make everyday life a little lighter." />
   <meta property="og:url" content="https://nxtduo.com/" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="https://nxtduo.com/assets/nxtduo-icon-bg.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"NxtDuo","url":"https://nxtduo.com/","email":"hello@nxtduo.com","founder":[{"@type":"Person","name":"Hemanth Krishna"},{"@type":"Person","name":"Mahesh Chandu"}],"description":"NxtDuo builds Saathi, an offline AI tutor for Indian students, and Thodu, an AI that checks in on ageing parents in Telugu."}
+  {"@context":"https://schema.org","@type":"Organization","name":"NxtDuo","url":"https://nxtduo.com/","logo":"https://nxtduo.com/assets/nxtduo-icon-512.png","email":"support@nxtduo.com","sameAs":["https://www.nxtdue.com","https://meter-mele.pages.dev"]}
   </script>
 </head>
 <body>
-  <div class="glow glow-a" aria-hidden="true"></div>
-  <div class="glow glow-b" aria-hidden="true"></div>
 
-  <header class="nav">
-    <a class="brand" href="/" aria-label="NxtDuo home">
-      <span class="mark" aria-hidden="true"><span></span><span></span></span>
-      <span>Nxt<b>Duo</b></span>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <img class="loader-logo" src="/assets/nxtduo-icon.png" alt="" width="120" height="120" />
+      <div class="loader-word"><span>NXT</span><b>Duo</b></div>
+      <div class="loader-bar"><i></i></div>
+      <div class="loader-count"><span id="loaderCount">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <svg class="bot" viewBox="0 0 64 64" width="54" height="54">
+      <defs>
+        <linearGradient id="botBody" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#3fe0b0" /><stop offset="1" stop-color="#1f8f7c" />
+        </linearGradient>
+        <linearGradient id="botFace" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#0f3d37" /><stop offset="1" stop-color="#0b2a26" />
+        </linearGradient>
+      </defs>
+      <!-- antenna -->
+      <line x1="32" y1="14" x2="32" y2="7" stroke="#2a9d8f" stroke-width="3" stroke-linecap="round" />
+      <circle class="bot-light" cx="32" cy="6" r="4" fill="#3fe0b0" />
+      <!-- ears -->
+      <rect x="6" y="28" width="6" height="14" rx="3" fill="#0f4c45" />
+      <rect x="52" y="28" width="6" height="14" rx="3" fill="#0f4c45" />
+      <!-- head -->
+      <rect x="11" y="14" width="42" height="40" rx="12" fill="url(#botBody)" />
+      <!-- face screen -->
+      <rect x="16" y="20" width="32" height="28" rx="8" fill="url(#botFace)" />
+      <!-- eyes (normal) -->
+      <g class="bot-eyes">
+        <g class="bot-eye"><circle cx="25" cy="33" r="4.2" fill="#3fe0b0" /><circle class="bot-pupil" cx="25" cy="33" r="1.8" fill="#071412" /></g>
+        <g class="bot-eye"><circle cx="39" cy="33" r="4.2" fill="#3fe0b0" /><circle class="bot-pupil" cx="39" cy="33" r="1.8" fill="#071412" /></g>
+      </g>
+      <!-- eyes (happy, on hover) -->
+      <g class="bot-happy" fill="none" stroke="#3fe0b0" stroke-width="3" stroke-linecap="round">
+        <path d="M21 34 q4 -5 8 0" /><path d="M35 34 q4 -5 8 0" />
+      </g>
+      <!-- mouth -->
+      <path class="bot-mouth" d="M27 41 q5 3 10 0" fill="none" stroke="#3fe0b0" stroke-width="2.2" stroke-linecap="round" />
+    </svg>
+  </div>
+
+  <!-- Background glows (fixed, parallax with mouse) -->
+  <div class="bg" aria-hidden="true">
+    <div class="glow glow-a"></div>
+    <div class="glow glow-b"></div>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#home" data-goto="0" aria-label="NxtDuo home">
+      <img src="/assets/nxtduo-icon.png" alt="" width="36" height="36" />
+      <span class="brand-word"><span>NXT</span><b>Duo</b></span>
     </a>
-    <nav>
-      <a href="#saathi">Saathi</a>
-      <a href="#thodu">Thodu</a>
-      <a href="#how">How it works</a>
-      <a href="#claude">Built with Claude</a>
-      <a class="pill" href="#contact">Join the pilot</a>
+
+    <nav class="dots" aria-label="Sections">
+      <button class="dot is-active" data-goto="0" aria-label="Home"><span>Home</span></button>
+      <button class="dot" data-goto="1" aria-label="NxtDue"><span>NxtDue</span></button>
+      <button class="dot" data-goto="2" aria-label="Meter Mele"><span>Meter Mele</span></button>
+      <button class="dot" data-goto="3" aria-label="Workshop"><span>Workshop</span></button>
+      <button class="dot" data-goto="4" aria-label="About"><span>About</span></button>
+      <button class="dot" data-goto="5" aria-label="Contact"><span>Contact</span></button>
     </nav>
+
+    <a class="pill magnetic" href="#contact" data-goto="5">Say hello</a>
   </header>
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow reveal">AI for the next billion Indians · Made in India</p>
-      <h1 class="reveal">We want to <span class="grad">revolutionise how India learns</span> and how families stay close.</h1>
-      <p class="lead reveal">A private tutor in every child's pocket, in their own language, even where the internet does not reach. A gentle voice that calls amma and nanna when you cannot. Two products, one belief: good AI should reach every Indian home, not only the connected ones.</p>
-      <div class="cta reveal">
-        <a class="btn primary" href="#saathi">Meet Saathi</a>
-        <a class="btn ghost" href="#thodu">Meet Thodu</a>
-      </div>
-      <ul class="stats reveal" aria-label="At a glance">
-        <li><b>0</b><span>internet needed to learn</span></li>
-        <li><b>3</b><span>languages: EN · हिंदी · తెలుగు</span></li>
-        <li><b>4 GB</b><span>phones are our target, not flagships</span></li>
-      </ul>
-    </section>
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+  <div class="counter" aria-hidden="true"><span id="counterNow">01</span><em>/</em><span>06</span></div>
 
-    <!-- SAATHI -->
-    <section id="saathi" class="section product reveal" style="--accent:#ff8a3d">
-      <div class="product-copy">
-        <p class="eyebrow">Saathi · సాథీ · education</p>
-        <h2>A tutor in every pocket.<br /><span class="grad-warm">No internet needed.</span></h2>
-        <p class="lead">Crores of students in small towns and villages study on shared, low-cost phones with patchy data. Saathi is an AI tutor that lives on the phone itself. It explains, quizzes and encourages in Telugu, Hindi or English, and it remembers each student.</p>
-        <ul class="points">
-          <li><b>Remembers the child.</b> Saathi recalls that fractions were hard last week and comes back to them, like a good teacher does.</li>
-          <li><b>Works fully offline.</b> The AI model runs on the phone. No data pack, no signal, no cost per question.</li>
-          <li><b>Private by design.</b> A child's questions and mistakes never leave the device.</li>
-          <li><b>Safe for young minds.</b> Built-in checks catch distress in three languages and point to real help, such as Tele-MANAS.</li>
-        </ul>
-        <ul class="chips">
-          <li>Working prototype: on-device memory engine</li>
-          <li>Next: exam tutor pilot</li>
-        </ul>
-      </div>
+  <!-- Horizontal track -->
+  <main class="track-wrap" id="trackWrap">
+    <div class="track" id="track">
 
-      <div class="phone" aria-label="Example: Saathi tutoring a student offline">
-        <div class="phone-top"><span>Saathi</span><span class="offline">● Offline</span></div>
-        <div class="bubble them">Last week fractions tripped you up. Want to try two quick ones before your test?</div>
-        <div class="bubble me">ok. 3/4 + 1/8 ?</div>
-        <div class="bubble them">Make the bottoms match first. 3/4 is the same as 6/8. Now add the tops: 6 + 1 = ?</div>
-        <div class="bubble me">7/8 !!</div>
-        <div class="bubble them">Correct. That is 3 in a row. Fractions are becoming your strong topic.</div>
-        <div class="phone-foot">No internet · Runs on a 4 GB phone</div>
-      </div>
-    </section>
+      <!-- 01 HERO -->
+      <section class="panel p-hero" id="home" data-index="0">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow split-line"><span>An app studio of two · Made in India</span></p>
+            <h1 class="display">
+              <span class="line"><span>Apps that make</span></span>
+              <span class="line"><span>everyday life</span></span>
+              <span class="line"><span>a little <em class="serif flip-wrap"><span class="flip-word" id="flipWord">lighter.</span></em></span></span>
+            </h1>
+            <p class="lead reveal-up">Reminders that actually arrive. Games set on Bengaluru streets and chai tapris. A friendly tooth that teaches kids to brush. Small, careful products, built by two people who use them every day.</p>
+            <div class="cta reveal-up">
+              <a class="btn primary magnetic" href="#nxtdue" data-goto="1">See our apps <i>→</i></a>
+              <a class="btn ghost magnetic" href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Play Meter Mele ↗</a>
+            </div>
+            <ul class="stats reveal-up" aria-label="Studio at a glance">
+              <li><b data-count="2">0</b><span>live products</span></li>
+              <li><b data-count="4">0</b><span>in the workshop</span></li>
+              <li><b data-count="3">0</b><span>languages · EN · हिंदी · తెలుగు</span></li>
+            </ul>
+          </div>
 
-    <!-- THODU -->
-    <section id="thodu" class="section product flip reveal" style="--accent:#4fa3ff">
-      <div class="product-copy">
-        <p class="eyebrow">Thodu · తోడు · relationships</p>
-        <h2>Far from home.<br /><span class="grad-cool">Never out of touch.</span></h2>
-        <p class="te-line" lang="te">దూరంగా ఉన్నా, దగ్గరగా.</p>
-        <p class="lead">Millions of Indian children live in another city or another country from their parents. Parents say "all is fine" and hide the rest. Thodu phones amma and nanna on a normal phone, in Telugu, asks what you would ask, and sends you a short, honest note. Then Claude, Anthropic's AI, looks across weeks of calls to understand the relationship, not just the day.</p>
-        <ul class="points">
-          <li><b>A bridge, never a replacement.</b> Every call is made on your behalf: "Namaskaram Amma, Ravi tarapuna call chestunna."</li>
-          <li><b>Catches what gets hidden.</b> A missed tablet, a "gas" pain that sounds like the chest, a doctor visit skipped.</li>
-          <li><b>No smartphone needed.</b> Parents just pick up the phone. Nothing to install, nothing to learn.</li>
-          <li><b>Understands the relationship.</b> Claude reads each call alongside the ones before it and notices slow changes: a parent who sounds lonelier, a pain that keeps coming back, a topic they avoid.</li>
-          <li><b>Your calls become about love,</b> not "did you eat?" Thodu suggests what to talk about next.</li>
-        </ul>
-        <ul class="chips">
-          <li>Being built on the Claude API</li>
-          <li>Designed: 67 failure cases mapped</li>
-          <li>Next: family pilot</li>
-        </ul>
-      </div>
-
-      <div class="phone" aria-label="Example: a Thodu summary sent to a child">
-        <div class="phone-top"><span>Thodu</span><span class="time">9:12 AM</span></div>
-        <div class="call">
-          <div class="avatar" aria-hidden="true">అ</div>
-          <div><b>Called Amma</b><span>6 min · in Telugu</span></div>
+          <div class="hero-art" id="heroArt">
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="hero-icon-wrap" id="heroIcon">
+              <img class="hero-icon" src="/assets/nxtduo-icon.png" alt="NxtDuo logo" width="520" height="520" />
+              <div class="hero-shadow"></div>
+            </div>
+            <div class="mini mini-1" data-depth="0.05"><img src="/assets/nxtdue.png" alt="NxtDue app" width="1200" height="630" /></div>
+            <div class="mini mini-2" data-depth="-0.04"><img src="/assets/meter-mele.png" alt="Meter Mele game" width="1200" height="630" /></div>
+            <div class="mini mini-3" data-depth="0.08"><img src="/assets/chai-empire.png" alt="Chai Empire game" width="1280" height="720" /></div>
+            <div class="mini mini-4" data-depth="-0.07"><img src="/assets/nxtbrush.png" alt="NxtBrush app" width="1280" height="720" /></div>
+          </div>
         </div>
-        <div class="note">
-          <p class="note-h">Today's note</p>
-          <p>✓ BP tablet taken after breakfast</p>
-          <p>✓ Walked to the temple with aunty</p>
-          <p class="warn">! Knee pain back for 2 days. She did not want to "worry you".</p>
-          <p class="note-s"><b>This month:</b> knee pain mentioned 4 times. She sounds quieter on Sundays since your sister moved.</p>
-          <p class="note-s">Suggested: call her this Sunday and ask about the doctor visit on Thursday.</p>
+
+        <a class="next-card" id="nextCard" href="#nxtdue" data-goto="1" aria-label="Up next: NxtDue">
+          <img src="/assets/nxtdue.png" alt="" width="1200" height="630" />
+          <span class="next-label">Up next · 02 / 06</span>
+          <b>NxtDue <i>→</i></b>
+          <span class="next-sub">Never miss a renewal</span>
+        </a>
+
+        <div class="ticker" id="ticker" aria-hidden="true">
+          <div class="ticker-row"><span>NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span><span>NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span></div>
         </div>
-        <div class="phone-foot">Sent to Ravi in Toronto</div>
-      </div>
-    </section>
 
-    <!-- HOW -->
-    <section id="how" class="section">
-      <div class="section-head reveal">
-        <p class="eyebrow">How it works</p>
-        <h2>One engine. Built for India first.</h2>
-        <p class="muted">Saathi and Thodu share the same core: an AI that remembers, speaks local languages and is careful with people.</p>
-      </div>
-      <div class="grid">
-        <article class="card reveal" style="--accent:#7c5cff">
-          <div class="num">01</div>
-          <h3>Memory that matters</h3>
-          <p>Our memory engine picks the one right thing to bring up: a weak topic, an upcoming exam, a parent's doctor visit. It skips what would hurt or nag.</p>
-        </article>
-        <article class="card reveal" style="--accent:#ff5d8f">
-          <div class="num">02</div>
-          <h3>Small phones, big models</h3>
-          <p>Saathi runs a compact AI model on the phone itself. Thodu is designed around Claude in the cloud, to plan calls and understand each family over time. Claude also helps us write and check Saathi's lessons.</p>
-        </article>
-        <article class="card reveal" style="--accent:#ffb547">
-          <div class="num">03</div>
-          <h3>Safety in every language</h3>
-          <p>Crisis and urgent-health checks in English, Hindi and Telugu, with the right helpline for the country. Tested on multi-day conversations, not one-line demos.</p>
-        </article>
-      </div>
-    </section>
+        <div class="scroll-hint" id="scrollHint">
+          <span class="hint-line"></span>
+          <span>Scroll to explore →</span>
+        </div>
+      </section>
 
-    <!-- CLAUDE -->
-    <section id="claude" class="section claude reveal">
-      <div class="section-head">
-        <p class="eyebrow">Built with Claude</p>
-        <h2>Claude is at the heart of how we build and what we build.</h2>
-        <p class="muted">Our users are children and elderly parents. We need an AI that is careful, honest and follows instructions, so we chose Claude.</p>
-      </div>
-      <div class="grid">
-        <article class="card" style="--accent:#d97757">
-          <div class="num">Thodu</div>
-          <h3>Claude API: understanding families</h3>
-          <p>Claude plans each Telugu check-in call, reads it alongside weeks of earlier calls, flags warning signs and notices slow changes in a parent's health and mood. It then writes the child a short, kind, honest note.</p>
-        </article>
-        <article class="card" style="--accent:#ff8a3d">
-          <div class="num">Saathi</div>
-          <h3>Claude API: lessons that ship offline</h3>
-          <p>Claude writes and reviews question banks and step-by-step explanations in Telugu, Hindi and English. Every lesson is checked before it ships to the phone, where the student studies with no internet.</p>
-        </article>
-        <article class="card" style="--accent:#7c5cff">
-          <div class="num">Team</div>
-          <h3>Claude Code: two people, shipping like ten</h3>
-          <p>We build with Claude Code every day: the offline memory engine, the safety checks in three languages, 240 automated tests and this website.</p>
-        </article>
-      </div>
-    </section>
+      <!-- 02 NXTDUE -->
+      <section class="panel p-product p-nxtdue" id="nxtdue" data-index="1" style="--accent:#6a4df0">
+        <div class="big-bg" aria-hidden="true">NxtDue</div>
+        <div class="product-grid">
+          <div class="product-copy">
+            <span class="tag live reveal-up">● Live</span>
+            <h2 class="display">
+              <span class="line"><span>NxtDue</span></span>
+            </h2>
+            <p class="sub reveal-up">Never miss a <em class="serif">renewal.</em></p>
+            <p class="reveal-up">Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. Your data stays in India. No ads, no data selling.</p>
+            <ul class="chips reveal-up"><li>iOS</li><li>Android</li><li>Free plan</li></ul>
+            <a class="btn primary magnetic reveal-up" href="https://www.nxtdue.com" target="_blank" rel="noopener">Visit nxtdue.com <i>↗</i></a>
+          </div>
+          <div class="product-art wipe">
+            <div class="frame">
+              <img src="/assets/nxtdue.png" alt="NxtDue: never miss a renewal, policy, warranty or subscription" width="1200" height="630" />
+            </div>
+            <div class="bubble b1">🔔 Insurance due in 7 days</div>
+            <div class="bubble b2">🛂 Passport · 30 days</div>
+          </div>
+        </div>
+      </section>
 
-    <!-- ROADMAP -->
-    <section class="section roadmap reveal">
-      <div class="section-head">
-        <p class="eyebrow">Where we are</p>
-        <h2>Honest progress.</h2>
-      </div>
-      <ol class="steps">
-        <li class="done"><b>Built</b><span>Offline memory engine and safety checks, with 240 automated tests and 16 multi-day test conversations.</span></li>
-        <li class="now"><b>Now</b><span>Building the Saathi exam tutor for Telugu and Hindi students, and Thodu's first Telugu calls with Claude, tested on our own families.</span></li>
-        <li><b>Next</b><span>Pilots with schools in small towns and with families who live away from their parents.</span></li>
-        <li><b>Then</b><span>More Indian languages, more subjects, more states.</span></li>
-      </ol>
-    </section>
+      <!-- 03 METER MELE -->
+      <section class="panel p-product p-mele" id="mele" data-index="2" style="--accent:#a87b00">
+        <div class="big-bg" aria-hidden="true">ಮೀಟರ್ ಮೇಲೆ</div>
+        <div class="product-grid flip">
+          <div class="product-art drive">
+            <div class="frame">
+              <img src="/assets/meter-mele.png" alt="Meter Mele: an auto-rickshaw on a Bengaluru street" width="1200" height="630" />
+            </div>
+            <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="product-copy">
+            <span class="tag live reveal-up">● Live · Play free</span>
+            <h2 class="display">
+              <span class="line"><span>Meter Mele</span></span>
+            </h2>
+            <p class="sub reveal-up">Beat the meter across <em class="serif">real Bengaluru.</em></p>
+            <p class="reveal-up">Drive an auto through streets built from real map data. Potholes, rain, night rides and leaderboards. It runs in the browser on any phone or laptop, with nothing to install.</p>
+            <ul class="chips reveal-up"><li>Browser game</li><li>Works on phones</li><li>Leaderboards</li></ul>
+            <a class="btn primary magnetic reveal-up" href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Play now <i>→</i></a>
+          </div>
+        </div>
+        <div class="road" aria-hidden="true">
+          <div class="road-stripe"><span>BENGALURU · MG ROAD · INDIRANAGAR · KORAMANGALA · JAYANAGAR · MALLESHWARAM · WHITEFIELD · HEBBAL · </span><span>BENGALURU · MG ROAD · INDIRANAGAR · KORAMANGALA · JAYANAGAR · MALLESHWARAM · WHITEFIELD · HEBBAL · </span></div>
+        </div>
+      </section>
 
-    <section id="about" class="section about reveal">
-      <div>
-        <p class="eyebrow">About us</p>
-        <h2>Two founders. One mission.</h2>
-        <ul class="team">
-          <li><span class="av" aria-hidden="true">HK</span><span><b>Hemanth Krishna</b>Co-founder</span></li>
-          <li><span class="av" aria-hidden="true">MC</span><span><b>Mahesh Chandu</b>Co-founder</span></li>
-        </ul>
-      </div>
-      <div class="about-copy">
-        <p>NxtDuo is a two-person AI studio from India. We build for the students who cannot afford a tutor and for the parents whose children live far away. Saathi and Thodu are the products we want for our own families first.</p>
-        <ul class="values">
-          <li><b>Reach the unreached.</b> If it does not work on a cheap phone without internet, it is not done.</li>
-          <li><b>Private and kind.</b> No ads, no selling data, no dark patterns.</li>
-          <li><b>Local first.</b> Telugu, Hindi and English today. More Indian languages next.</li>
-        </ul>
-      </div>
-    </section>
+      <!-- 04 WORKSHOP -->
+      <section class="panel p-lab" id="lab" data-index="3">
+        <div class="lab-head">
+          <p class="eyebrow reveal-up">The workshop</p>
+          <h2 class="display">
+            <span class="line"><span>What&rsquo;s <em class="serif">next.</em></span></span>
+          </h2>
+          <p class="muted reveal-up">Four ideas on the bench, from a playable prototype to a first sketch. Want early access? <a href="#contact" data-goto="5">Tell us.</a></p>
+        </div>
 
-    <section id="contact" class="section contact reveal">
-      <h2>Join the pilot.</h2>
-      <p class="muted">Schools, teachers, parents, NRI families, partners and investors: we want to hear from you.</p>
-      <a class="btn primary big" href="mailto:hello@nxtduo.com">hello@nxtduo.com</a>
-    </section>
+        <div class="cards">
+          <article class="card" style="--accent:#ff8a3d">
+            <div class="card-img"><img src="/assets/chai-empire.png" alt="Chai Empire: a low-poly chai stall with customers and a cow" width="1280" height="720" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="tag soon">Playable prototype</span>
+              <h3>Chai Empire</h3>
+              <p>A cosy 3D tycoon game. Start as a chaiwala kid with one roadside tapri, brew masala chai, and grow it into a chain of hotels. In English, Hindi and Telugu.</p>
+            </div>
+          </article>
+
+          <article class="card" style="--accent:#3fe0b0">
+            <div class="card-img"><img src="/assets/nxtbrush.png" alt="NxtBrush: a friendly animated tooth" width="1280" height="720" loading="lazy" /></div>
+            <div class="card-body">
+              <span class="tag soon">In development</span>
+              <h3>NxtBrush</h3>
+              <p>Guided, animated toothbrushing for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. Works offline.</p>
+            </div>
+          </article>
+
+          <article class="card" style="--accent:#ff5d8f">
+            <div class="card-img emoji">🌼</div>
+            <div class="card-body">
+              <span class="tag idea">Research</span>
+              <h3>Saathi</h3>
+              <p>A journaling companion that runs entirely on your own device. It talks in English, Hinglish or Tenglish, and never sends your diary to the cloud.</p>
+            </div>
+          </article>
+
+          <article class="card" style="--accent:#4fa3ff">
+            <div class="card-img emoji">📞</div>
+            <div class="card-body">
+              <span class="tag idea">Concept</span>
+              <h3>Thodu <span class="te">తోడు</span></h3>
+              <p>For children who live far from their parents. Thodu phones your amma and nanna in Telugu, asks what you would ask, and sends you a short note on how they really are.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 05 ABOUT -->
+      <section class="panel p-about" id="about" data-index="4">
+        <div class="about-grid">
+          <div class="about-left">
+            <p class="eyebrow reveal-up">About us</p>
+            <h2 class="display">
+              <span class="line"><span>Two people.</span></span>
+              <span class="line"><span>One <em class="serif">studio.</em></span></span>
+            </h2>
+            <p class="words" id="aboutWords">NxtDuo is a small, independent studio from India. We build things we want for our own family first: a reminder app because we kept missing renewals, a game about the autos we ride every day, a brushing coach for the kids.</p>
+          </div>
+
+          <div class="about-right">
+            <ul class="values">
+              <li class="value"><i>01</i><div><b>Kind by default.</b><span>No dark patterns, no guilt trips, no selling your data.</span></div></li>
+              <li class="value"><i>02</i><div><b>Made for India.</b><span>Local languages, local streets, local life.</span></div></li>
+              <li class="value"><i>03</i><div><b>Small and careful.</b><span>Fewer features, done properly.</span></div></li>
+            </ul>
+          </div>
+        </div>
+
+        <blockquote class="quote" id="quote">
+          <p class="quote-text" id="quoteText">With great power comes great responsibility.</p>
+          <cite>— the one rule we build by</cite>
+        </blockquote>
+      </section>
+
+      <!-- 06 CONTACT + FOOTER -->
+      <section class="panel p-contact" id="contact" data-index="5">
+        <div class="contact-inner">
+          <img class="contact-icon" id="contactIcon" src="/assets/nxtduo-icon.png" alt="" width="160" height="160" />
+          <h2 class="display reveal-up">Let&rsquo;s <em class="serif">talk.</em></h2>
+          <p class="muted reveal-up">Feedback, partnerships or just a hello. We read every message.</p>
+          <a class="mail magnetic" id="mailLink" href="mailto:support@nxtduo.com">
+            <span class="mail-text">support@nxtduo.com</span>
+            <span class="mail-arrow">↗</span>
+          </a>
+        </div>
+
+        <footer class="foot">
+          <div class="foot-left">
+            <img src="/assets/nxtduo-icon.png" alt="" width="28" height="28" />
+            <span>© <span id="year">2026</span> NxtDuo · Made with ☕ in India</span>
+          </div>
+          <div class="foot-links">
+            <a href="https://www.nxtdue.com" target="_blank" rel="noopener">nxtdue.com</a>
+            <a href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Meter Mele</a>
+            <a href="mailto:support@nxtduo.com">support@nxtduo.com</a>
+          </div>
+          <p class="foot-quote">With great power comes great responsibility.</p>
+        </footer>
+      </section>
+
+    </div>
   </main>
 
-  <footer class="foot">
-    <span>© <span id="y">2026</span> NxtDuo</span>
-    <span class="muted">Made with ☕ in India</span>
-  </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    const io = 'IntersectionObserver' in window && new IntersectionObserver((es) => {
-      es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach((el) => io ? io.observe(el) : el.classList.add('in'));
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="/main.js"></script>
 </body>
 </html>
