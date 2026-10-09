@@ -212,7 +212,8 @@
     // The hero drifts away slower than the track: a parallax exit
     const hero = $(".p-hero");
     gsap.to("#heroArt", { xPercent: horiz ? 40 : 0, yPercent: horiz ? 0 : -20, opacity: 0.2, ease: "none", scrollTrigger: scrub(hero, horiz ? { start: "left left", end: "right left" } : { start: "top top", end: "bottom top" }) });
-    gsap.to(".p-hero .hero-copy", { xPercent: horiz ? -25 : 0, opacity: 0, ease: "none", scrollTrigger: scrub(hero, horiz ? { start: "left left", end: "right left" } : { start: "top top", end: "bottom top" }) });
+    // On phones the hero is taller than the screen: fade the text only as it leaves the top
+    gsap.to(".p-hero .hero-copy", { xPercent: horiz ? -25 : 0, opacity: 0, ease: "none", scrollTrigger: scrub(hero, horiz ? { start: "left left", end: "right left" } : { trigger: ".p-hero .hero-copy", start: "bottom 30%", end: "bottom top" }) });
   }
 
   /* ------------------------------------------------------------------
@@ -414,6 +415,8 @@
   /* ------------------------------------------------------------------
      Loader → hero
      ------------------------------------------------------------------ */
+  const INTRO_KEY = "nxtduo-intro-seen";
+
   function boot() {
     document.body.classList.add("is-loading");
     // Do the heavy setup behind the loader, not after it
@@ -432,16 +435,22 @@
         pointer();
       },
     });
-    tl.to(".loader-logo", { opacity: 1, scale: 1, duration: 0.9, ease: "back.out(1.7)" }, 0)
-      .to(".loader-word", { opacity: 1, duration: 0.6 }, 0.3)
-      .to(".loader-bar i", { width: "100%", duration: 1.2, ease: "power2.inOut" }, 0.2)
-      .to(count, { n: 100, duration: 1.2, ease: "power2.inOut", onUpdate: () => (countEl.textContent = Math.round(count.n)) }, 0.2)
-      .to(".loader-logo", { scale: 1.15, rotate: 8, duration: 0.5, ease: "power2.inOut" }, 1.5)
-      .to(".loader-inner", { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" }, 1.75)
-      .to("#loader", { clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: "expo.inOut" }, 1.9)
+    // Same animation as before at double speed (about 1.4 s in total)
+    tl.to(".loader-logo", { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, 0)
+      .to(".loader-word", { opacity: 1, duration: 0.3 }, 0.15)
+      .to(".loader-bar i", { width: "100%", duration: 0.6, ease: "power2.inOut" }, 0.1)
+      .to(count, { n: 100, duration: 0.6, ease: "power2.inOut", onUpdate: () => (countEl.textContent = Math.round(count.n)) }, 0.1)
+      .to(".loader-logo", { scale: 1.15, rotate: 8, duration: 0.25, ease: "power2.inOut" }, 0.75)
+      .to(".loader-inner", { opacity: 0, y: -20, duration: 0.2, ease: "power2.in" }, 0.875)
+      .to("#loader", { clipPath: "inset(0 0 100% 0)", duration: 0.45, ease: "expo.inOut" }, 0.95)
       .set("#loader", { display: "none" });
 
-    if (reduce) { tl.progress(1); }
+    // The loader plays once per browser tab. Later visits jump to its end state.
+    // The inline script in <head> already hid it (html.intro-seen) so it never flashes.
+    let seen = false;
+    try { seen = sessionStorage.getItem(INTRO_KEY) === "1"; sessionStorage.setItem(INTRO_KEY, "1"); } catch (e) { seen = false; }
+
+    if (reduce || seen) { tl.progress(1); }
   }
 
   // The script is deferred, so the DOM is ready: start the loader now, not after every image loads

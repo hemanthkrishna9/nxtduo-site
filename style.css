@@ -26,13 +26,14 @@
   --bg-2: #f4faf7;
   --bg-3: #c6e2d8;
   --ink: #0b2a26;
-  --muted: #557972;
+  --muted: #45665f; /* same grey as the app pages (apps.css) */
   --line: rgba(15, 76, 69, 0.16);
 
   --deep: #0f4c45;
   --teal: #2a9d8f;
   --mint: #3fe0b0;
   --mint-text: #15997f;
+  --mint-ink: #0b6555; /* deeper mint for small text: 4.5:1 on the mint background */
   --pale: #bff5e6;
   --accent: var(--mint-text);
   --shadow: rgba(15, 76, 69, 0.16);
@@ -60,6 +61,8 @@ body {
   overflow-x: hidden;
 }
 body.is-loading { overflow: hidden; }
+/* Later visits in the same tab skip the loader (set by the inline script in index.html) */
+.intro-seen .loader { display: none; }
 
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
@@ -175,12 +178,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 .display .serif { font-weight: 400; letter-spacing: -0.01em; color: var(--mint-text); }
 .line { display: block; overflow: hidden; padding-bottom: .08em; margin-bottom: -.08em; }
 .line > span { display: block; transform: translateY(110%); }
-.eyebrow { margin: 0 0 14px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--mint-text); font-weight: 600; }
+.eyebrow { margin: 0 0 14px; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--mint-ink); font-weight: 600; }
 .split-line { overflow: hidden; }
 .split-line > span { display: inline-block; transform: translateY(110%); }
 .lead { font-size: clamp(16px, 1.15vw, 19px); color: var(--muted); max-width: 54ch; margin: 22px 0 0; }
 .muted { color: var(--muted); }
-.muted a { color: var(--mint-text); border-bottom: 1px solid rgba(21, 153, 127, .4); }
+.muted a { color: var(--mint-ink); border-bottom: 1px solid rgba(21, 153, 127, .4); }
 
 .reveal-up { opacity: 0; transform: translateY(30px); }
 
@@ -205,7 +208,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 .stats span { font-size: 13px; color: var(--muted); margin-top: 6px; }
 
 .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 14px; }
-.tag.live { background: rgba(42, 157, 143, .14); color: var(--mint-text); }
+.tag.live { background: rgba(42, 157, 143, .14); color: var(--mint-ink); }
 .tag.soon { background: rgba(255, 138, 61, .16); color: #c25a10; }
 .tag.idea { background: rgba(15, 76, 69, .07); color: var(--muted); }
 
@@ -248,7 +251,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 }
 .next-card:hover { transform: translateY(-50%) translateX(-24px) rotate(0deg); box-shadow: 0 40px 80px rgba(15, 76, 69, .3); }
 .next-card img { border-radius: 10px; aspect-ratio: 16 / 10; object-fit: cover; }
-.next-card .next-label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--mint-text); font-weight: 700; margin-top: 4px; }
+.next-card .next-label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--mint-ink); font-weight: 700; margin-top: 4px; }
 .next-card b { font-size: 17px; letter-spacing: -.01em; display: flex; justify-content: space-between; align-items: center; }
 .next-card b i { font-style: normal; color: var(--mint-text); transition: transform .4s var(--ease); }
 .next-card:hover b i { transform: translateX(6px); }
@@ -258,7 +261,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 .ticker { position: absolute; left: 0; right: 0; bottom: 44px; height: 38px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; display: flex; align-items: center; background: rgba(255,255,255,.25); opacity: 0; }
 .ticker-row { display: flex; white-space: nowrap; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
 .ticker-row span { padding-right: 0; }
-.ticker-row em { font-style: normal; color: var(--mint-text); margin: 0 18px; }
+.ticker-row em { font-style: normal; color: var(--mint-ink); margin: 0 18px; }
 .hero-icon { width: 100%; height: 100%; object-fit: contain; transform-style: preserve-3d; will-change: transform; filter: drop-shadow(0 40px 60px rgba(15, 76, 69, .28)); }
 .hero-shadow { position: absolute; left: 15%; right: 15%; bottom: -6%; height: 12%; border-radius: 50%; background: radial-gradient(ellipse, rgba(63, 224, 176, .35), rgba(63, 224, 176, 0) 70%); filter: blur(10px); }
 .orbit { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed rgba(15, 76, 69, .22); opacity: 0; }
@@ -340,7 +343,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 .card-body { padding: 18px 20px 22px; }
 .card-body h3 { margin: 4px 0 8px; font-size: 22px; letter-spacing: -.02em; }
 .card-body p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
-.te { font-weight: 500; color: var(--mint-text); font-size: .8em; margin-left: 4px; }
+.te { font-weight: 500; color: var(--mint-ink); font-size: .8em; margin-left: 4px; }
 
 /* ---- 05 About ---- */
 .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(24px, 5vw, 80px); align-items: start; }
@@ -348,7 +351,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 .words .w { display: inline-block; opacity: .18; transition: none; }
 .values { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 14px; }
 .value { display: flex; gap: 16px; padding: 18px 20px; border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, .75); box-shadow: 0 10px 30px rgba(15, 76, 69, .06); opacity: 0; transform: translateX(60px); }
-.value i { font-style: normal; font-size: 12px; letter-spacing: .14em; color: var(--mint-text); padding-top: 6px; }
+.value i { font-style: normal; font-size: 12px; letter-spacing: .14em; color: var(--mint-ink); padding-top: 6px; }
 .value b { display: block; font-size: 18px; margin-bottom: 4px; }
 .value span { color: var(--muted); font-size: 15px; }
 
@@ -388,6 +391,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--deep); outline-
 
 /* Narrow laptops: the "Up next" card would cover the hero art */
 @media (max-width: 1100px) { .next-card { display: none; } }
+/* Big monitors: more room on the right so the "Up next" card clears the hero art */
+@media (min-width: 1600px) { .hero-grid { padding-right: clamp(110px, 12vw, 260px); } }
 
 /* Short laptop screens: the hero has to fit between the nav and the ticker */
 @media (min-width: 901px) and (max-height: 800px) {
