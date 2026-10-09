@@ -182,7 +182,26 @@
   }
 
   /* ------------------------------------------------------------------
-     02 NxtDue — a curtain wipe reveals the screen, bubbles pop in
+     02 Arunachala — same curtain wipe as NxtDue; the art is HTML/CSS
+     (no screenshot), so the hill settles instead of an image
+     ------------------------------------------------------------------ */
+  function arunachala() {
+    const p = $(".p-aru");
+    if (!p) return;
+    const tl = gsap.timeline({ scrollTrigger: enter(p, 65), defaults: { ease: "expo.out" } });
+    tl.to(p.querySelectorAll(".line > span"), { y: 0, duration: 1.1 }, 0)
+      .to(p.querySelectorAll(".reveal-up"), { y: 0, opacity: 1, duration: 0.9, stagger: 0.09 }, 0.15)
+      .to(p.querySelector(".wipe .frame"), { clipPath: "inset(0 0% 0 0 round 24px)", duration: 1.4, ease: "expo.inOut" }, 0)
+      .fromTo(p.querySelector(".aru-hill"), { scale: 1.25, y: 20 }, { scale: 1, y: 0, duration: 1.6, ease: "expo.out" }, 0.2)
+      .fromTo(p.querySelectorAll(".bubble"), { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.18, ease: "back.out(1.8)" }, 0.9);
+
+    gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? 30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
+    gsap.to(p.querySelector(".product-art"), { y: horiz ? -40 : 0, ease: "none", scrollTrigger: scrub(p) });
+    if (!reduce) $$(".bubble", p).forEach((b, i) => gsap.to(b, { y: i ? 8 : -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
+  }
+
+  /* ------------------------------------------------------------------
+     03 NxtDue — a curtain wipe reveals the screen, bubbles pop in
      ------------------------------------------------------------------ */
   function nxtdue() {
     const p = $(".p-nxtdue");
@@ -336,6 +355,7 @@
     if (isWide()) buildHorizontal(); else buildVerticalProgress();
     buildActiveTracking();
     heroScroll();
+    arunachala();
     nxtdue();
     mele();
     lab();

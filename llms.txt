@@ -1,0 +1,16 @@
+# NxtDuo
+
+> NxtDuo is a small, independent, two-person app studio from India. It builds small, careful products for everyday life: apps, games and tools made for India, with local languages (English, Hindi, Telugu), no dark patterns and no selling of user data.
+
+Contact: support@nxtduo.com
+Website: https://nxtduo.com/
+
+## Apps
+
+- [Arunachala: Talk with Ramana](https://nxtduo.com/arunachala/): A free chat app on the teachings of Sri Ramana Maharshi. It answers in his calm style using only passages from his recorded words (10 books), and each answer names its source book. It says it is an AI if asked, and shows the Tele-MANAS helpline 14416 to someone in distress. Web and Android. Status: in review (Android app in Play Store review); private beta, invite only.
+- [NxtDue](https://nxtduo.com/nxtdue/): Reminders for renewals such as vehicle insurance, PUC, passports, subscriptions and warranties. Data stays in India; no ads, no data selling. iOS and Android, free plan. Status: in app store review. Product site: https://www.nxtdue.com
+- [Meter Mele](https://nxtduo.com/meter-mele/): A browser game where you drive an auto-rickshaw through Bengaluru streets built from real map data, with potholes, rain, night rides and leaderboards. Works on phones and laptops, nothing to install. Status: live, free to play at https://meter-mele.pages.dev
+- [Chai Empire](https://nxtduo.com/chai-empire/): A cosy 3D tycoon game. Start as a chaiwala kid with one roadside tapri and grow it into a chain of hotels. In English, Hindi and Telugu. Status: playable prototype.
+- [NxtBrush](https://nxtduo.com/nxtbrush/): Guided, animated toothbrushing for ages 3 to 80, with a mouth map, a countdown timer and a chime for each zone. Works offline. Status: in development.
+- [Saathi](https://nxtduo.com/saathi/): A journaling companion that runs entirely on your own device and talks in English, Hinglish or Tenglish. It never sends your diary to the cloud. Status: research.
+- [Thodu](https://nxtduo.com/thodu/): For children who live far from their parents. Thodu phones your parents in Telugu, asks what you would ask, and sends you a short note on how they are. Status: concept.

@@ -3,24 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NxtDuo — playful, useful apps made in India</title>
-  <meta name="description" content="NxtDuo is a two-person app studio from India. We build NxtDue, Meter Mele, Chai Empire, NxtBrush and more." />
+  <title>NxtDuo | Two-person app studio from India</title>
+  <meta name="description" content="NxtDuo is a two-person app studio from India making Arunachala: Talk with Ramana, NxtDue, Meter Mele, Chai Empire, NxtBrush, Saathi and Thodu." />
+  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#f6fbf9" />
   <link rel="canonical" href="https://nxtduo.com/" />
-  <link rel="icon" href="/assets/favicon.png" type="image/png" />
-  <link rel="apple-touch-icon" href="/assets/nxtduo-icon-512.png" />
+  <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="128x128" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NxtDuo — playful, useful apps made in India" />
+  <meta property="og:site_name" content="NxtDuo" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="NxtDuo | Two-person app studio from India" />
   <meta property="og:description" content="Two people, a lot of chai, and apps that make everyday life a little lighter." />
   <meta property="og:url" content="https://nxtduo.com/" />
-  <meta property="og:image" content="https://nxtduo.com/assets/nxtduo-icon-bg.png" />
+  <meta property="og:image" content="https://nxtduo.com/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NxtDuo, a two-person app studio from India" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NxtDuo | Two-person app studio from India" />
+  <meta name="twitter:description" content="Two people, a lot of chai, and apps that make everyday life a little lighter." />
+  <meta name="twitter:image" content="https://nxtduo.com/assets/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"NxtDuo","url":"https://nxtduo.com/","logo":"https://nxtduo.com/assets/nxtduo-icon-512.png","email":"support@nxtduo.com","sameAs":["https://www.nxtdue.com","https://meter-mele.pages.dev"]}
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nxtduo.com/#organization",
+        "name": "NxtDuo",
+        "url": "https://nxtduo.com/",
+        "logo": "https://nxtduo.com/assets/nxtduo-icon-512.png",
+        "email": "support@nxtduo.com",
+        "description": "A two-person app studio from India.",
+        "founder": [
+          { "@type": "Person", "name": "Hemanth Krishna" },
+          { "@type": "Person", "name": "Mahesh Chandu" }
+        ],
+        "areaServed": { "@type": "Country", "name": "India" },
+        "sameAs": ["https://www.nxtdue.com", "https://meter-mele.pages.dev"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://nxtduo.com/#website",
+        "name": "NxtDuo",
+        "url": "https://nxtduo.com/",
+        "inLanguage": "en-IN",
+        "publisher": { "@id": "https://nxtduo.com/#organization" }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://nxtduo.com/#apps",
+        "name": "Apps by NxtDuo",
+        "numberOfItems": 7,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Arunachala: Talk with Ramana", "url": "https://nxtduo.com/arunachala/" },
+          { "@type": "ListItem", "position": 2, "name": "NxtDue", "url": "https://nxtduo.com/nxtdue/" },
+          { "@type": "ListItem", "position": 3, "name": "Meter Mele", "url": "https://nxtduo.com/meter-mele/" },
+          { "@type": "ListItem", "position": 4, "name": "Chai Empire", "url": "https://nxtduo.com/chai-empire/" },
+          { "@type": "ListItem", "position": 5, "name": "NxtBrush", "url": "https://nxtduo.com/nxtbrush/" },
+          { "@type": "ListItem", "position": 6, "name": "Saathi", "url": "https://nxtduo.com/saathi/" },
+          { "@type": "ListItem", "position": 7, "name": "Thodu", "url": "https://nxtduo.com/thodu/" }
+        ]
+      }
+    ]
+  }
   </script>
 </head>
 <body>
@@ -28,7 +81,7 @@
   <!-- Loader -->
   <div class="loader" id="loader" aria-hidden="true">
     <div class="loader-inner">
-      <img class="loader-logo" src="/assets/nxtduo-icon.png" alt="" width="120" height="120" />
+      <img class="loader-logo" src="/assets/nxtduo-icon.webp" alt="" width="640" height="640" decoding="async" />
       <div class="loader-word"><span>NXT</span><b>Duo</b></div>
       <div class="loader-bar"><i></i></div>
       <div class="loader-count"><span id="loaderCount">0</span>%</div>
@@ -80,24 +133,25 @@
   <!-- Header -->
   <header class="nav" id="nav">
     <a class="brand" href="#home" data-goto="0" aria-label="NxtDuo home">
-      <img src="/assets/nxtduo-icon.png" alt="" width="36" height="36" />
+      <img src="/assets/nxtduo-icon-96.webp" alt="" width="36" height="36" decoding="async" />
       <span class="brand-word"><span>NXT</span><b>Duo</b></span>
     </a>
 
     <nav class="dots" aria-label="Sections">
       <button class="dot is-active" data-goto="0" aria-label="Home"><span>Home</span></button>
-      <button class="dot" data-goto="1" aria-label="NxtDue"><span>NxtDue</span></button>
-      <button class="dot" data-goto="2" aria-label="Meter Mele"><span>Meter Mele</span></button>
-      <button class="dot" data-goto="3" aria-label="Workshop"><span>Workshop</span></button>
-      <button class="dot" data-goto="4" aria-label="About"><span>About</span></button>
-      <button class="dot" data-goto="5" aria-label="Contact"><span>Contact</span></button>
+      <button class="dot" data-goto="1" aria-label="Arunachala"><span>Arunachala</span></button>
+      <button class="dot" data-goto="2" aria-label="NxtDue"><span>NxtDue</span></button>
+      <button class="dot" data-goto="3" aria-label="Meter Mele"><span>Meter Mele</span></button>
+      <button class="dot" data-goto="4" aria-label="Workshop"><span>Workshop</span></button>
+      <button class="dot" data-goto="5" aria-label="About"><span>About</span></button>
+      <button class="dot" data-goto="6" aria-label="Contact"><span>Contact</span></button>
     </nav>
 
-    <a class="pill magnetic" href="#contact" data-goto="5">Say hello</a>
+    <a class="pill magnetic" href="#contact" data-goto="6">Say hello</a>
   </header>
 
   <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
-  <div class="counter" aria-hidden="true"><span id="counterNow">01</span><em>/</em><span>06</span></div>
+  <div class="counter" aria-hidden="true"><span id="counterNow">01</span><em>/</em><span>07</span></div>
 
   <!-- Horizontal track -->
   <main class="track-wrap" id="trackWrap">
@@ -115,12 +169,12 @@
             </h1>
             <p class="lead reveal-up">Reminders that actually arrive. Games set on Bengaluru streets and chai tapris. A friendly tooth that teaches kids to brush. Small, careful products, built by two people who use them every day.</p>
             <div class="cta reveal-up">
-              <a class="btn primary magnetic" href="#nxtdue" data-goto="1">See our apps <i>→</i></a>
+              <a class="btn primary magnetic" href="#arunachala" data-goto="1">See our apps <i>→</i></a>
               <a class="btn ghost magnetic" href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Play Meter Mele ↗</a>
             </div>
             <ul class="stats reveal-up" aria-label="Studio at a glance">
-              <li><b data-count="2">0</b><span>live products</span></li>
-              <li><b data-count="4">0</b><span>in the workshop</span></li>
+              <li><b data-count="1">0</b><span>live game</span></li>
+              <li><b data-count="2">0</b><span>in app review</span></li>
               <li><b data-count="3">0</b><span>languages · EN · हिंदी · తెలుగు</span></li>
             </ul>
           </div>
@@ -129,25 +183,25 @@
             <div class="orbit orbit-1"></div>
             <div class="orbit orbit-2"></div>
             <div class="hero-icon-wrap" id="heroIcon">
-              <img class="hero-icon" src="/assets/nxtduo-icon.png" alt="NxtDuo logo" width="520" height="520" />
+              <img class="hero-icon" src="/assets/nxtduo-icon.webp" alt="NxtDuo logo" width="640" height="640" fetchpriority="high" decoding="async" />
               <div class="hero-shadow"></div>
             </div>
-            <div class="mini mini-1" data-depth="0.05"><img src="/assets/nxtdue.png" alt="NxtDue app" width="1200" height="630" /></div>
-            <div class="mini mini-2" data-depth="-0.04"><img src="/assets/meter-mele.png" alt="Meter Mele game" width="1200" height="630" /></div>
-            <div class="mini mini-3" data-depth="0.08"><img src="/assets/chai-empire.png" alt="Chai Empire game" width="1280" height="720" /></div>
-            <div class="mini mini-4" data-depth="-0.07"><img src="/assets/nxtbrush.png" alt="NxtBrush app" width="1280" height="720" /></div>
+            <div class="mini mini-1" data-depth="0.05"><img src="/assets/nxtdue.webp" alt="" width="1200" height="630" decoding="async" /></div>
+            <div class="mini mini-2" data-depth="-0.04"><img src="/assets/meter-mele.webp" alt="" width="1200" height="630" decoding="async" /></div>
+            <div class="mini mini-3" data-depth="0.08"><img src="/assets/chai-empire.webp" alt="" width="1280" height="720" decoding="async" /></div>
+            <div class="mini mini-4" data-depth="-0.07"><img src="/assets/nxtbrush.webp" alt="" width="1024" height="1024" decoding="async" /></div>
           </div>
         </div>
 
-        <a class="next-card" id="nextCard" href="#nxtdue" data-goto="1" aria-label="Up next: NxtDue">
-          <img src="/assets/nxtdue.png" alt="" width="1200" height="630" />
-          <span class="next-label">Up next · 02 / 06</span>
-          <b>NxtDue <i>→</i></b>
-          <span class="next-sub">Never miss a renewal</span>
+        <a class="next-card" id="nextCard" href="#arunachala" data-goto="1" aria-label="Up next: Arunachala, Talk with Ramana">
+          <span class="next-art" aria-hidden="true">⛰️</span>
+          <span class="next-label">Up next · 02 / 07</span>
+          <b>Arunachala <i>→</i></b>
+          <span class="next-sub">Talk with Ramana</span>
         </a>
 
         <div class="ticker" id="ticker" aria-hidden="true">
-          <div class="ticker-row"><span>NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span><span>NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span></div>
+          <div class="ticker-row"><span>Arunachala <em>✦</em> NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span><span>Arunachala <em>✦</em> NxtDue <em>✦</em> Meter Mele <em>✦</em> Chai Empire <em>✦</em> NxtBrush <em>✦</em> Saathi <em>✦</em> Thodu <em>✦</em> Made in India <em>✦</em> </span></div>
         </div>
 
         <div class="scroll-hint" id="scrollHint">
@@ -156,12 +210,39 @@
         </div>
       </section>
 
-      <!-- 02 NXTDUE -->
-      <section class="panel p-product p-nxtdue" id="nxtdue" data-index="1" style="--accent:#6a4df0">
+      <!-- 02 ARUNACHALA -->
+      <section class="panel p-product p-aru" id="arunachala" data-index="1" style="--accent:#e0603a">
+        <div class="big-bg" aria-hidden="true">Arunachala</div>
+        <div class="product-grid flip">
+          <div class="product-art wipe">
+            <div class="frame">
+              <div class="aru-art" role="img" aria-label="Arunachala: Talk with Ramana, a chat on the teachings of Sri Ramana Maharshi">
+                <span class="aru-hill" aria-hidden="true">⛰️</span>
+              </div>
+            </div>
+            <div class="bubble b1">🙏 Who am I?</div>
+            <div class="bubble b2">📖 Source: Talks with Sri Ramana Maharshi</div>
+          </div>
+          <div class="product-copy">
+            <span class="tag soon reveal-up">In review</span>
+            <h2 class="display">
+              <span class="line"><span>Arunachala</span></span>
+            </h2>
+            <p class="sub reveal-up">Talk with <em class="serif">Ramana.</em></p>
+            <p class="reveal-up">A free chat app on the teachings of Sri Ramana Maharshi. It answers in his calm style, using only passages from his recorded words in 10 books, and each answer names its source book. It says it is an AI if you ask, and if someone is in distress it shows the Tele-MANAS helpline, 14416.</p>
+            <ul class="chips reveal-up"><li>Android</li><li>Web</li><li>Free</li></ul>
+            <a class="btn primary magnetic reveal-up" href="mailto:support@nxtduo.com?subject=Arunachala">Get early access <i>→</i></a>
+            <a class="more-link reveal-up" href="/arunachala/">About Arunachala</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 NXTDUE -->
+      <section class="panel p-product p-nxtdue" id="nxtdue" data-index="2" style="--accent:#6a4df0">
         <div class="big-bg" aria-hidden="true">NxtDue</div>
         <div class="product-grid">
           <div class="product-copy">
-            <span class="tag live reveal-up">● Live</span>
+            <span class="tag soon reveal-up">In review</span>
             <h2 class="display">
               <span class="line"><span>NxtDue</span></span>
             </h2>
@@ -169,10 +250,11 @@
             <p class="reveal-up">Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. Your data stays in India. No ads, no data selling.</p>
             <ul class="chips reveal-up"><li>iOS</li><li>Android</li><li>Free plan</li></ul>
             <a class="btn primary magnetic reveal-up" href="https://www.nxtdue.com" target="_blank" rel="noopener">Visit nxtdue.com <i>↗</i></a>
+            <a class="more-link reveal-up" href="/nxtdue/">About NxtDue</a>
           </div>
           <div class="product-art wipe">
             <div class="frame">
-              <img src="/assets/nxtdue.png" alt="NxtDue: never miss a renewal, policy, warranty or subscription" width="1200" height="630" />
+              <img src="/assets/nxtdue.webp" alt="NxtDue: never miss a renewal, policy, warranty or subscription" width="1200" height="630" loading="lazy" decoding="async" />
             </div>
             <div class="bubble b1">🔔 Insurance due in 7 days</div>
             <div class="bubble b2">🛂 Passport · 30 days</div>
@@ -180,13 +262,13 @@
         </div>
       </section>
 
-      <!-- 03 METER MELE -->
-      <section class="panel p-product p-mele" id="mele" data-index="2" style="--accent:#a87b00">
+      <!-- 04 METER MELE -->
+      <section class="panel p-product p-mele" id="mele" data-index="3" style="--accent:#a87b00">
         <div class="big-bg" aria-hidden="true">ಮೀಟರ್ ಮೇಲೆ</div>
         <div class="product-grid flip">
           <div class="product-art drive">
             <div class="frame">
-              <img src="/assets/meter-mele.png" alt="Meter Mele: an auto-rickshaw on a Bengaluru street" width="1200" height="630" />
+              <img src="/assets/meter-mele.webp" alt="Meter Mele: an auto-rickshaw on a Bengaluru street" width="1200" height="630" loading="lazy" decoding="async" />
             </div>
             <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           </div>
@@ -199,6 +281,7 @@
             <p class="reveal-up">Drive an auto through streets built from real map data. Potholes, rain, night rides and leaderboards. It runs in the browser on any phone or laptop, with nothing to install.</p>
             <ul class="chips reveal-up"><li>Browser game</li><li>Works on phones</li><li>Leaderboards</li></ul>
             <a class="btn primary magnetic reveal-up" href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Play now <i>→</i></a>
+            <a class="more-link reveal-up" href="/meter-mele/">About Meter Mele</a>
           </div>
         </div>
         <div class="road" aria-hidden="true">
@@ -206,57 +289,61 @@
         </div>
       </section>
 
-      <!-- 04 WORKSHOP -->
-      <section class="panel p-lab" id="lab" data-index="3">
+      <!-- 05 WORKSHOP -->
+      <section class="panel p-lab" id="lab" data-index="4">
         <div class="lab-head">
           <p class="eyebrow reveal-up">The workshop</p>
           <h2 class="display">
             <span class="line"><span>What&rsquo;s <em class="serif">next.</em></span></span>
           </h2>
-          <p class="muted reveal-up">Four ideas on the bench, from a playable prototype to a first sketch. Want early access? <a href="#contact" data-goto="5">Tell us.</a></p>
+          <p class="muted reveal-up">Four ideas on the bench, from a playable prototype to a first sketch. Want early access? <a href="#contact" data-goto="6">Tell us.</a></p>
         </div>
 
         <div class="cards">
           <article class="card" style="--accent:#ff8a3d">
-            <div class="card-img"><img src="/assets/chai-empire.png" alt="Chai Empire: a low-poly chai stall with customers and a cow" width="1280" height="720" loading="lazy" /></div>
+            <div class="card-img"><img src="/assets/chai-empire.webp" alt="Chai Empire: a low-poly chai stall with customers and a cow" width="1280" height="720" loading="lazy" decoding="async" /></div>
             <div class="card-body">
               <span class="tag soon">Playable prototype</span>
               <h3>Chai Empire</h3>
               <p>A cosy 3D tycoon game. Start as a chaiwala kid with one roadside tapri, brew masala chai, and grow it into a chain of hotels. In English, Hindi and Telugu.</p>
+              <a class="more-link" href="/chai-empire/">About Chai Empire</a>
             </div>
           </article>
 
           <article class="card" style="--accent:#3fe0b0">
-            <div class="card-img"><img src="/assets/nxtbrush.png" alt="NxtBrush: a friendly animated tooth" width="1280" height="720" loading="lazy" /></div>
+            <div class="card-img"><img src="/assets/nxtbrush.webp" alt="NxtBrush: a friendly animated tooth" width="1024" height="1024" loading="lazy" decoding="async" /></div>
             <div class="card-body">
               <span class="tag soon">In development</span>
               <h3>NxtBrush</h3>
               <p>Guided, animated toothbrushing for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. Works offline.</p>
+              <a class="more-link" href="/nxtbrush/">About NxtBrush</a>
             </div>
           </article>
 
           <article class="card" style="--accent:#ff5d8f">
-            <div class="card-img emoji">🌼</div>
+            <div class="card-img emoji" aria-hidden="true">🌼</div>
             <div class="card-body">
               <span class="tag idea">Research</span>
               <h3>Saathi</h3>
               <p>A journaling companion that runs entirely on your own device. It talks in English, Hinglish or Tenglish, and never sends your diary to the cloud.</p>
+              <a class="more-link" href="/saathi/">About Saathi</a>
             </div>
           </article>
 
           <article class="card" style="--accent:#4fa3ff">
-            <div class="card-img emoji">📞</div>
+            <div class="card-img emoji" aria-hidden="true">📞</div>
             <div class="card-body">
               <span class="tag idea">Concept</span>
               <h3>Thodu <span class="te">తోడు</span></h3>
               <p>For children who live far from their parents. Thodu phones your amma and nanna in Telugu, asks what you would ask, and sends you a short note on how they really are.</p>
+              <a class="more-link" href="/thodu/">About Thodu</a>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- 05 ABOUT -->
-      <section class="panel p-about" id="about" data-index="4">
+      <!-- 06 ABOUT -->
+      <section class="panel p-about" id="about" data-index="5">
         <div class="about-grid">
           <div class="about-left">
             <p class="eyebrow reveal-up">About us</p>
@@ -282,10 +369,10 @@
         </blockquote>
       </section>
 
-      <!-- 06 CONTACT + FOOTER -->
-      <section class="panel p-contact" id="contact" data-index="5">
+      <!-- 07 CONTACT + FOOTER -->
+      <section class="panel p-contact" id="contact" data-index="6">
         <div class="contact-inner">
-          <img class="contact-icon" id="contactIcon" src="/assets/nxtduo-icon.png" alt="" width="160" height="160" />
+          <img class="contact-icon" id="contactIcon" src="/assets/nxtduo-icon.webp" alt="" width="640" height="640" loading="lazy" decoding="async" />
           <h2 class="display reveal-up">Let&rsquo;s <em class="serif">talk.</em></h2>
           <p class="muted reveal-up">Feedback, partnerships or just a hello. We read every message.</p>
           <a class="mail magnetic" id="mailLink" href="mailto:support@nxtduo.com">
@@ -296,7 +383,7 @@
 
         <footer class="foot">
           <div class="foot-left">
-            <img src="/assets/nxtduo-icon.png" alt="" width="28" height="28" />
+            <img src="/assets/nxtduo-icon-96.webp" alt="" width="28" height="28" loading="lazy" decoding="async" />
             <span>© <span id="year">2026</span> NxtDuo · Made with ☕ in India</span>
           </div>
           <div class="foot-links">
@@ -304,6 +391,15 @@
             <a href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Meter Mele</a>
             <a href="mailto:support@nxtduo.com">support@nxtduo.com</a>
           </div>
+          <nav class="foot-apps" aria-label="Our apps">
+            <a href="/arunachala/">Arunachala</a>
+            <a href="/nxtdue/">NxtDue</a>
+            <a href="/meter-mele/">Meter Mele</a>
+            <a href="/chai-empire/">Chai Empire</a>
+            <a href="/nxtbrush/">NxtBrush</a>
+            <a href="/saathi/">Saathi</a>
+            <a href="/thodu/">Thodu</a>
+          </nav>
           <p class="foot-quote">With great power comes great responsibility.</p>
         </footer>
       </section>
@@ -311,9 +407,9 @@
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+  <script src="/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | NxtDuo</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#f6fbf9" />
+  <link rel="icon" href="/assets/favicon.png" type="image/png" />
+  <style>
+    :root {
+      --bg: #d8ebe4; --bg-2: #f4faf7; --ink: #0b2a26; --muted: #557972;
+      --line: rgba(15, 76, 69, 0.16); --mint: #3fe0b0; --mint-text: #15997f; --pale: #bff5e6;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body {
+      background: var(--bg) linear-gradient(160deg, #e2f2ec 0%, #d3e8df 55%, #c5e0d5 100%) fixed;
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 17px; line-height: 1.6;
+      display: grid; place-items: center; padding: 32px 20px;
+    }
+    main { width: 100%; max-width: 560px; text-align: center; }
+    .code { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--mint-text); }
+    h1 { margin: 10px 0 12px; font-size: clamp(36px, 8vw, 56px); line-height: 1.05; letter-spacing: -0.035em; }
+    p { margin: 0 0 26px; color: var(--muted); }
+    a { color: inherit; }
+    .home {
+      display: inline-block; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: 15px;
+      background: var(--mint); color: #05201a; text-decoration: none; transition: background .3s;
+    }
+    .home:hover, .home:focus-visible { background: var(--pale); }
+    nav { margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--line); }
+    nav h2 { margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+    nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; }
+    nav a { font-size: 15px; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+    nav a:hover { color: var(--mint-text); }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="code">404</p>
+    <h1>Page not found</h1>
+    <p>This page does not exist, or it has moved.</p>
+    <a class="home" href="/">Back to NxtDuo</a>
+    <nav aria-label="Our apps">
+      <h2>Our apps</h2>
+      <ul>
+        <li><a href="/arunachala/">Arunachala</a></li>
+        <li><a href="/nxtdue/">NxtDue</a></li>
+        <li><a href="/meter-mele/">Meter Mele</a></li>
+        <li><a href="/chai-empire/">Chai Empire</a></li>
+        <li><a href="/nxtbrush/">NxtBrush</a></li>
+        <li><a href="/saathi/">Saathi</a></li>
+        <li><a href="/thodu/">Thodu</a></li>
+      </ul>
+    </nav>
+  </main>
+</body>
+</html>

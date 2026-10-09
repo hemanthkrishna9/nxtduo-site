@@ -430,3 +430,25 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .words .w { opacity: 1; }
   .quote-text { background-position: 0 0; }
 }
+
+/* --------------------------------------------------------------------------
+   Small internal links to each app's own page
+   -------------------------------------------------------------------------- */
+.more-link { display: inline-block; font-size: 14px; font-weight: 600; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; transition: color .25s; }
+.more-link:hover { color: var(--mint-text); }
+.product-copy .more-link { margin-left: 18px; }
+.card-body .more-link { margin-top: 10px; font-size: 13px; }
+.foot-apps { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot-apps a:hover { color: var(--mint-text); }
+
+/* --------------------------------------------------------------------------
+   Arunachala panel: no screenshot, so the art is drawn in CSS
+   -------------------------------------------------------------------------- */
+.aru-art {
+  position: relative; aspect-ratio: 1200 / 630; display: grid; place-items: center;
+  background:
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 34%, #fff) 0 17%, transparent 17.5%),
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 18%, var(--bg-2)) 0%, var(--bg-2) 78%);
+}
+.aru-hill { display: inline-block; font-size: clamp(84px, 10vw, 160px); line-height: 1; filter: drop-shadow(0 24px 30px rgba(15, 76, 69, .2)); }
+.next-card .next-art { display: grid; place-items: center; aspect-ratio: 16 / 10; border-radius: 10px; font-size: 44px; background: linear-gradient(135deg, color-mix(in srgb, #e0603a 26%, #fff), var(--bg-3)); }
