@@ -5,6 +5,13 @@
    ========================================================================== */
 
 (() => {
+  // If the motion scripts failed to load, show a plain vertical page instead of a stuck loader
+  if (!window.gsap || !window.ScrollTrigger || !window.Lenis) {
+    const l = document.createElement("link"); l.rel = "stylesheet"; l.href = "/nomotion.css";
+    document.head.appendChild(l);
+    return;
+  }
+
   gsap.registerPlugin(ScrollTrigger);
 
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -24,7 +31,7 @@
   /* ------------------------------------------------------------------
      Smooth scroll (Lenis) wired into GSAP's ticker
      ------------------------------------------------------------------ */
-  const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+  const lenis = new Lenis({ lerp: 0.09, smoothWheel: !reduce });
   lenis.on("scroll", ScrollTrigger.update);
   gsap.ticker.add((t) => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -92,6 +99,23 @@
     }
   }
 
+  // Keyboard focus: jump the pinned track to the panel that holds the focused element
+  track.addEventListener("focusin", (e) => {
+    if (!horiz || !pinST) return;
+    $("#trackWrap").scrollLeft = 0;
+    const panel = e.target.closest(".panel");
+    const i = panels.indexOf(panel);
+    if (i < 0) return;
+    const r = e.target.getBoundingClientRect();
+    if (i === activeIndex && r.left >= 0 && r.right <= window.innerWidth) return;
+    const d = track.scrollWidth - window.innerWidth;
+    // The workshop panel is wider than the screen: move on until the focused element fits
+    const elX = r.left - track.getBoundingClientRect().left;
+    const x = Math.min(Math.max(panel.offsetLeft, elX + r.width + 72 - window.innerWidth), panel.offsetLeft + Math.max(0, panel.offsetWidth - window.innerWidth));
+    const y = pinST.start + (x / d) * (pinST.end - pinST.start);
+    lenis.scrollTo(Math.min(y, pinST.end), { immediate: true });
+  });
+
   $$("[data-goto]").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
@@ -106,9 +130,15 @@
   });
 
   let activeIndex = 0;
+
+  // Never-ending tweens run only on the active panel and its neighbours
+  const loops = [];
+  const loop = (i, t) => { loops.push({ i, t }); if (Math.abs(i - activeIndex) > 1) t.pause(); return t; };
+
   function setActive(i) {
     if (i === activeIndex && dots[i].classList.contains("is-active")) return;
     activeIndex = i;
+    loops.forEach(({ i: p, t }) => Math.abs(p - i) <= 1 ? t.play() : t.pause());
     dots.forEach((d, j) => d.classList.toggle("is-active", j === i));
     gsap.fromTo(counterNow, { y: 8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" });
     counterNow.textContent = String(i + 1).padStart(2, "0");
@@ -147,6 +177,7 @@
       const words = ["lighter.", "simpler.", "kinder.", "calmer."];
       let i = 0;
       setInterval(() => {
+        if (activeIndex !== 0) return;
         i = (i + 1) % words.length;
         gsap.timeline()
           .to(flip, { yPercent: -60, opacity: 0, duration: 0.22, ease: "power2.in" })
@@ -156,7 +187,10 @@
     }
 
     // Count-up numbers
+    // With reduced motion the real number from the HTML stays
     $$("[data-count]").forEach((el) => {
+      if (reduce) return;
+      el.textContent = "0";
       const n = +el.dataset.count;
       const c = { v: 0 };
       gsap.to(c, { v: n, duration: 1.4, delay: 0.8, ease: "power2.out", onUpdate: () => (el.textContent = Math.round(c.v)), onComplete: () => (el.textContent = n) });
@@ -164,12 +198,12 @@
 
     if (!reduce) {
       // Idle float for the icon and chips
-      gsap.to("#heroIcon", { y: -14, rotateZ: 1.5, duration: 3.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 1.6 });
-      gsap.to(".orbit-1", { rotate: 360, duration: 40, repeat: -1, ease: "none" });
-      gsap.to(".orbit-2", { rotate: -360, duration: 60, repeat: -1, ease: "none" });
-      $$(".mini").forEach((c, i) => gsap.to(c, { rotation: i % 2 ? 2.5 : -2.5, duration: 2.6 + i * 0.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
-      gsap.to("#nextCard", { y: "-=10", duration: 2.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.4 });
-      gsap.to(".ticker-row", { xPercent: -50, duration: 24, repeat: -1, ease: "none" });
+      loop(0, gsap.to("#heroIcon", { y: -14, rotateZ: 1.5, duration: 3.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 1.6 }));
+      loop(0, gsap.to(".orbit-1", { rotate: 360, duration: 40, repeat: -1, ease: "none" }));
+      loop(0, gsap.to(".orbit-2", { rotate: -360, duration: 60, repeat: -1, ease: "none" }));
+      $$(".mini").forEach((c, i) => loop(0, gsap.to(c, { rotation: i % 2 ? 2.5 : -2.5, duration: 2.6 + i * 0.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 })));
+      loop(0, gsap.to("#nextCard", { y: "-=10", duration: 2.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2.4 }));
+      loop(0, gsap.to(".ticker-row", { xPercent: -50, duration: 24, repeat: -1, ease: "none" }));
     }
     return tl;
   }
@@ -195,9 +229,11 @@
       .fromTo(p.querySelector(".aru-hill"), { scale: 1.25, y: 20 }, { scale: 1, y: 0, duration: 1.6, ease: "expo.out" }, 0.2)
       .fromTo(p.querySelectorAll(".bubble"), { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.18, ease: "back.out(1.8)" }, 0.9);
 
-    gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? 30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
-    gsap.to(p.querySelector(".product-art"), { y: horiz ? -40 : 0, ease: "none", scrollTrigger: scrub(p) });
-    if (!reduce) $$(".bubble", p).forEach((b, i) => gsap.to(b, { y: i ? 8 : -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
+    if (horiz && !reduce) {
+      gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? 30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
+      gsap.to(p.querySelector(".product-art"), { y: horiz ? -40 : 0, ease: "none", scrollTrigger: scrub(p) });
+    }
+    if (!reduce) $$(".bubble", p).forEach((b, i) => loop(1, gsap.to(b, { y: i ? 8 : -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 })));
   }
 
   /* ------------------------------------------------------------------
@@ -212,9 +248,11 @@
       .to(p.querySelector(".wipe .frame img"), { scale: 1, duration: 1.6, ease: "expo.out" }, 0.2)
       .fromTo(p.querySelectorAll(".bubble"), { opacity: 0, y: 30, scale: 0.85 }, { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.18, ease: "back.out(1.8)" }, 0.9);
 
-    gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? -30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
-    gsap.to(p.querySelector(".product-art"), { y: horiz ? -40 : 0, ease: "none", scrollTrigger: scrub(p) });
-    if (!reduce) $$(".bubble", p).forEach((b, i) => gsap.to(b, { y: i ? 8 : -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
+    if (horiz && !reduce) {
+      gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? -30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
+      gsap.to(p.querySelector(".product-art"), { y: horiz ? -40 : 0, ease: "none", scrollTrigger: scrub(p) });
+    }
+    if (!reduce) $$(".bubble", p).forEach((b, i) => loop(2, gsap.to(b, { y: i ? 8 : -8, duration: 2.4, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 })));
   }
 
   /* ------------------------------------------------------------------
@@ -230,9 +268,11 @@
       .to(p.querySelectorAll(".line > span"), { y: 0, duration: 1.1 }, 0.25)
       .to(p.querySelectorAll(".reveal-up"), { y: 0, opacity: 1, duration: 0.9, stagger: 0.09 }, 0.4);
 
-    gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? 30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
-    if (!reduce) gsap.to(p.querySelector(".road-stripe"), { xPercent: -50, duration: 28, repeat: -1, ease: "none" });
-    if (!reduce) gsap.to(p.querySelector(".drive .frame"), { rotateZ: 0.6, y: -6, duration: 1.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 });
+    if (horiz && !reduce) {
+      gsap.to(p.querySelector(".big-bg"), { xPercent: horiz ? 30 : 0, yPercent: horiz ? 0 : -30, ease: "none", scrollTrigger: scrub(p) });
+    }
+    if (!reduce) loop(3, gsap.to(p.querySelector(".road-stripe"), { xPercent: -50, duration: 28, repeat: -1, ease: "none" }));
+    if (!reduce) loop(3, gsap.to(p.querySelector(".drive .frame"), { rotateZ: 0.6, y: -6, duration: 1.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
   }
 
   /* ------------------------------------------------------------------
@@ -246,7 +286,9 @@
       .to(p.querySelectorAll(".card"), { opacity: 1, rotateY: 0, x: 0, duration: 1.2, stagger: 0.12, ease: "expo.out" }, 0.25);
 
     // Cards drift at slightly different speeds for depth
-    $$(".card", p).forEach((c, i) => gsap.to(c, { y: horiz ? (i % 2 ? -12 : 12) : 0, ease: "none", scrollTrigger: scrub(p) }));
+    if (horiz && !reduce) {
+      $$(".card", p).forEach((c, i) => gsap.to(c, { y: horiz ? (i % 2 ? -12 : 12) : 0, ease: "none", scrollTrigger: scrub(p) }));
+    }
   }
 
   /* ------------------------------------------------------------------
@@ -284,10 +326,10 @@
     const tl = gsap.timeline({ scrollTrigger: enter(p, 60), defaults: { ease: "expo.out" } });
     tl.to("#contactIcon", { opacity: 1, scale: 1, rotate: 0, duration: 1.4, ease: "elastic.out(1, 0.6)" }, 0)
       .to(p.querySelectorAll(".reveal-up"), { y: 0, opacity: 1, duration: 0.9, stagger: 0.1 }, 0.2)
-      .to("#mailLink", { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.2, ease: "expo.out" }, 0.45)
+      .to("#mailLink", { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.2, ease: "expo.out", onComplete: () => { $("#mailLink").style.filter = "none"; } }, 0.45)
       .to(".foot", { opacity: 1, y: 0, duration: 0.9 }, 0.7);
 
-    if (!reduce) gsap.to("#contactIcon", { y: -10, duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 });
+    if (!reduce) loop(6, gsap.to("#contactIcon", { y: -10, duration: 2.8, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 2 }));
   }
 
   /* ------------------------------------------------------------------
@@ -354,7 +396,7 @@
   function build() {
     if (isWide()) buildHorizontal(); else buildVerticalProgress();
     buildActiveTracking();
-    heroScroll();
+    if (!reduce) heroScroll();
     arunachala();
     nxtdue();
     mele();
@@ -374,14 +416,17 @@
      ------------------------------------------------------------------ */
   function boot() {
     document.body.classList.add("is-loading");
+    // Do the heavy setup behind the loader, not after it
+    window.scrollTo(0, 0);
+    build();
+    // On phones the panel heights depend on the text, and the fonts can arrive after build()
+    document.fonts && document.fonts.ready.then(() => ScrollTrigger.refresh());
     const count = { n: 0 };
     const countEl = $("#loaderCount");
     const tl = gsap.timeline({
       onComplete: () => {
         document.body.classList.remove("is-loading");
         lenis.start();
-        window.scrollTo(0, 0);
-        build();
         ScrollTrigger.refresh();
         heroIntro();
         pointer();
@@ -399,6 +444,6 @@
     if (reduce) { tl.progress(1); }
   }
 
-  if (document.readyState === "complete") boot();
-  else window.addEventListener("load", boot);
+  // The script is deferred, so the DOM is ready: start the loader now, not after every image loads
+  boot();
 })();

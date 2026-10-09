@@ -25,11 +25,9 @@
   <meta name="twitter:title" content="NxtDuo | Two-person app studio from India" />
   <meta name="twitter:description" content="Two people, a lot of chai, and apps that make everyday life a little lighter." />
   <meta name="twitter:image" content="https://nxtduo.com/assets/og-image.jpg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" /></noscript>
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/style.css" />
+  <noscript><link rel="stylesheet" href="/nomotion.css" /></noscript>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -173,9 +171,9 @@
               <a class="btn ghost magnetic" href="https://meter-mele.pages.dev" target="_blank" rel="noopener">Play Meter Mele ↗</a>
             </div>
             <ul class="stats reveal-up" aria-label="Studio at a glance">
-              <li><b data-count="1">0</b><span>live game</span></li>
-              <li><b data-count="2">0</b><span>in app review</span></li>
-              <li><b data-count="3">0</b><span>languages · EN · हिंदी · తెలుగు</span></li>
+              <li><b data-count="1">1</b><span>live game</span></li>
+              <li><b data-count="2">2</b><span>in app review</span></li>
+              <li><b data-count="3">3</b><span>languages · EN · <span lang="hi">हिंदी</span> · <span lang="te">తెలుగు</span></span></li>
             </ul>
           </div>
 
@@ -186,10 +184,10 @@
               <img class="hero-icon" src="/assets/nxtduo-icon.webp" alt="NxtDuo logo" width="640" height="640" fetchpriority="high" decoding="async" />
               <div class="hero-shadow"></div>
             </div>
-            <div class="mini mini-1" data-depth="0.05"><img src="/assets/nxtdue.webp" alt="" width="1200" height="630" decoding="async" /></div>
-            <div class="mini mini-2" data-depth="-0.04"><img src="/assets/meter-mele.webp" alt="" width="1200" height="630" decoding="async" /></div>
-            <div class="mini mini-3" data-depth="0.08"><img src="/assets/chai-empire.webp" alt="" width="1280" height="720" decoding="async" /></div>
-            <div class="mini mini-4" data-depth="-0.07"><img src="/assets/nxtbrush.webp" alt="" width="1024" height="1024" decoding="async" /></div>
+            <div class="mini mini-1" data-depth="0.05"><img src="/assets/nxtdue.webp" srcset="/assets/nxtdue-480.webp 480w, /assets/nxtdue-800.webp 800w, /assets/nxtdue.webp 1200w" sizes="(max-width: 900px) 130px, 16vw" alt="" width="1200" height="630" decoding="async" /></div>
+            <div class="mini mini-2" data-depth="-0.04"><img src="/assets/meter-mele.webp" srcset="/assets/meter-mele-480.webp 480w, /assets/meter-mele-800.webp 800w, /assets/meter-mele.webp 1200w" sizes="(max-width: 900px) 130px, 16vw" alt="" width="1200" height="630" decoding="async" /></div>
+            <div class="mini mini-3" data-depth="0.08"><img src="/assets/chai-empire.webp" srcset="/assets/chai-empire-480.webp 480w, /assets/chai-empire-800.webp 800w, /assets/chai-empire.webp 1280w" sizes="(max-width: 900px) 130px, 16vw" alt="" width="1280" height="720" decoding="async" /></div>
+            <div class="mini mini-4" data-depth="-0.07"><img src="/assets/nxtbrush.webp" srcset="/assets/nxtbrush-480.webp 480w, /assets/nxtbrush-800.webp 800w, /assets/nxtbrush.webp 1024w" sizes="(max-width: 900px) 130px, 16vw" alt="" width="1024" height="1024" decoding="async" /></div>
           </div>
         </div>
 
@@ -254,7 +252,7 @@
           </div>
           <div class="product-art wipe">
             <div class="frame">
-              <img src="/assets/nxtdue.webp" alt="NxtDue: never miss a renewal, policy, warranty or subscription" width="1200" height="630" loading="lazy" decoding="async" />
+              <img src="/assets/nxtdue.webp" srcset="/assets/nxtdue-480.webp 480w, /assets/nxtdue-800.webp 800w, /assets/nxtdue.webp 1200w" sizes="(max-width: 900px) 92vw, 50vw" alt="NxtDue: never miss a renewal, policy, warranty or subscription" width="1200" height="630" loading="lazy" decoding="async" />
             </div>
             <div class="bubble b1">🔔 Insurance due in 7 days</div>
             <div class="bubble b2">🛂 Passport · 30 days</div>
@@ -268,7 +266,7 @@
         <div class="product-grid flip">
           <div class="product-art drive">
             <div class="frame">
-              <img src="/assets/meter-mele.webp" alt="Meter Mele: an auto-rickshaw on a Bengaluru street" width="1200" height="630" loading="lazy" decoding="async" />
+              <img src="/assets/meter-mele.webp" srcset="/assets/meter-mele-480.webp 480w, /assets/meter-mele-800.webp 800w, /assets/meter-mele.webp 1200w" sizes="(max-width: 900px) 92vw, 50vw" alt="Meter Mele: an auto-rickshaw on a Bengaluru street" width="1200" height="630" loading="lazy" decoding="async" />
             </div>
             <div class="speed-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           </div>
@@ -301,7 +299,7 @@
 
         <div class="cards">
           <article class="card" style="--accent:#ff8a3d">
-            <div class="card-img"><img src="/assets/chai-empire.webp" alt="Chai Empire: a low-poly chai stall with customers and a cow" width="1280" height="720" loading="lazy" decoding="async" /></div>
+            <div class="card-img"><img src="/assets/chai-empire.webp" srcset="/assets/chai-empire-480.webp 480w, /assets/chai-empire-800.webp 800w, /assets/chai-empire.webp 1280w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 31vw" alt="Chai Empire: a low-poly chai stall with customers and a cow" width="1280" height="720" loading="lazy" decoding="async" /></div>
             <div class="card-body">
               <span class="tag soon">Playable prototype</span>
               <h3>Chai Empire</h3>
@@ -311,7 +309,7 @@
           </article>
 
           <article class="card" style="--accent:#3fe0b0">
-            <div class="card-img"><img src="/assets/nxtbrush.webp" alt="NxtBrush: a friendly animated tooth" width="1024" height="1024" loading="lazy" decoding="async" /></div>
+            <div class="card-img"><img src="/assets/nxtbrush.webp" srcset="/assets/nxtbrush-480.webp 480w, /assets/nxtbrush-800.webp 800w, /assets/nxtbrush.webp 1024w" sizes="(max-width: 560px) 92vw, (max-width: 900px) 46vw, 31vw" alt="NxtBrush: a friendly animated tooth" width="1024" height="1024" loading="lazy" decoding="async" /></div>
             <div class="card-body">
               <span class="tag soon">In development</span>
               <h3>NxtBrush</h3>
@@ -334,7 +332,7 @@
             <div class="card-img emoji" aria-hidden="true">📞</div>
             <div class="card-body">
               <span class="tag idea">Concept</span>
-              <h3>Thodu <span class="te">తోడు</span></h3>
+              <h3>Thodu <span class="te" lang="te">తోడు</span></h3>
               <p>For children who live far from their parents. Thodu phones your amma and nanna in Telugu, asks what you would ask, and sends you a short note on how they really are.</p>
               <a class="more-link" href="/thodu/">About Thodu</a>
             </div>
@@ -407,9 +405,9 @@
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+  <script src="/vendor/gsap-3.12.5.min.js" defer></script>
+  <script src="/vendor/ScrollTrigger-3.12.5.min.js" defer></script>
+  <script src="/vendor/lenis-1.1.14.min.js" defer></script>
   <script src="/main.js" defer></script>
 </body>
 </html>

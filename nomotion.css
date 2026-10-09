@@ -1,0 +1,12 @@
+/* Fallback when the motion scripts do not run (no JavaScript, or GSAP/Lenis failed to load).
+   Shows every panel as a plain vertical page. Loaded by a <noscript> link and by main.js. */
+.loader, .cursor, .dots, .counter, .scroll-hint, .next-card, .progress { display: none !important; }
+.nav { transform: none !important; }
+.track-wrap { overflow: visible !important; }
+.track { display: block !important; height: auto !important; transform: none !important; }
+.panel { width: 100% !important; height: auto !important; min-height: 100vh; }
+.line > span, .split-line > span, .reveal-up, .hero-icon-wrap, .orbit, .mini, .ticker, .bubble, .card, .value, .contact-icon, .mail, .foot { opacity: 1 !important; transform: none !important; filter: none !important; }
+.wipe .frame { clip-path: none !important; } .wipe .frame img { transform: none !important; }
+.drive .frame { transform: none !important; opacity: 1 !important; }
+.words .w { opacity: 1 !important; }
+.quote-text { background-position: 0 0 !important; }
