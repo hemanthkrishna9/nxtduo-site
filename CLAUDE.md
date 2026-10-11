@@ -1,6 +1,6 @@
 # NxtDuo company website (nxtduo.com)
 
-Static showcase site for NxtDuo, the user's two-person app studio. Plain HTML, CSS and JS, no build step, no framework. Keep it that way unless asked. The design came from Mahesh's NxtDuo-Web repo on 2026-10-09: a horizontal-scroll home page (`index.html`, `style.css`, `main.js` with GSAP, ScrollTrigger and Lenis served from `vendor/`) plus one SEO page per app in `/<slug>/index.html` sharing `apps.css`.
+Static showcase site for NxtDuo, the user's two-person app studio. No framework and no deploy-time build. The HTML pages are generated locally from `tools/apps.mjs` and `tools/privacy/*.html` by `node tools/build.mjs` (see `tools/README.md`); never hand-edit the generated HTML.
 
 ## Hosting and CI/CD
 - Repo: github.com/hemanthkrishna9/nxtduo-site (branch `main`).
@@ -16,13 +16,16 @@ Static showcase site for NxtDuo, the user's two-person app studio. Plain HTML, C
 - Verify after a push: fetch the page (use `node --use-system-ca`, plain curl fails behind the corporate proxy).
 
 ## Content
-- Apps, in this order: Arunachala (Ramana Maharshi chat, links to ramana.nxtduo.com, access code by email), NxtDue, Meter Mele (the only live product), then the workshop cards Chai Empire, NxtBrush, Saathi and Thodu. Arunachala and NxtDue are "In review".
-- Keep status claims honest. Do not add invented stats, ratings or founder biography.
-- Not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.
+- Since 2026-10-11 the site shows 9 apps in this order (the user's): Talk With Swamy, NxtDue, Publik, FableFox, Meter Mele, NxtBrush, Chai Empire, Saathi, Thodu. More apps will be added.
+- Every app has `/<slug>/` and `/<slug>/privacy/`. These URLs go into the App Store, Google Play and social posts, so never change a slug without adding a 301 to `MOVED` in `worker.js`. `/arunachala/*` (Talk With Swamy's old name) already redirects.
+- Home: hero with a phone home screen of all app icons, one panel per app, studio, contact, plus a fixed dock with every app icon. Use app icons, not screenshots.
+- Horizontal scroll on wide screens: GSAP ScrollTrigger pin + snap, no Lenis; GSAP is served from `vendor/` so a CDN outage cannot break the page. Entrances are scrubbed to scroll position so they cannot get stuck. Narrow screens, and pages where GSAP fails to load, fall back to a vertical page.
+- Placeholder icons drawn by Claude, to replace when real ones exist: Publik, Chai Empire, Thodu.
+- Keep status claims honest (live / in review / testing / prototype / concept). Do not add invented stats or founder biography. Privacy pages must match what each app really does.
+- Also not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.
 - Contact: support@nxtduo.com.
-- Style: light mint background, teal and mint accents, Plus Jakarta Sans and Instrument Serif self-hosted in `fonts/`. Check desktop (1440) and phone (390) widths after layout changes.
-- SEO is part of done: a new app gets its own `/<slug>/` page, unique title and description, JSON-LD, a sitemap entry and an llms.txt line. Plans are in W:/apps/nxtduo-plans/.
-- If GSAP or Lenis fail to load, `nomotion.css` shows a plain vertical page. Keep that fallback working.
+- Style: light theme (#f3f8f6) around the teal N mark, Plus Jakarta Sans + Instrument Serif self-hosted in `fonts/`, each app coloured by its `accent` / `accentInk` (ink must pass 4.5:1; build.mjs warns). Check desktop (1440) and phone (390) widths after layout changes.
+- SEO is part of done: a new app gets its own `/<slug>/` page, unique title and description, JSON-LD, a sitemap entry and an llms.txt line (build.mjs does all of these). Plans are in W:/apps/nxtduo-plans/.
 
 ## Status (2026-10-01)
 The office DNS may briefly cache "not found" for new hostnames; check with Cloudflare DoH before assuming a fault.

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NxtBrush: toothbrushing timer for kids and adults | NxtDuo</title>
-  <meta name="description" content="NxtBrush is a guided toothbrushing timer for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. In development." />
+  <title>NxtBrush: guided, animated toothbrushing for the whole family | NxtDuo</title>
+  <meta name="description" content="NxtBrush guides you zone by zone with a mouth map, a timer and a chime. For ages 3 to 80, works offline, with any toothbrush." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f6fbf9" />
+  <meta name="theme-color" content="#f3f8f6" />
   <link rel="canonical" href="https://nxtduo.com/nxtbrush/" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="128x128" />
@@ -14,16 +14,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NxtDuo" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:title" content="NxtBrush: toothbrushing timer for kids and adults | NxtDuo" />
-  <meta property="og:description" content="NxtBrush is a guided toothbrushing timer for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. In development." />
+  <meta property="og:title" content="NxtBrush: guided, animated toothbrushing for the whole family | NxtDuo" />
+  <meta property="og:description" content="NxtBrush guides you zone by zone with a mouth map, a timer and a chime. For ages 3 to 80, works offline, with any toothbrush." />
   <meta property="og:url" content="https://nxtduo.com/nxtbrush/" />
-  <meta property="og:image" content="https://nxtduo.com/assets/og-nxtbrush.jpg" />
+  <meta property="og:image" content="https://nxtduo.com/assets/og/nxtbrush.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NxtBrush by NxtDuo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="NxtBrush: toothbrushing timer for kids and adults | NxtDuo" />
-  <meta name="twitter:description" content="NxtBrush is a guided toothbrushing timer for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. In development." />
-  <meta name="twitter:image" content="https://nxtduo.com/assets/og-nxtbrush.jpg" />
+  <meta name="twitter:title" content="NxtBrush: guided, animated toothbrushing for the whole family | NxtDuo" />
+  <meta name="twitter:description" content="NxtBrush guides you zone by zone with a mouth map, a timer and a chime. For ages 3 to 80, works offline, with any toothbrush." />
+  <meta name="twitter:image" content="https://nxtduo.com/assets/og/nxtbrush.jpg" />
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/apps.css" />
   <script type="application/ld+json">
@@ -59,18 +60,15 @@
    "@type": "SoftwareApplication",
    "@id": "https://nxtduo.com/nxtbrush/#app",
    "name": "NxtBrush",
-   "description": "NxtBrush is a guided toothbrushing timer for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. In development.",
-   "image": "https://nxtduo.com/assets/nxtbrush.webp",
+   "description": "NxtBrush guides you zone by zone with a mouth map, a timer and a chime. For ages 3 to 80, works offline, with any toothbrush.",
+   "image": "https://nxtduo.com/assets/apps/nxtbrush.webp",
    "publisher": {
-    "@id": "https://nxtduo.com/#organization"
-   },
-   "author": {
     "@id": "https://nxtduo.com/#organization"
    },
    "url": "https://nxtduo.com/nxtbrush/",
    "applicationCategory": "HealthApplication",
-   "operatingSystem": "Android, iOS",
-   "inLanguage": "en"
+   "operatingSystem": "Android",
+   "isAccessibleForFree": true
   },
   {
    "@type": "FAQPage",
@@ -78,26 +76,26 @@
    "mainEntity": [
     {
      "@type": "Question",
-     "name": "Is NxtBrush available now?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Not yet. It is in development. Email support@nxtduo.com if you want early access."
-     }
-    },
-    {
-     "@type": "Question",
      "name": "Does NxtBrush need the internet?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "No. Brushing works offline. Only the optional photo check needs a connection."
+      "text": "No. Brushing works offline. Only the optional teeth check needs a connection."
      }
     },
     {
      "@type": "Question",
-     "name": "Is NxtBrush medical advice?",
+     "name": "Is it medical advice?",
      "acceptedAnswer": {
       "@type": "Answer",
       "text": "No. It gives brushing coaching, not a diagnosis. See a dentist for pain, bleeding that lasts, or anything unusual."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Does it need an account?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. There is no sign-in, and no ads."
      }
     }
    ]
@@ -106,66 +104,84 @@
 }
   </script>
 </head>
-<body style="--accent:#3fe0b0;--accent-ink:#13775e">
+<body style="--accent:#14a3a8;--accent-ink:#0b7377">
+  <!-- Generated by tools/build.mjs from tools/apps.mjs. Edit those, not this file. -->
+  <a class="skip" href="#main">Skip to content</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="32" height="32" alt="NxtDuo home" /><span aria-hidden="true">NXT<b>Duo</b></span></a>
-      <a class="top-link" href="/">All apps</a>
+      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="32" height="32" alt="" /><span>NXT<b>Duo</b></span><span class="sr-only">home</span></a>
+      <nav aria-label="NxtBrush">
+        <a class="crumb hide-sm" href="/nxtbrush/" aria-current="page"><img src="/assets/apps/nxtbrush-144.webp" alt="" width="24" height="24" />NxtBrush</a>
+        <a href="/nxtbrush/privacy/">Privacy</a>
+        <a href="/#nxtbrush">All apps</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <div class="hero">
       <div>
         <span class="tag">In development</span>
-        <h1>NxtBrush <span class="promise">Brush every zone, every time.</span></h1>
+        <h1>NxtBrush</h1>
+        <p class="promise">Brush every zone, every time.</p>
         <p class="intro">Guided, animated toothbrushing for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. It works offline, with any toothbrush.</p>
-        <a class="btn" href="mailto:support@nxtduo.com?subject=NxtBrush%20early%20access">Tell us if you want early access <span aria-hidden="true">&rarr;</span></a>
-        <p class="cta-note">NxtBrush is in development. It is not released yet.</p>
+        <div class="ctas">
+          <a class="btn" href="mailto:support@nxtduo.com?subject=NxtBrush%20early%20access">Ask for early access <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="/nxtbrush/privacy/">Privacy policy</a>
+        </div>
+        <p class="cta-note">Android first. Not in the stores yet.</p>
       </div>
-      <div class="art"><img src="/assets/nxtbrush.webp" srcset="/assets/nxtbrush-480.webp 480w, /assets/nxtbrush-800.webp 800w, /assets/nxtbrush.webp 1024w" sizes="(max-width: 820px) 92vw, 520px" width="1024" height="1024" alt="NxtBrush: a friendly animated tooth that guides brushing" fetchpriority="high" /></div>
+      <div class="visual"><img src="/assets/apps/nxtbrush.webp" width="512" height="512" alt="NxtBrush app icon" fetchpriority="high" /></div>
     </div>
 
+    <dl class="facts">
+      <div><dt>Status</dt><dd>In development</dd></div>
+      <div><dt>Platform</dt><dd>Android first</dd></div>
+      <div><dt>Price</dt><dd>Free, no purchases</dd></div>
+      <div><dt>Works</dt><dd>Offline</dd></div>
+    </dl>
+
     <div class="content">
-    <section class="block">
-      <h2>What it does</h2>
-      <p>You stand at the sink and tap Start. The phone does the rest:</p>
-<ul>
-<li>A mouth map lights up the zone to brush next.</li>
-<li>A short animation shows the motion for that zone.</li>
-<li>A timer ring counts down, and every zone change is shown, heard (a soft chime) and felt (a vibration), so you can follow it with your eyes half-closed.</li>
+      <section class="block">
+        <h2>What it does</h2>
+        <p>You stand at the sink and tap Start. The phone does the rest:</p>
+<ul class="features">
+<li><b>Mouth map</b><span>Lights up the zone to brush next, with a short animation of the motion.</span></li>
+<li><b>See, hear, feel</b><span>A timer ring, a soft chime and a gentle vibration at every zone change.</span></li>
+<li><b>Kind streaks</b><span>Small rewards and a family board, with a streak freeze and no guilt.</span></li>
+<li><b>Teeth check</b><span>Optional photos help it give more time to the spots that need it. Coaching, never a diagnosis.</span></li>
 </ul>
-<p>Optional teeth-check photos can help the app give more time to the spots that need it. This is coaching, never a diagnosis. For pain or bleeding that lasts, see a dentist.</p>
-    </section>
-    <section class="block">
-      <h2>Who it is for</h2>
-      <p>Families. The look changes with age: playful for small children, a game for older kids, and calm with bigger text for teens, adults and older people. Streaks and small rewards help the habit, with no guilt and no dark patterns. We built it as a brushing coach for our own kids.</p>
-    </section>
-    <section class="block">
-      <h2>Status</h2>
-      <p>NxtBrush is in development and not in the stores yet. If you want to try it early, <a href="mailto:support@nxtduo.com">write to us</a>.</p>
-    </section>
-    <section class="block faq">
-      <h2>Questions</h2>
-      <h3>Is NxtBrush available now?</h3>
-      <p>Not yet. It is in development. Email support@nxtduo.com if you want early access.</p>
-      <h3>Does NxtBrush need the internet?</h3>
-      <p>No. Brushing works offline. Only the optional photo check needs a connection.</p>
-      <h3>Is NxtBrush medical advice?</h3>
-      <p>No. It gives brushing coaching, not a diagnosis. See a dentist for pain, bleeding that lasts, or anything unusual.</p>
-    </section>
+      </section>
+      <section class="block">
+        <h2>Who it is for</h2>
+        <p>Families. The look changes with age: playful for small children, a game for older kids, and calm with bigger text for teens, adults and older people. We built it as a brushing coach for our own kids.</p>
+      </section>
+      <section class="block">
+        <h2>Status</h2>
+        <p>NxtBrush is in development and not in the stores yet. If you want to try it early, <a href="mailto:support@nxtduo.com?subject=NxtBrush%20early%20access">write to us</a>.</p>
+      </section>
+      <section class="block faq">
+        <h2>Questions</h2>
+        <h3>Does NxtBrush need the internet?</h3>
+        <p>No. Brushing works offline. Only the optional teeth check needs a connection.</p>
+        <h3>Is it medical advice?</h3>
+        <p>No. It gives brushing coaching, not a diagnosis. See a dentist for pain, bleeding that lasts, or anything unusual.</p>
+        <h3>Does it need an account?</h3>
+        <p>No. There is no sign-in, and no ads.</p>
+      </section>
     </div>
 
     <nav class="more" aria-labelledby="more-title">
       <h2 id="more-title">More from NxtDuo</h2>
       <ul>
-        <li><a href="/arunachala/" style="--c:#e0603a"><b>Arunachala</b><span>Talk with Ramana&#x27;s words · In review</span></a></li>
-        <li><a href="/nxtdue/" style="--c:#6a4df0"><b>NxtDue</b><span>Renewal reminders · In review</span></a></li>
-        <li><a href="/meter-mele/" style="--c:#a87b00"><b>Meter Mele</b><span>Bengaluru auto game · Play free</span></a></li>
-        <li><a href="/chai-empire/" style="--c:#ff8a3d"><b>Chai Empire</b><span>Chai stall tycoon game · Prototype</span></a></li>
-        <li><a href="/saathi/" style="--c:#ff5d8f"><b>Saathi</b><span>On-device journaling companion · Research</span></a></li>
-        <li><a href="/thodu/" style="--c:#4fa3ff"><b>Thodu</b><span>Telugu check-in calls to parents · Concept</span></a></li>
-        <li><a href="/"><b>NxtDuo home</b><span>All our apps and the studio</span></a></li>
+        <li><a href="/talk-with-swamy/"><img src="/assets/apps/talk-with-swamy-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Talk With Swamy</b><span>Ramana Maharshi's words · Live on the web</span></a></li>
+        <li><a href="/nxtdue/"><img src="/assets/apps/nxtdue-144.webp" alt="" width="44" height="44" loading="lazy" /><b>NxtDue</b><span>Renewal reminders · In review</span></a></li>
+        <li><a href="/publik/"><img src="/assets/apps/publik-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Publik</b><span>Bengaluru's public spaces · Live</span></a></li>
+        <li><a href="/fablefox/"><img src="/assets/apps/fablefox-144.webp" alt="" width="44" height="44" loading="lazy" /><b>FableFox</b><span>Bedtime stories in your voice · Testing with families</span></a></li>
+        <li><a href="/meter-mele/"><img src="/assets/apps/meter-mele-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Meter Mele</b><span>Bengaluru auto game · Live · Play free</span></a></li>
+        <li><a href="/chai-empire/"><img src="/assets/apps/chai-empire-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Chai Empire</b><span>Chai stall tycoon game · Playable prototype</span></a></li>
+        <li><a href="/saathi/"><img src="/assets/apps/saathi-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Saathi</b><span>Private journaling companion · In testing</span></a></li>
+        <li><a href="/thodu/"><img src="/assets/apps/thodu-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Thodu</b><span>Telugu calls to parents · Concept</span></a></li>
       </ul>
     </nav>
   </main>
@@ -173,7 +189,7 @@
   <footer class="foot">
     <div class="wrap">
       <span>&copy; 2026 NxtDuo &middot; A two-person app studio, made in India</span>
-      <a href="mailto:support@nxtduo.com">support@nxtduo.com</a>
+      <span><a href="/nxtbrush/privacy/">NxtBrush privacy policy</a> &middot; <a href="mailto:support@nxtduo.com">support@nxtduo.com</a> &middot; <a href="/">All apps</a></span>
     </div>
   </footer>
 </body>

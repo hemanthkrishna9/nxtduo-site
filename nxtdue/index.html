@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NxtDue: renewal reminder app for India | NxtDuo</title>
-  <meta name="description" content="NxtDue reminds you ahead of vehicle insurance, PUC, passport, warranty and subscription renewals. For iOS and Android, with a free plan. Data stays in India." />
+  <title>NxtDue: renewal reminders for insurance, PUC, passports and more | NxtDuo</title>
+  <meta name="description" content="NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. Data stays in India. No ads, no data selling." />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#f6fbf9" />
+  <meta name="theme-color" content="#f3f8f6" />
   <link rel="canonical" href="https://nxtduo.com/nxtdue/" />
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="128x128" />
@@ -14,16 +14,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NxtDuo" />
   <meta property="og:locale" content="en_IN" />
-  <meta property="og:title" content="NxtDue: renewal reminder app for India | NxtDuo" />
-  <meta property="og:description" content="NxtDue reminds you ahead of vehicle insurance, PUC, passport, warranty and subscription renewals. For iOS and Android, with a free plan. Data stays in India." />
+  <meta property="og:title" content="NxtDue: renewal reminders for insurance, PUC, passports and more | NxtDuo" />
+  <meta property="og:description" content="NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. Data stays in India. No ads, no data selling." />
   <meta property="og:url" content="https://nxtduo.com/nxtdue/" />
-  <meta property="og:image" content="https://nxtduo.com/assets/og-nxtdue.jpg" />
+  <meta property="og:image" content="https://nxtduo.com/assets/og/nxtdue.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NxtDue by NxtDuo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="NxtDue: renewal reminder app for India | NxtDuo" />
-  <meta name="twitter:description" content="NxtDue reminds you ahead of vehicle insurance, PUC, passport, warranty and subscription renewals. For iOS and Android, with a free plan. Data stays in India." />
-  <meta name="twitter:image" content="https://nxtduo.com/assets/og-nxtdue.jpg" />
+  <meta name="twitter:title" content="NxtDue: renewal reminders for insurance, PUC, passports and more | NxtDuo" />
+  <meta name="twitter:description" content="NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. Data stays in India. No ads, no data selling." />
+  <meta name="twitter:image" content="https://nxtduo.com/assets/og/nxtdue.jpg" />
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/apps.css" />
   <script type="application/ld+json">
@@ -56,22 +57,18 @@
    ]
   },
   {
-   "@type": "MobileApplication",
+   "@type": "SoftwareApplication",
    "@id": "https://nxtduo.com/nxtdue/#app",
    "name": "NxtDue",
-   "description": "NxtDue reminds you ahead of vehicle insurance, PUC, passport, warranty and subscription renewals. For iOS and Android, with a free plan. Data stays in India.",
-   "image": "https://nxtduo.com/assets/nxtdue.webp",
+   "description": "NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. Data stays in India. No ads, no data selling.",
+   "image": "https://nxtduo.com/assets/apps/nxtdue.webp",
    "publisher": {
     "@id": "https://nxtduo.com/#organization"
    },
-   "author": {
-    "@id": "https://nxtduo.com/#organization"
-   },
    "url": "https://nxtduo.com/nxtdue/",
-   "applicationCategory": "UtilitiesApplication",
+   "applicationCategory": "ProductivityApplication",
    "operatingSystem": "iOS, Android",
-   "sameAs": "https://www.nxtdue.com",
-   "inLanguage": "en"
+   "isAccessibleForFree": true
   },
   {
    "@type": "FAQPage",
@@ -82,15 +79,7 @@
      "name": "Is NxtDue free?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "There is a free plan. See nxtdue.com for what each plan includes."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Which phones does NxtDue support?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "NxtDue is made for iPhone and Android. It is in app store review now."
+      "text": "There is a free plan. Premium adds more; see nxtdue.com for what each plan includes."
      }
     },
     {
@@ -98,7 +87,15 @@
      "name": "Where is my data stored?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Your data stays in India. NxtDue shows no ads and does not sell your data."
+      "text": "On servers in India. NxtDue shows no ads and does not sell your data."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I delete my data?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. You can export or delete everything yourself in the app's Settings."
      }
     }
    ]
@@ -107,64 +104,83 @@
 }
   </script>
 </head>
-<body style="--accent:#6a4df0;--accent-ink:#5a3fd6">
+<body style="--accent:#8b72ff;--accent-ink:#5b3fe0">
+  <!-- Generated by tools/build.mjs from tools/apps.mjs. Edit those, not this file. -->
+  <a class="skip" href="#main">Skip to content</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="32" height="32" alt="NxtDuo home" /><span aria-hidden="true">NXT<b>Duo</b></span></a>
-      <a class="top-link" href="/">All apps</a>
+      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="32" height="32" alt="" /><span>NXT<b>Duo</b></span><span class="sr-only">home</span></a>
+      <nav aria-label="NxtDue">
+        <a class="crumb hide-sm" href="/nxtdue/" aria-current="page"><img src="/assets/apps/nxtdue-144.webp" alt="" width="24" height="24" />NxtDue</a>
+        <a href="/nxtdue/privacy/">Privacy</a>
+        <a href="/#nxtdue">All apps</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="main">
     <div class="hero">
       <div>
         <span class="tag">In review</span>
-        <h1>NxtDue <span class="promise">Never miss a renewal.</span></h1>
+        <h1>NxtDue</h1>
+        <p class="promise">Never miss a renewal.</p>
         <p class="intro">Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. Your data stays in India. No ads, no data selling.</p>
-        <a class="btn" href="https://www.nxtdue.com" rel="noopener">Visit nxtdue.com <span aria-hidden="true">&rarr;</span></a>
-        <p class="cta-note">The app is in app store review. nxtdue.com has the details.</p>
+        <div class="ctas">
+          <a class="btn" href="https://www.nxtdue.com" rel="noopener">Visit nxtdue.com <span aria-hidden="true">↗</span></a>
+          <a class="btn ghost" href="/nxtdue/privacy/">Privacy policy</a>
+        </div>
+        <p class="cta-note">The iPhone app is in App Store review; Android is in closed testing on Google Play.</p>
       </div>
-      <div class="art"><img src="/assets/nxtdue.webp" srcset="/assets/nxtdue-480.webp 480w, /assets/nxtdue-800.webp 800w, /assets/nxtdue.webp 1200w" sizes="(max-width: 820px) 92vw, 520px" width="1200" height="630" alt="NxtDue app: reminders for renewals, policies, warranties and subscriptions" fetchpriority="high" /></div>
+      <div class="visual"><img src="/assets/apps/nxtdue.webp" width="512" height="512" alt="NxtDue app icon" fetchpriority="high" /></div>
     </div>
 
+    <dl class="facts">
+      <div><dt>Status</dt><dd>In store review</dd></div>
+      <div><dt>Platforms</dt><dd>iPhone, Android</dd></div>
+      <div><dt>Price</dt><dd>Free plan · Premium</dd></div>
+      <div><dt>Data stored in</dt><dd>India</dd></div>
+    </dl>
+
     <div class="content">
-    <section class="block">
-      <h2>What it does</h2>
-      <ul>
-<li><b>Reminders that arrive early.</b> You add what renews and when, and NxtDue nudges you well ahead, not on the morning it expires. Recurring renewals roll forward on their own.</li>
-<li><b>Documents kept with the reminder.</b> Attach the policy PDF, the warranty card or a photo of the receipt, so the paperwork is there when you need to claim.</li>
-<li><b>Built for patchy networks.</b> Add a reminder offline and it syncs when you are back online. You can lock the app with Face ID or your fingerprint, search everything, and export or delete your data yourself.</li>
+      <section class="block">
+        <h2>What it does</h2>
+        <ul class="features">
+<li><b>Reminders that arrive early</b><span>30, 15, 7 and 3 days before, and on the day, by push and email. Recurring renewals roll forward with one tap.</span></li>
+<li><b>Documents kept with the reminder</b><span>Attach the policy PDF, the warranty card or a photo of the receipt, so the paperwork is there when you need to claim.</span></li>
+<li><b>Share with family</b><span>Share one reminder, not your whole account. Everyone sees what is due.</span></li>
+<li><b>Built for patchy networks</b><span>Add reminders offline; they sync later. Lock the app with Face ID or your fingerprint.</span></li>
 </ul>
-    </section>
-    <section class="block">
-      <h2>Who it is for</h2>
-      <p>Anyone in India who has ever paid a late fee, driven with an expired PUC, or found a forgotten subscription on a card statement. We built it for our own family first, because we kept missing renewals.</p>
-    </section>
-    <section class="block">
-      <h2>Status and how to get it</h2>
-      <p>NxtDue is in app store review, for iPhone and Android. There is a free plan. Plans, features and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>
-    </section>
-    <section class="block faq">
-      <h2>Questions</h2>
-      <h3>Is NxtDue free?</h3>
-      <p>There is a free plan. See nxtdue.com for what each plan includes.</p>
-      <h3>Which phones does NxtDue support?</h3>
-      <p>NxtDue is made for iPhone and Android. It is in app store review now.</p>
-      <h3>Where is my data stored?</h3>
-      <p>Your data stays in India. NxtDue shows no ads and does not sell your data.</p>
-    </section>
+      </section>
+      <section class="block">
+        <h2>Who it is for</h2>
+        <p>Anyone in India who has ever paid a late fee, driven with an expired PUC, or found a forgotten subscription on a card statement. We built it for our own family first, because we kept missing renewals.</p>
+      </section>
+      <section class="block">
+        <h2>How to get it</h2>
+        <p>The iPhone app is in App Store review and the Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>
+      </section>
+      <section class="block faq">
+        <h2>Questions</h2>
+        <h3>Is NxtDue free?</h3>
+        <p>There is a free plan. Premium adds more; see nxtdue.com for what each plan includes.</p>
+        <h3>Where is my data stored?</h3>
+        <p>On servers in India. NxtDue shows no ads and does not sell your data.</p>
+        <h3>Can I delete my data?</h3>
+        <p>Yes. You can export or delete everything yourself in the app's Settings.</p>
+      </section>
     </div>
 
     <nav class="more" aria-labelledby="more-title">
       <h2 id="more-title">More from NxtDuo</h2>
       <ul>
-        <li><a href="/arunachala/" style="--c:#e0603a"><b>Arunachala</b><span>Talk with Ramana&#x27;s words · In review</span></a></li>
-        <li><a href="/meter-mele/" style="--c:#a87b00"><b>Meter Mele</b><span>Bengaluru auto game · Play free</span></a></li>
-        <li><a href="/chai-empire/" style="--c:#ff8a3d"><b>Chai Empire</b><span>Chai stall tycoon game · Prototype</span></a></li>
-        <li><a href="/nxtbrush/" style="--c:#3fe0b0"><b>NxtBrush</b><span>Guided toothbrushing · In development</span></a></li>
-        <li><a href="/saathi/" style="--c:#ff5d8f"><b>Saathi</b><span>On-device journaling companion · Research</span></a></li>
-        <li><a href="/thodu/" style="--c:#4fa3ff"><b>Thodu</b><span>Telugu check-in calls to parents · Concept</span></a></li>
-        <li><a href="/"><b>NxtDuo home</b><span>All our apps and the studio</span></a></li>
+        <li><a href="/talk-with-swamy/"><img src="/assets/apps/talk-with-swamy-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Talk With Swamy</b><span>Ramana Maharshi's words · Live on the web</span></a></li>
+        <li><a href="/publik/"><img src="/assets/apps/publik-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Publik</b><span>Bengaluru's public spaces · Live</span></a></li>
+        <li><a href="/fablefox/"><img src="/assets/apps/fablefox-144.webp" alt="" width="44" height="44" loading="lazy" /><b>FableFox</b><span>Bedtime stories in your voice · Testing with families</span></a></li>
+        <li><a href="/meter-mele/"><img src="/assets/apps/meter-mele-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Meter Mele</b><span>Bengaluru auto game · Live · Play free</span></a></li>
+        <li><a href="/nxtbrush/"><img src="/assets/apps/nxtbrush-144.webp" alt="" width="44" height="44" loading="lazy" /><b>NxtBrush</b><span>Guided toothbrushing · In development</span></a></li>
+        <li><a href="/chai-empire/"><img src="/assets/apps/chai-empire-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Chai Empire</b><span>Chai stall tycoon game · Playable prototype</span></a></li>
+        <li><a href="/saathi/"><img src="/assets/apps/saathi-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Saathi</b><span>Private journaling companion · In testing</span></a></li>
+        <li><a href="/thodu/"><img src="/assets/apps/thodu-144.webp" alt="" width="44" height="44" loading="lazy" /><b>Thodu</b><span>Telugu calls to parents · Concept</span></a></li>
       </ul>
     </nav>
   </main>
@@ -172,7 +188,7 @@
   <footer class="foot">
     <div class="wrap">
       <span>&copy; 2026 NxtDuo &middot; A two-person app studio, made in India</span>
-      <a href="mailto:support@nxtduo.com">support@nxtduo.com</a>
+      <span><a href="/nxtdue/privacy/">NxtDue privacy policy</a> &middot; <a href="mailto:support@nxtduo.com">support@nxtduo.com</a> &middot; <a href="/">All apps</a></span>
     </div>
   </footer>
 </body>
