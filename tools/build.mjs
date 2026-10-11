@@ -131,13 +131,13 @@ function appPanel(a, i) {
 
 function home() {
   const live = apps.filter((a) => a.status.kind === "live").length;
-  const title = "NxtDuo | Apps for everyday India, from a studio of two";
-  const description = `NxtDuo is a two-person app studio from India. Our apps: ${apps.map((a) => a.name).join(", ")}.`;
+  const title = "NxtDuo | Apps for families everywhere, from a studio of two";
+  const description = `NxtDuo is a two-person app studio making apps for families around the world. Our apps: ${apps.map((a) => a.name).join(", ")}.`;
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
-      { ...ORG, description: "A two-person app studio from India.", founder: [{ "@type": "Person", name: "Hemanth Krishna" }, { "@type": "Person", name: "Mahesh Chandu" }], areaServed: { "@type": "Country", name: "India" } },
-      { "@type": "WebSite", "@id": `${SITE}/#website`, name: "NxtDuo", url: `${SITE}/`, inLanguage: "en-IN", publisher: { "@id": `${SITE}/#organization` } },
+      { ...ORG, description: "A two-person app studio making apps for families around the world.", founder: [{ "@type": "Person", name: "Hemanth Krishna" }, { "@type": "Person", name: "Mahesh Chandu" }], areaServed: "Worldwide" },
+      { "@type": "WebSite", "@id": `${SITE}/#website`, name: "NxtDuo", url: `${SITE}/`, inLanguage: "en", publisher: { "@id": `${SITE}/#organization` } },
       { "@type": "ItemList", "@id": `${SITE}/#apps`, name: "Apps by NxtDuo", numberOfItems: N, itemListElement: apps.map((a, i) => ({ "@type": "ListItem", position: i + 1, name: a.name, url: `${SITE}/${a.slug}/` })) },
     ],
   };
@@ -182,8 +182,8 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
       <section class="panel p-hero" id="home" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">NxtDuo · an app studio of two · India</p>
-            <h1 class="display" id="hero-title">${N} apps for <span class="serif">everyday</span> India.</h1>
+            <p class="eyebrow">NxtDuo · an app studio of two · for the world</p>
+            <h1 class="display" id="hero-title">${N} apps for <span class="serif">everyday</span> life.</h1>
             <p class="lead">Spiritual chat, renewal reminders, a city guide, bedtime stories, games, a brushing coach and a private diary. Small, careful apps, made by two people who use them every day.</p>
             <div class="cta">
               <a class="btn primary" href="#${apps[0].slug}" data-goto>Start with ${esc(apps[0].name)} <i aria-hidden="true">→</i></a>
@@ -196,7 +196,7 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
             <div class="phone">
               <div class="screen">
                 <div class="status" aria-hidden="true"><span>9:41</span><span class="island"></span><span class="status-icons">●●● ▮</span></div>
-                <div class="screen-date" aria-hidden="true"><b>Made in India</b><span>Our apps</span></div>
+                <div class="screen-date" aria-hidden="true"><b>Made for families</b><span>Our apps</span></div>
                 <ul class="apps-grid" aria-label="Our apps">
 ${apps.map((a) => `                  <li><a href="#${a.slug}" data-goto><img src="${iconSm(a)}" alt="" width="66" height="66" decoding="async" /><span>${esc(a.name)}</span></a></li>`).join("\n")}
                 </ul>
@@ -214,12 +214,12 @@ ${apps.map(appPanel).join("\n")}
           <div>
             <p class="eyebrow reveal">The studio</p>
             <h2 class="display reveal" id="studio-title">Two people. One <span class="serif">studio.</span></h2>
-            <p class="lead reveal">NxtDuo is a small, independent studio from India. We build things we want for our own family first: a reminder app because we kept missing renewals, bedtime stories for when we are away, a brushing coach for the kids.</p>
+            <p class="lead reveal">NxtDuo is a small, independent studio making apps for families everywhere. We build things we want for our own family first: a reminder app because we kept missing renewals, bedtime stories for when we are away, a brushing coach for the kids.</p>
             <p class="quote reveal">With great power comes great responsibility.</p>
           </div>
           <ul class="values">
             <li class="reveal"><i>01</i><div><b>Kind by default.</b><span>No dark patterns, no guilt trips, no selling your data.</span></div></li>
-            <li class="reveal"><i>02</i><div><b>Made for India.</b><span>Local languages, local streets, local life.</span></div></li>
+            <li class="reveal"><i>02</i><div><b>Made for the world.</b><span>Your language, your city, your everyday life, wherever you are.</span></div></li>
             <li class="reveal"><i>03</i><div><b>Honest about status.</b><span>Live means live. Concepts are called concepts.</span></div></li>
             <li class="reveal"><i>04</i><div><b>Small and careful.</b><span>Fewer features, done properly.</span></div></li>
           </ul>
@@ -239,7 +239,7 @@ ${apps.map(appPanel).join("\n")}
 ${apps.map((a) => `            <li><img src="${iconSm(a)}" alt="" width="22" height="22" loading="lazy" /><span><a href="/${a.slug}/">${esc(a.name)}</a> <small><a href="/${a.slug}/privacy/">Privacy</a></small></span></li>`).join("\n")}
           </ul>
           <div class="foot-row">
-            <span>© <span id="year">2026</span> NxtDuo · Made with ☕ in India</span>
+            <span>© <span id="year">2026</span> NxtDuo · Made with ☕ for families everywhere</span>
             <a href="mailto:${EMAIL}">${EMAIL}</a>
           </div>
         </footer>
@@ -285,7 +285,7 @@ ${apps.filter((b) => b !== a).map((b) => `        <li><a href="/${b.slug}/"><img
 function foot(a) {
   return `<footer class="foot">
     <div class="wrap">
-      <span>&copy; 2026 NxtDuo &middot; A two-person app studio, made in India</span>
+      <span>&copy; 2026 NxtDuo &middot; A two-person app studio, making apps for the world</span>
       <span><a href="/${a.slug}/privacy/">${esc(a.name)} privacy policy</a> &middot; <a href="mailto:${EMAIL}">${EMAIL}</a> &middot; <a href="/">All apps</a></span>
     </div>
   </footer>`;
@@ -459,7 +459,7 @@ ${urls.map((u) => `  <url><loc>${SITE}${u}</loc><lastmod>${TODAY}</lastmod></url
 function llms() {
   return `# NxtDuo
 
-> NxtDuo is a small, independent, two-person app studio from India. It builds small, careful products for everyday life: apps, games and tools made for India, with local languages, no dark patterns and no selling of user data.
+> NxtDuo is a small, independent, two-person app studio making apps for families around the world. It builds small, careful products for everyday life: apps, games and tools in local languages, with no dark patterns and no selling of user data.
 
 Contact: ${EMAIL}
 Website: ${SITE}/

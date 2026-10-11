@@ -1,6 +1,6 @@
 # NxtDuo
 
-> NxtDuo is a small, independent, two-person app studio from India. It builds small, careful products for everyday life: apps, games and tools made for India, with local languages, no dark patterns and no selling of user data.
+> NxtDuo is a small, independent, two-person app studio making apps for families around the world. It builds small, careful products for everyday life: apps, games and tools in local languages, with no dark patterns and no selling of user data.
 
 Contact: support@nxtduo.com
 Website: https://nxtduo.com/

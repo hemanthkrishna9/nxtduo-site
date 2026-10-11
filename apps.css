@@ -60,8 +60,13 @@ a { color: var(--accent-ink); }
 /* Header */
 .top { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 64px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 800; font-size: 18px; }
-.brand img { width: 32px; height: 32px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 800; font-size: 22px; }
+.brand img {
+  width: 44px; height: 44px; padding: 6px; border-radius: 13px;
+  background: radial-gradient(circle at 30% 22%, #fff 0%, #fff 38%, #dff5ed 100%);
+  border: 1px solid rgba(255, 255, 255, .9);
+  box-shadow: 0 1px 0 #fff inset, 0 -3px 6px rgba(15, 76, 69, .08) inset, 0 8px 18px rgba(15, 76, 69, .2), 0 2px 4px rgba(15, 76, 69, .12);
+}
 .brand b { color: var(--mint-text); font-weight: 600; }
 .top nav { display: flex; align-items: center; gap: 6px; }
 .top nav a { padding: 8px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--muted); text-decoration: none; }

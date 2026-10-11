@@ -46,7 +46,7 @@ h1 em{font-family:"Instrument Serif",serif;font-weight:400;color:#13866f}
 .grid{position:absolute;right:70px;top:70px;display:grid;grid-template-columns:repeat(3,140px);gap:24px}
 .grid img{width:140px;height:140px;border-radius:32px;box-shadow:0 14px 28px rgba(11,42,38,.2)}
 </style>
-<h1>${apps.length} apps for <em>everyday</em> India.</h1>
+<h1>${apps.length} apps for <em>everyday</em> life.</h1>
 <div class="grid">${icons}</div>
 <div class="brand"><img src="${asset("assets/nxtduo-icon-96.webp")}"><span>NXT<b>Duo</b></span></div>
 <div class="url" style="left:64px;right:auto;bottom:118px">nxtduo.com</div>`;
