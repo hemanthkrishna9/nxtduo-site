@@ -99,16 +99,21 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   background: linear-gradient(var(--bg) 30%, color-mix(in srgb, var(--bg) 0%, transparent));
 }
 html.h .nav { background: none; }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 26px; letter-spacing: .01em; }
-/* The N is two teals on a transparent background, so it sits on a raised white tile to stand out */
-.brand img, .dock .dock-home img, .contact-icon {
-  background: radial-gradient(circle at 30% 22%, #fff 0%, #fff 38%, #dff5ed 100%);
-  border: 1px solid rgba(255, 255, 255, .9);
-  box-shadow: 0 1px 0 #fff inset, 0 -3px 6px rgba(15, 76, 69, .08) inset, 0 10px 22px rgba(15, 76, 69, .22), 0 2px 5px rgba(15, 76, 69, .14);
+/* Company lockup: the 3D N stands free (no app-icon tile), with a tight contact
+   shadow plus a deep soft one so both teals hold up on the light background */
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand img {
+  width: 48px; height: 48px;
+  filter: drop-shadow(0 1px 1px rgba(11, 42, 38, .35)) drop-shadow(0 8px 14px rgba(15, 76, 69, .3));
+  transition: transform .5s var(--ease);
 }
-.brand img { width: 52px; height: 52px; padding: 7px; border-radius: 16px; transition: transform .35s var(--ease); }
-.brand:hover img { transform: translateY(-2px) rotate(-4deg); }
-.brand b { color: var(--mint-text); font-weight: 600; }
+.brand:hover img { transform: rotate(-8deg) scale(1.06); }
+.brand-word { font-size: 27px; font-weight: 800; letter-spacing: -.025em; line-height: 1; color: var(--ink); }
+.brand-word b { color: var(--mint-text); font-weight: 800; }
+.brand-tag {
+  margin-left: 4px; padding-left: 14px; border-left: 1.5px solid var(--line);
+  font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); line-height: 1.3;
+}
 .nav-right { display: flex; align-items: center; gap: 18px; }
 .counter { font-variant-numeric: tabular-nums; font-size: 13px; letter-spacing: .12em; color: var(--muted); white-space: nowrap; }
 .counter b { color: var(--ink); }
@@ -134,7 +139,7 @@ html.h .nav { background: none; }
 .dock-sep { flex: none; width: 1px; height: 32px; background: var(--line); margin: 0 4px; }
 .dock a { position: relative; flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; transition: transform .35s var(--ease); }
 .dock img { width: 44px; height: 44px; border-radius: 11px; box-shadow: 0 4px 10px rgba(11, 42, 38, .16); }
-.dock .dock-home img { padding: 5px; border-radius: 12px; }
+.dock .dock-home img { box-shadow: none; border-radius: 0; filter: drop-shadow(0 1px 1px rgba(11, 42, 38, .3)) drop-shadow(0 4px 8px rgba(15, 76, 69, .25)); }
 .dock .dock-mail { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 11px; background: var(--deep); color: #fff; }
 .dock a::after { /* active indicator */
   content: ""; position: absolute; bottom: -6px; left: 50%; width: 5px; height: 5px; border-radius: 50%;
@@ -299,7 +304,23 @@ html.h .phone { width: auto; height: min(640px, calc(100svh - var(--nav-h) - var
 /* ---- Contact + footer -------------------------------------------------------- */
 .p-contact { background: radial-gradient(60% 60% at 50% 35%, #d4f3e8, rgba(212, 243, 232, 0) 70%), var(--bg); text-align: center; }
 .contact-inner { display: grid; justify-items: center; gap: 14px; }
-.contact-icon { width: clamp(96px, 10vw, 150px); padding: clamp(12px, 1.3vw, 20px); border-radius: 28%; }
+.emblem { position: relative; display: grid; place-items: center; width: clamp(150px, 15vw, 220px); aspect-ratio: 1; margin-bottom: 6px; }
+.emblem::before { /* light behind the mark */
+  content: ""; position: absolute; inset: -30%; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(63, 224, 176, .22) 55%, rgba(63, 224, 176, 0));
+}
+.emblem-ring { position: absolute; inset: 2%; border-radius: 50%; border: 1px solid rgba(19, 134, 111, .22); }
+.emblem-ring + .emblem-ring { inset: -14%; border-style: dashed; border-color: rgba(19, 134, 111, .16); animation: spin 60s linear infinite; }
+.emblem img {
+  position: relative; width: 72%; height: auto;
+  filter: drop-shadow(0 2px 2px rgba(11, 42, 38, .35)) drop-shadow(0 22px 30px rgba(15, 76, 69, .35));
+  animation: float 5s ease-in-out infinite;
+}
+.emblem-floor { position: absolute; bottom: 2%; width: 46%; height: 9%; border-radius: 50%; background: rgba(11, 42, 38, .22); filter: blur(8px); animation: floor 5s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px) rotate(-2deg); } }
+@keyframes floor { 50% { transform: scale(.8); opacity: .6; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .emblem img, .emblem-floor, .emblem-ring { animation: none !important; } }
 .contact-inner .display { font-size: clamp(48px, 6vw, 96px); }
 .contact-inner .display .serif { color: var(--mint-text); }
 .contact-inner p { margin: 0; color: var(--muted); }
@@ -336,8 +357,10 @@ html.h .p-contact .foot { margin-top: 28px; }
    -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
   :root { --nav-h: 72px; }
-  .brand { font-size: 22px; gap: 10px; }
-  .brand img { width: 44px; height: 44px; padding: 6px; border-radius: 13px; }
+  .brand { gap: 10px; }
+  .brand img { width: 40px; height: 40px; }
+  .brand-word { font-size: 23px; }
+  .brand-tag { display: none; }
   .counter { display: none; }
   .hero-grid, .app-grid, .about-grid { grid-template-columns: 1fr; }
   .panel { padding-top: calc(var(--nav-h) + 20px); padding-bottom: 56px; }

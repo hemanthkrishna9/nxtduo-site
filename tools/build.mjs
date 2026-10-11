@@ -131,7 +131,7 @@ function appPanel(a, i) {
 
 function home() {
   const live = apps.filter((a) => a.status.kind === "live").length;
-  const title = "NxtDuo | Apps for families everywhere, from a studio of two";
+  const title = "NxtDuo | Apps that look after the people you love";
   const description = `NxtDuo is a two-person app studio making apps for families around the world. Our apps: ${apps.map((a) => a.name).join(", ")}.`;
   const jsonld = {
     "@context": "https://schema.org",
@@ -157,8 +157,9 @@ function home() {
 
   <header class="nav" id="nav">
     <a class="brand" href="#home" data-goto aria-label="NxtDuo home">
-      <img src="/assets/nxtduo-icon-96.webp" alt="" width="36" height="36" decoding="async" />
-      <span>NXT<b>Duo</b></span>
+      <img src="/assets/nxtduo-icon-96.webp" alt="" width="48" height="48" decoding="async" />
+      <span class="brand-word">NXT<b>Duo</b></span>
+      <span class="brand-tag">App studio</span>
     </a>
     <div class="nav-right">
       <span class="counter is-empty" aria-hidden="true"><b id="counterNow"></b><span class="counter-name" id="counterName"></span></span>
@@ -182,9 +183,9 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
       <section class="panel p-hero" id="home" aria-labelledby="hero-title">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">NxtDuo · an app studio of two · for the world</p>
-            <h1 class="display" id="hero-title">${N} apps for <span class="serif">everyday</span> life.</h1>
-            <p class="lead">Spiritual chat, renewal reminders, a city guide, bedtime stories, games, a brushing coach and a private diary. Small, careful apps, made by two people who use them every day.</p>
+            <p class="eyebrow">NxtDuo · an independent studio of two</p>
+            <h1 class="display" id="hero-title">Apps that look after the people you <span class="serif">love.</span></h1>
+            <p class="lead">We build calm, honest apps for family life: reminders that keep you on time, bedtime stories in a parent&rsquo;s own voice, a brushing coach for the kids, a private place for your thoughts. Each one is made for our own family first, then shared with yours.</p>
             <div class="cta">
               <a class="btn primary" href="#${apps[0].slug}" data-goto>Start with ${esc(apps[0].name)} <i aria-hidden="true">→</i></a>
               <a class="btn ghost" href="#studio" data-goto>About the studio</a>
@@ -229,7 +230,7 @@ ${apps.map(appPanel).join("\n")}
       <!-- Contact -->
       <section class="panel p-contact" id="contact" aria-labelledby="contact-title">
         <div class="contact-inner">
-          <img class="contact-icon reveal" src="/assets/nxtduo-icon.webp" alt="" width="640" height="640" loading="lazy" decoding="async" />
+          <div class="emblem reveal" aria-hidden="true"><span class="emblem-ring"></span><span class="emblem-ring"></span><img src="/assets/nxtduo-icon.webp" alt="" width="640" height="640" loading="lazy" decoding="async" /><span class="emblem-floor"></span></div>
           <h2 class="display reveal" id="contact-title">Let&rsquo;s <span class="serif">talk.</span></h2>
           <p class="reveal">Feedback, early access, partnerships or just a hello. We read every message.</p>
           <a class="mail reveal" href="mailto:${EMAIL}">${EMAIL} <span aria-hidden="true">↗</span></a>
@@ -263,7 +264,7 @@ function topBar(a, current) {
   return `<a class="skip" href="#main">Skip to content</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="32" height="32" alt="" /><span>NXT<b>Duo</b></span><span class="sr-only">home</span></a>
+      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="40" height="40" alt="" /><span class="brand-word">NXT<b>Duo</b></span><span class="sr-only">home</span></a>
       <nav aria-label="${esc(a.name)}">
         <a class="crumb hide-sm" href="/${a.slug}/"${current === "app" ? ` aria-current="page"` : ""}><img src="${iconSm(a)}" alt="" width="24" height="24" />${esc(a.name)}</a>
         <a href="/${a.slug}/privacy/"${current === "privacy" ? ` aria-current="page"` : ""}>Privacy</a>
