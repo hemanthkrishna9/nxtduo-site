@@ -15,7 +15,7 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 const pad = (n) => String(n).padStart(2, "0");
 const icon = (a) => `/assets/apps/${a.slug}.webp`;
 const iconSm = (a) => `/assets/apps/${a.slug}-144.webp`;
-const og = (slug) => (existsSync(join(ROOT, `assets/og/${slug}.jpg`)) ? `${SITE}/assets/og/${slug}.jpg` : `${SITE}/assets/og-image.jpg`);
+const og = (slug) => (existsSync(join(ROOT, `assets/og/${slug}.jpg`)) ? `${SITE}/assets/og/${slug}.jpg` : `${SITE}/assets/og/home.jpg`);
 const tagClass = (a) => (a.status.kind === "live" ? "tag live" : "tag");
 const nameHtml = (a) => esc(a.name) + (a.alt ? ` <span class="alt" lang="${a.alt.lang}">${a.alt.text}</span>` : "");
 const ext = (l) => (l.external ? ` rel="noopener"` : "");
