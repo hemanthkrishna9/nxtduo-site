@@ -96,8 +96,8 @@
     <div class="policy-head">
       <a class="app-line" href="/publik/"><img src="/assets/apps/publik-144.webp" width="48" height="48" alt="" />Publik</a>
       <h1>Privacy Policy</h1>
-      <p class="intro">Publik is a website with no accounts. This policy explains the little it stores and the services it loads. Publik is made by NxtDuo, a two-person app studio in India.</p>
-      <p class="meta">Effective date: 11 October 2026 · Contact: <a href="mailto:support@nxtduo.com">support@nxtduo.com</a></p>
+      <p class="intro">Publik is a website with no accounts. This policy explains what it stores, including the photos and notes people post, and the services it uses. Publik is made by NxtDuo, a two-person app studio in India.</p>
+      <p class="meta">Effective date: 13 October 2026 · Contact: <a href="mailto:support@nxtduo.com">support@nxtduo.com</a></p>
     </div>
 
     <div class="content policy">
@@ -107,6 +107,7 @@
         <ul>
           <li>No account, no sign-in, no ads and no analytics.</li>
           <li>Reports and "I went here" answers are anonymous. We never store your IP address.</li>
+          <li>Photos and notes you post are public. An AI check looks at each one before it goes live.</li>
           <li>"Near me" uses your location only inside your browser. It is never sent to us.</li>
         </ul>
       </section>
@@ -116,14 +117,16 @@
         <p>Publik is a website, publik.nxtduo.com. You can use all of it without giving us anything. We only store something when you choose to tap one of these:</p>
         <ul>
           <li><b>"Under repair" reports.</b> The place, the kind of report and the time. Reports are deleted after 30 days.</li>
+          <li><b>Photos and notes.</b> The photo (made smaller on your phone, which also removes its hidden location and camera data), a small copy, your optional note, the place and the time. They are public and stay until they are removed. Photos that the check refuses are not saved, and their records are deleted after 30 days. If the check cannot run, the photo is saved but not shown, and the site owner looks at it. Photo reports are deleted after 30 days.</li>
           <li><b>"I went here" answers.</b> The place, the time and the optional answers you tap (for example how to get in, how it felt, and playground safety questions). These are kept for 365 days and then deleted. Other visitors see them only as totals.</li>
         </ul>
-        <p>To stop the same person sending the same report again and again, each report is stored with a scrambled code made from your IP address and a random value that changes every day. We delete each day's random value, after which the code cannot be turned back into an IP address or linked to your other days. We never store the IP address itself.</p>
+        <p>To stop the same person sending the same report again and again, each report is stored with a scrambled code made from your IP address and a random value that changes every day. We delete each day's random value, after which the code cannot be turned back into an IP address or linked to your other days. We never store the IP address itself. A photo or note is also stored with a random device code from your browser. After 24 hours we remove both codes from the photo record.</p>
       </section>
       
       <section class="block" id="what-stays-in-your-browser">
         <h2>What stays in your browser</h2>
         <ul>
+          <li>A random device code, used only to limit how many photos one browser can post in a day.</li>
           <li>Your view choice (list or map), and when you last tapped a report on a place, so you are not asked twice. These are kept in your browser's local storage and never sent to us.</li>
           <li>Your location, only if you tap "Near me" and allow it. It is used in your browser to sort places by distance and is never sent to our server.</li>
         </ul>
@@ -133,6 +136,9 @@
         <h2>Services the site uses</h2>
         <ul>
           <li><b>Cloudflare</b> hosts the site and the small database. As the host it sees your IP address when your browser connects. See <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.</li>
+          <li><b>Cloudflare Turnstile</b> runs a short check when you post or report a photo, to tell people from bots. See <a href="https://www.cloudflare.com/turnstile-privacy-policy/" rel="noopener">its privacy notice</a>.</li>
+          <li><b>Anthropic</b> runs the AI check (Claude) on each photo and note before it goes live. It receives the photo, the note and the place name, not your IP address. See <a href="https://www.anthropic.com/legal/privacy" rel="noopener">Anthropic's privacy policy</a>.</li>
+          <li><b>Telegram</b>: the site owner gets each new photo and note in a private Telegram chat, to review and remove them quickly. No IP address or device code is sent. A copy can stay in that private chat after a photo is removed from the site, until the owner deletes it.</li>
           <li><b>OpenStreetMap</b> provides the map pictures, so your browser asks its tile servers for them when you open the map.</li>
           <li><b>Google</b>: the place details show a Google Maps map, and the links for directions and photos open Google Maps. The page also loads its typefaces from Google Fonts. Google receives your IP address for these, under <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>.</li>
           <li><b>cdnjs</b> (run by Cloudflare) serves the map code.</li>
@@ -147,12 +153,12 @@
       
       <section class="block" id="children">
         <h2>Children</h2>
-        <p>Publik is a general guide for everyone, including parents looking for playgrounds. It collects no personal information, so it does not collect any from children.</p>
+        <p>Publik is a general guide for everyone, including parents looking for playgrounds. It asks for no personal information. The photo rules do not allow photos of children who can be recognised, and the AI check refuses them.</p>
       </section>
       
       <section class="block" id="your-choices">
         <h2>Your choices</h2>
-        <p>You can use Publik without tapping anything. You can clear the browser data for the site at any time. Because reports and answers are anonymous, we cannot find "your" reports, but if you think something you sent should be removed, write to us with the place and the time and we will look.</p>
+        <p>You can use Publik without tapping anything. You can clear the browser data for the site at any time. Because reports and answers are anonymous, we cannot find "your" reports, but if you think something you sent should be removed, write to us with the place and the time and we will look. To have a photo removed, tap Report this photo, or write to us with the place name and what the photo shows.</p>
       </section>
       
       <section class="block" id="changes-and-contact">

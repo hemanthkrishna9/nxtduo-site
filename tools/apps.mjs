@@ -49,7 +49,7 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>Use it now in your browser at <a href="https://ramana.nxtduo.com">ramana.nxtduo.com</a>. The Android and iPhone apps are in store review. It is free, with no paid tier; to keep it free, each device has a daily message limit.</p>`,
+        html: `<p>Use it now in your browser at <a href="https://ramana.nxtduo.com">ramana.nxtduo.com</a>. New to his teaching? Read <a href="https://ramana.nxtduo.com/who-am-i-nan-yar/">Who am I? (Nan Yar) explained</a> or <a href="https://ramana.nxtduo.com/faq/">the questions and answers</a>. The Android and iPhone apps are in store review. It is free, with no paid tier; to keep it free, each device has a daily message limit.</p>`,
       },
     ],
     faq: [
@@ -115,18 +115,18 @@ export const apps = [
     category: "City guide · Bengaluru",
     tagline: "Every park, lake and library in Bengaluru.",
     summary:
-      "A free guide to 1,801 public spaces in Bengaluru: parks, playgrounds, lakes, libraries and public toilets, with timings, directions, \"open now\" and \"near me\". Visitors can flag a place that is under repair, anonymously.",
+      "A free guide to about 1,880 public spaces in Bengaluru: parks, playgrounds, lakes, libraries and public toilets, with timings, directions, \"open now\" and \"near me\". Visitors can add photos and notes, and flag a place that is under repair.",
     status: { label: "Live", kind: "live" },
     statusNote: "Free on the web at publik.nxtduo.com.",
     chips: ["Web", "Works on phones", "Free", "No sign-in"],
     accent: "#f08db8",
     accentInk: "#1f5132",
     cta: { label: "Open Publik", href: "https://publik.nxtduo.com", external: true },
-    facts: { Status: "Live", Platform: "Web (phone and laptop)", Price: "Free", Places: "1,801 in Bengaluru" },
+    facts: { Status: "Live", Platform: "Web (phone and laptop)", Price: "Free", Places: "About 1,880 in Bengaluru" },
     seo: {
-      title: "Publik: parks, lakes, playgrounds and libraries in Bengaluru",
+      title: "Publik: Bengaluru Parks, Lakes and Libraries",
       description:
-        "Publik is a free guide to 1,801 public spaces in Bengaluru, with timings, directions, open now and near me. Parks, playgrounds, lakes, libraries and public toilets.",
+        "Publik is a free guide to about 1,880 public spaces in Bengaluru: parks, playgrounds, lakes, libraries and public toilets, with timings, directions and photos.",
       appCategory: "TravelApplication",
       os: "Web",
       free: true,
@@ -138,6 +138,7 @@ export const apps = [
 <li><b>Find a place</b><span>Search or filter parks, playgrounds, lakes, libraries and public toilets across Bengaluru.</span></li>
 <li><b>Open now, near me</b><span>See what is open right now and what is closest, on a list or a map.</span></li>
 <li><b>Before you go</b><span>Timings, directions, and short tips from people who went, including playground safety.</span></li>
+<li><b>Add a photo or a note</b><span>Share a photo or a short note about a place, so the next visitor knows what to expect.</span></li>
 <li><b>Flag a problem</b><span>Report a place that is under repair. No account, nothing about you is stored.</span></li>
 </ul>`,
       },
@@ -152,10 +153,11 @@ export const apps = [
     ],
     faq: [
       ["Is Publik free?", "Yes. It is a free website at publik.nxtduo.com, with no sign-in."],
+      ["How many places are in Publik?", "About 1,880 public spaces in Bengaluru: parks, playgrounds, lakes, libraries and public toilets."],
       ["Does it track my location?", "No. \"Near me\" uses your location only inside your browser to sort places. It is never sent to us."],
       ["A place is wrong. What do I do?", "Use the report buttons on the place, or write to support@nxtduo.com."],
     ],
-    privacy: { effective: "11 October 2026", intro: "Publik is a website with no accounts. This policy explains the little it stores and the services it loads." },
+    privacy: { effective: "13 October 2026", intro: "Publik is a website with no accounts. This policy explains what it stores, including the photos and notes people post, and the services it uses." },
   },
   {
     slug: "fablefox",
