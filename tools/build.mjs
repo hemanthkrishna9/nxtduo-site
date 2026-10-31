@@ -299,7 +299,7 @@ function appPage(a) {
     "@graph": [
       ORG,
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "NxtDuo", item: `${SITE}/` }, { "@type": "ListItem", position: 2, name: a.name, item: url }] },
-      { "@type": "SoftwareApplication", "@id": `${url}#app`, name: a.name, description: a.seo.description, image: `${SITE}${icon(a).replace(".webp", ".webp")}`, publisher: { "@id": `${SITE}/#organization` }, url, applicationCategory: a.seo.appCategory, operatingSystem: a.seo.os, ...(a.seo.free ? { isAccessibleForFree: true } : {}) },
+      { "@type": "SoftwareApplication", "@id": `${url}#app`, name: a.name, description: a.seo.description, image: `${SITE}${icon(a).replace(".webp", ".webp")}`, publisher: { "@id": `${SITE}/#organization` }, url, applicationCategory: a.seo.appCategory, operatingSystem: a.seo.os, ...(a.seo.download ? { downloadUrl: a.seo.download } : {}), ...(a.seo.free ? { isAccessibleForFree: true } : {}) },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: a.faq.map(([q, ans]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: ans } })) },
     ],
   };

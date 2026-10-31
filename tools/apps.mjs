@@ -67,13 +67,13 @@ export const apps = [
     tagline: "Never miss a renewal.",
     summary:
       "Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. Your data stays in India. No ads, no data selling.",
-    status: { label: "In review", kind: "review" },
-    statusNote: "The iPhone app is in App Store review; Android is in closed testing on Google Play.",
+    status: { label: "Live on iPhone", kind: "live" },
+    statusNote: "Free on the App Store. Android is in closed testing on Google Play.",
     chips: ["iPhone", "Android", "Free plan"],
     accent: "#8b72ff",
     accentInk: "#5b3fe0",
-    cta: { label: "Visit nxtdue.com", href: "https://www.nxtdue.com", external: true },
-    facts: { Status: "In store review", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
+    cta: { label: "Get it on the App Store", href: "https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092", external: true },
+    facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",
       description:
@@ -81,6 +81,7 @@ export const apps = [
       appCategory: "ProductivityApplication",
       os: "iOS, Android",
       free: true,
+      download: "https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092",
     },
     sections: [
       {
@@ -98,7 +99,7 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>The iPhone app is in App Store review and the Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>`,
+        html: `<p>Get the iPhone app free on the <a href="https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>`,
       },
     ],
     faq: [
