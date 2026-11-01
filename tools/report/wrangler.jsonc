@@ -1,0 +1,13 @@
+{
+  // Daily Telegram traffic report. Deploy from this folder: npx wrangler deploy
+  "name": "nxtduo-report",
+  "main": "index.mjs",
+  "compatibility_date": "2026-09-01",
+  // No web address at all: the Worker only runs on the schedule below.
+  "workers_dev": false,
+  "preview_urls": false,
+  "triggers": {
+    // 00:30 UTC = 6:00 IST, every day
+    "crons": ["30 0 * * *"]
+  }
+}
