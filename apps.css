@@ -143,6 +143,12 @@ h1 .alt { font-size: .42em; font-weight: 600; letter-spacing: 0; color: var(--ac
 .foot { margin-top: 40px; padding: 24px 0 36px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
 .foot .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
 .foot a { color: var(--muted); }
+.social { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.float-social { position: fixed; right: 12px; bottom: 16px; z-index: 6; flex-direction: column; }
+.float-social a { box-shadow: 0 6px 16px rgba(15, 76, 69, .14); }
+.social a { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px; color: var(--deep, #0f4c45); background: #fff; border: 1px solid var(--line); transition: transform .25s var(--ease), background .25s, color .25s; }
+.social a:hover, .social a:focus-visible { transform: translateY(-2px); background: var(--accent-ink); color: #fff; }
+@media (max-width: 760px) { .float-social { right: 8px; gap: 6px; } .float-social a { width: 34px; height: 34px; } }
 
 [lang="te"], [lang="kn"], [lang="hi"] { font-weight: 500; }
 

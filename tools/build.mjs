@@ -21,6 +21,9 @@ const tagClass = (a) => (a.status.kind === "live" ? "tag live" : "tag");
 const nameHtml = (a) => esc(a.name) + (a.alt ? ` <span class="alt" lang="${a.alt.lang}">${a.alt.text}</span>` : "");
 const ext = (l) => (l.external ? ` rel="noopener"` : "");
 const arrow = (l) => (l.external ? "↗" : "→");
+const socialLinks = (cls, label = "NxtDuo on social media") => `<ul class="social ${cls}" aria-label="${label}">
+${SOCIAL.map((s) => `  <li><a href="${esc(s.href)}" rel="noopener me" target="_blank" title="NxtDuo on ${esc(s.name)}"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="${socialIcons[s.icon]}"/></svg><span class="sr-only">NxtDuo on ${esc(s.name)}</span></a></li>`).join("\n")}
+</ul>`;
 
 function write(rel, html) {
   const file = join(ROOT, rel);
@@ -176,6 +179,7 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
     <span class="dock-sep" aria-hidden="true"></span>
     <a href="#contact" data-goto><span class="dock-mail" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span class="dock-tip">Contact</span><span class="sr-only">Contact</span></a>
   </nav>
+  ${socialLinks("float-social")}
 
   <main class="track-wrap" id="trackWrap">
     <div class="track" id="track">
@@ -207,9 +211,6 @@ ${apps.map((a) => `                  <li><a href="#${a.slug}" data-goto><img src
             </div>
           </div>
         </div>
-        <ul class="hero-social" aria-label="NxtDuo on social media">
-${SOCIAL.map((s) => `          <li><a href="${esc(s.href)}" rel="noopener me" target="_blank" title="NxtDuo on ${esc(s.name)}"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="${socialIcons[s.icon]}"/></svg><span class="sr-only">NxtDuo on ${esc(s.name)}</span></a></li>`).join("\n")}
-        </ul>
       </section>
 ${apps.map(appPanel).join("\n")}
 
@@ -293,7 +294,8 @@ function foot(a) {
       <span>&copy; 2026 NxtDuo &middot; A two-person app studio, making apps for the world</span>
       <span><a href="/${a.slug}/privacy/">${esc(a.name)} privacy policy</a> &middot; <a href="mailto:${EMAIL}">${EMAIL}</a> &middot; <a href="/">All apps</a></span>
     </div>
-  </footer>`;
+  </footer>
+  ${socialLinks("float-social")}`;
 }
 
 function appPage(a) {

@@ -203,9 +203,10 @@ html.h .panel {
 @keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
 
 /* Phone home screen with every app icon */
-.hero-social { position: absolute; right: var(--gutter); bottom: 22px; z-index: 2; display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; }
-.hero-social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: var(--deep); background: rgba(255, 255, 255, .72); border: 1px solid var(--line); box-shadow: 0 6px 16px rgba(15, 76, 69, .12); transition: transform .3s var(--ease), background .3s, color .3s; }
-.hero-social a:hover, .hero-social a:focus-visible { transform: translateY(-3px); background: var(--deep); color: #fff; }
+.social { display: flex; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.float-social { position: fixed; right: 12px; bottom: 22px; z-index: 49; flex-direction: column; }
+.social a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; color: var(--deep); background: rgba(255, 255, 255, .72); border: 1px solid var(--line); box-shadow: 0 6px 16px rgba(15, 76, 69, .12); transition: transform .3s var(--ease), background .3s, color .3s; }
+.social a:hover, .social a:focus-visible { transform: translateY(-3px); background: var(--deep); color: #fff; }
 .hero-phone-wrap { display: grid; place-items: center; perspective: 1400px; }
 .phone {
   position: relative; width: min(340px, 78vw); aspect-ratio: 9 / 18.5;
@@ -369,7 +370,8 @@ html.h .p-contact .foot { margin-top: 28px; }
   .panel { padding-top: calc(var(--nav-h) + 20px); padding-bottom: 56px; }
   .p-hero { padding-bottom: 40px; }
   .hero-phone-wrap { margin-top: 8px; }
-  .hero-social { position: static; flex-direction: row; justify-content: center; margin-top: 28px; }
+  .float-social { right: 8px; bottom: calc(var(--dock-h) + 8px); gap: 6px; }
+  .float-social a { width: 36px; height: 36px; }
   .phone { transform: none; }
   .app-visual { width: min(230px, 60vw); }
   .app-icon, .app-icon-shine { width: 62%; }
