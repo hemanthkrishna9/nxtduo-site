@@ -5,7 +5,8 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { apps, SITE, EMAIL } from "./apps.mjs";
+import { apps, SITE, EMAIL, SOCIAL } from "./apps.mjs";
+import { socialIcons } from "./social-icons.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -68,7 +69,7 @@ function meta({ title, description, url, image, imageAlt, noindex = false }) {
   <meta name="twitter:image" content="${image}" />`;
 }
 
-const ORG = { "@type": "Organization", "@id": `${SITE}/#organization`, name: "NxtDuo", url: `${SITE}/`, logo: `${SITE}/assets/nxtduo-icon-512.png`, email: EMAIL };
+const ORG = { "@type": "Organization", "@id": `${SITE}/#organization`, name: "NxtDuo", url: `${SITE}/`, logo: `${SITE}/assets/nxtduo-icon-512.png`, email: EMAIL, sameAs: SOCIAL.map((s) => s.href) };
 const ld = (obj) => `<script type="application/ld+json">\n${JSON.stringify(obj, null, 1)}\n  </script>`;
 
 /* ==========================================================================
@@ -206,6 +207,9 @@ ${apps.map((a) => `                  <li><a href="#${a.slug}" data-goto><img src
             </div>
           </div>
         </div>
+        <ul class="hero-social" aria-label="NxtDuo on social media">
+${SOCIAL.map((s) => `          <li><a href="${esc(s.href)}" rel="noopener me" target="_blank" title="NxtDuo on ${esc(s.name)}"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="${socialIcons[s.icon]}"/></svg><span class="sr-only">NxtDuo on ${esc(s.name)}</span></a></li>`).join("\n")}
+        </ul>
       </section>
 ${apps.map(appPanel).join("\n")}
 

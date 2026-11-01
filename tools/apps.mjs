@@ -9,6 +9,16 @@
 export const SITE = "https://nxtduo.com";
 export const EMAIL = "support@nxtduo.com";
 
+// Company profiles, shown on the home page and listed as sameAs for search engines.
+// icon: a key in tools/social-icons.mjs
+export const SOCIAL = [
+  { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/nxtduoworld" },
+  { name: "Facebook", icon: "facebook", href: "https://www.facebook.com/profile.php?id=61595713337787" },
+  { name: "X", icon: "x", href: "https://x.com/NxtDuo" },
+  { name: "YouTube", icon: "youtube", href: "https://www.youtube.com/@nxtduoyt" },
+  { name: "Reddit", icon: "reddit", href: "https://www.reddit.com/user/nxtduoworld/" },
+];
+
 const mail = (subject) => `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
 
 export const apps = [
