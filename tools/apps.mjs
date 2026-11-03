@@ -82,7 +82,7 @@ export const apps = [
     chips: ["iPhone", "Android", "Free plan"],
     accent: "#8b72ff",
     accentInk: "#5b3fe0",
-    cta: { label: "Get it on the App Store", href: "https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092", external: true },
+    cta: { label: "Get it on the App Store", href: "/go/nxtdue", external: true },
     facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",
@@ -109,7 +109,7 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>Get the iPhone app free on the <a href="https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>`,
+        html: `<p>Get the iPhone app free on the <a href="/go/nxtdue">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>`,
       },
     ],
     faq: [

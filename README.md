@@ -11,7 +11,8 @@ policy here; these are the links used in the stores and on social media.
   a pinned horizontal track that snaps to each app on wide screens, a vertical
   page below 900px)
 - `apps.css` — app and privacy pages
-- `worker.js` — www → root redirect and old-path redirects, then static files
+- `worker.js` — www → root redirect, old-path redirects and the counted `/go/`
+  store links, then static files
 - `assets/apps/` — app icons; `assets/og/` — social preview cards
 
 ## Run locally

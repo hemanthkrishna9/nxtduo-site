@@ -5,6 +5,7 @@
 // Most scanners fetch only the page, often posing as a phone, so a browser-like user agent proves nothing.
 // A returning visitor with CSS and JS still cached is missed, so the count is a floor.
 // Only pages that loaded (status 200) count, so scans for /wp-admin/ and the like do not.
+// Button clicks are the /go/ redirects in worker.js, held to the same test as people.
 
 const IST_MS = (5 * 60 + 30) * 60 * 1000;
 const SITES = [
@@ -12,6 +13,8 @@ const SITES = [
   { host: "publik.nxtduo.com", name: "Publik", url: "https://publik.nxtduo.com/" },
   { host: "ramana.nxtduo.com", name: "Talk With Swamy", url: "https://ramana.nxtduo.com/" },
 ];
+// The /go/ redirects in worker.js worth a line in the report.
+const BUTTONS = [["/go/nxtdue", "NxtDue App Store button"]];
 // Successful API calls worth a line in the report, per host.
 const ACTIONS = {
   "publik.nxtduo.com": [["/api/reports", "place cards opened"], ["/api/report", "reports sent"], ["/api/visit", "“I went here”"]],
@@ -62,6 +65,8 @@ export async function buildReport(token, now = Date.now()) {
     assetsP: ${assets("p", "s")}
     api: httpRequestsAdaptiveGroups(limit:200, filter:{${f("s", "u")}, clientRequestPath_like:"/api/%", edgeResponseStatus:200}){
       count dimensions{ clientRequestHTTPHost clientRequestPath } }
+    go: httpRequestsAdaptiveGroups(limit:1000, filter:{${f("s", "u")}, clientRequestPath_like:"/go/%", edgeResponseStatus:302}){
+      count dimensions{ clientRequestPath clientIP userAgent } }
   }}}`;
   const vars = { z: zone, p: new Date(prev).toISOString(), s: new Date(start).toISOString(), u: new Date(end).toISOString() };
   const z = (await cf(token, "/graphql", { query: q, variables: vars })).data.viewer.zones[0];
@@ -98,6 +103,12 @@ export async function buildReport(token, now = Date.now()) {
     actions.set(k, (actions.get(k) || 0) + r.count);
   }
 
+  const browsersY = new Set(z.assetsY.map((r) => key(r.dimensions)));
+  const clicks = (path) => {
+    const rows = z.go.filter((r) => r.dimensions.clientRequestPath === path && !isBot(r.dimensions.userAgent) && browsersY.has(key(r.dimensions)));
+    return { n: rows.reduce((sum, r) => sum + r.count, 0), people: new Set(rows.map((r) => person(r.dimensions.clientIP))).size };
+  };
+
   const trend = (a, b) => (b === 0 ? (a ? " (new)" : "") : ` (${a >= b ? "▲" : "▼"} ${Math.round((Math.abs(a - b) / b) * 100)}%)`);
   const label = new Date(start + IST_MS).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
   const lines = [`📊 <b>NxtDuo daily report</b> · ${label}`, `👥 <b>${yest.all.size}</b> people across all sites${trend(yest.all.size, before.all.size)}`, ""];
@@ -108,6 +119,11 @@ export async function buildReport(token, now = Date.now()) {
     if (top.length) lines.push(`   top: ${top.map(([path, n]) => `${esc(decodeURIComponent(path))} (${n})`).join(", ")}`);
     const acts = (ACTIONS[site.host] || []).map(([path, what]) => [actions.get(site.host + path) || 0, what]).filter(([n]) => n);
     if (acts.length) lines.push(`   ${acts.map(([n, what]) => `${n} ${what}`).join(" · ")}`);
+  }
+  lines.push("");
+  for (const [path, what] of BUTTONS) {
+    const { n, people } = clicks(path);
+    lines.push(`📲 ${what}: ${n} ${n === 1 ? "click" : "clicks"} by ${people} ${people === 1 ? "person" : "people"}`);
   }
   const topC = [...yest.countries].map(([c, ips]) => [c, ips.size]).sort((a, b) => b[1] - a[1]).slice(0, 5);
   if (topC.length) lines.push("", `🌍 ${topC.map(([c, n]) => `${esc(c || "?")} ${n}`).join(" · ")}`);

@@ -9,12 +9,22 @@ const MOVED = {
   '/arunachala/privacy/': '/talk-with-swamy/privacy/',
 };
 
+// Store buttons pass through here so the daily report can count the clicks.
+// 302 and no-store: a browser must ask every time, or repeat clicks go uncounted.
+const OUTBOUND = {
+  '/go/nxtdue': 'https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092',
+};
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.hostname === 'www.nxtduo.com') {
       url.hostname = 'nxtduo.com';
       return Response.redirect(url.toString(), 301);
+    }
+    const out = OUTBOUND[url.pathname];
+    if (out) {
+      return new Response(null, { status: 302, headers: { Location: out, 'Cache-Control': 'no-store', 'X-Robots-Tag': 'noindex' } });
     }
     const to = MOVED[url.pathname];
     if (to) {
