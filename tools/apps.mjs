@@ -15,7 +15,7 @@ export const SOCIAL = [
   { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/nxtduoworld" },
   { name: "Facebook", icon: "facebook", href: "https://www.facebook.com/profile.php?id=61595713337787" },
   { name: "X", icon: "x", href: "https://x.com/NxtDuo" },
-  { name: "YouTube", icon: "youtube", href: "https://www.youtube.com/@nxtduoyt" },
+  { name: "YouTube", icon: "youtube", href: "https://www.youtube.com/@nxtduoworld" },
   { name: "Reddit", icon: "reddit", href: "https://www.reddit.com/user/nxtduoworld/" },
 ];
 
