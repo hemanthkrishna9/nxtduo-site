@@ -78,26 +78,8 @@ const ld = (obj) => `<script type="application/ld+json">\n${JSON.stringify(obj, 
 /* ==========================================================================
    Home page
    ========================================================================== */
-const BOT = `<div class="cursor" id="cursor" aria-hidden="true">
-    <svg class="bot" viewBox="0 0 64 64" width="54" height="54">
-      <defs>
-        <linearGradient id="botBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fe0b0" /><stop offset="1" stop-color="#1f8f7c" /></linearGradient>
-        <linearGradient id="botFace" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f3d37" /><stop offset="1" stop-color="#0b2a26" /></linearGradient>
-      </defs>
-      <line x1="32" y1="14" x2="32" y2="7" stroke="#2a9d8f" stroke-width="3" stroke-linecap="round" />
-      <circle class="bot-light" cx="32" cy="6" r="4" fill="#3fe0b0" />
-      <rect x="6" y="28" width="6" height="14" rx="3" fill="#0f4c45" />
-      <rect x="52" y="28" width="6" height="14" rx="3" fill="#0f4c45" />
-      <rect x="11" y="14" width="42" height="40" rx="12" fill="url(#botBody)" />
-      <rect x="16" y="20" width="32" height="28" rx="8" fill="url(#botFace)" />
-      <g class="bot-eyes">
-        <circle cx="25" cy="33" r="4.2" fill="#3fe0b0" /><circle class="bot-pupil" cx="25" cy="33" r="1.8" fill="#071412" />
-        <circle cx="39" cy="33" r="4.2" fill="#3fe0b0" /><circle class="bot-pupil" cx="39" cy="33" r="1.8" fill="#071412" />
-      </g>
-      <g class="bot-happy" fill="none" stroke="#3fe0b0" stroke-width="3" stroke-linecap="round"><path d="M21 34 q4 -5 8 0" /><path d="M35 34 q4 -5 8 0" /></g>
-      <path class="bot-mouth" d="M27 41 q5 3 10 0" fill="none" stroke="#3fe0b0" stroke-width="2.2" stroke-linecap="round" />
-    </svg>
-  </div>`;
+/* Nio, the studio mascot, trails the pointer on desktop */
+const BOT = `<div class="cursor" id="cursor" aria-hidden="true"><img class="bot" src="/assets/nio-160.webp" alt="" width="58" height="83" decoding="async" /></div>`;
 
 function appPanel(a, i) {
   const next = apps[i + 1];
@@ -199,6 +181,7 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
           </div>
 
           <div class="hero-phone-wrap">
+            <div class="phone-stage">
             <div class="phone">
               <div class="screen">
                 <div class="status" aria-hidden="true"><span>9:41</span><span class="island"></span><span class="status-icons">●●● ▮</span></div>
@@ -208,6 +191,8 @@ ${apps.map((a) => `                  <li><a href="#${a.slug}" data-goto><img src
                 </ul>
                 <div class="screen-dock" aria-hidden="true"><img src="/assets/nxtduo-icon-96.webp" alt="" width="34" height="34" />NxtDuo</div>
               </div>
+            </div>
+            <img class="nio" src="/assets/nio.webp" alt="Nio, the NxtDuo mascot, waving hello" width="520" height="742" decoding="async" />
             </div>
           </div>
         </div>
@@ -222,6 +207,7 @@ ${apps.map(appPanel).join("\n")}
             <h2 class="display reveal" id="studio-title">Two people. One <span class="serif">studio.</span></h2>
             <p class="lead reveal">NxtDuo is a small, independent studio making apps for families everywhere. We build things we want for our own family first: a reminder app because we kept missing renewals, bedtime stories for when we are away, a brushing coach for the kids.</p>
             <p class="quote reveal">With great power comes great responsibility.</p>
+            <p class="meet-nio reveal"><img src="/assets/nio-160.webp" alt="" width="160" height="229" loading="lazy" decoding="async" /><span><b>Meet Nio.</b> Our mascot and the face of NxtDuo. Look out for Nio in our videos and around this site.</span></p>
           </div>
           <ul class="values">
             <li class="reveal"><i>01</i><div><b>Kind by default.</b><span>No dark patterns, no guilt trips, no selling your data.</span></div></li>

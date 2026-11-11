@@ -20,6 +20,7 @@ Static showcase site for NxtDuo, the user's two-person app studio. No framework 
 - Every app has `/<slug>/` and `/<slug>/privacy/`. These URLs go into the App Store, Google Play and social posts, so never change a slug without adding a 301 to `MOVED` in `worker.js`. `/arunachala/*` (Talk With Swamy's old name) already redirects.
 - Home: hero with a phone home screen of all app icons, one panel per app, studio, contact, plus a fixed dock with every app icon. Use app icons, not screenshots.
 - Horizontal scroll on wide screens: GSAP ScrollTrigger pin + snap, no Lenis; GSAP is served from `vendor/` so a CDN outage cannot break the page. Entrances are scrubbed to scroll position so they cannot get stuck. Narrow screens, and pages where GSAP fails to load, fall back to a vertical page.
+- Nio is the studio mascot (added 2026-11-11): `assets/nio.webp` and `assets/nio-160.webp`, cut out of the owner's render. Nio waves beside the hero phone, follows the pointer on desktop (replaced the old SVG bot cursor) and has a "Meet Nio" card in the studio panel. Nio must not cover app icons or labels on the hero phone.
 - Placeholder icons drawn by Claude, to replace when real ones exist: Publik, Chai Empire, Thodu.
 - Keep status claims honest (live / in review / testing / prototype / concept). Do not add invented stats or founder biography. Privacy pages must match what each app really does.
 - Also not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.

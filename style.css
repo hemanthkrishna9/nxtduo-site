@@ -72,20 +72,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .skip:focus { top: 12px; }
 
 /* --------------------------------------------------------------------------
-   Cursor: a small AI bot trails the pointer (kept from the first site)
+   Cursor: Nio, the studio mascot, trails the pointer
    -------------------------------------------------------------------------- */
 .cursor { position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none; opacity: 0; transition: opacity .3s; }
 .cursor.is-on { opacity: 1; }
-.bot { position: absolute; left: 16px; top: 18px; transform-origin: 50% 60%; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, .3)); transition: transform .35s var(--ease); }
-.bot-light { animation: botlight 2.4s ease-in-out infinite; transform-origin: 32px 6px; }
-@keyframes botlight { 0%, 100% { opacity: .55; transform: scale(.85); } 50% { opacity: 1; transform: scale(1.15); } }
-.bot-eyes { transform-origin: 32px 33px; animation: blink 4.6s infinite; }
-@keyframes blink { 0%, 94%, 100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
-.bot-pupil { transition: transform .15s ease-out; }
-.bot-happy { opacity: 0; transition: opacity .15s; }
+.bot { position: absolute; left: 14px; top: 16px; width: 58px; height: auto; max-width: none; transform-origin: 50% 60%; filter: drop-shadow(0 8px 12px rgba(11, 42, 38, .28)); transition: transform .35s var(--ease); }
 .cursor.is-hover .bot { transform: scale(1.2) rotate(-8deg); }
-.cursor.is-hover .bot-eyes { opacity: 0; }
-.cursor.is-hover .bot-happy { opacity: 1; }
 .cursor.is-down .bot { transform: scale(.9); }
 @media (hover: none), (pointer: coarse) { .cursor { display: none; } }
 
@@ -214,6 +206,9 @@ html.h .panel {
   box-shadow: 0 0 0 2px #26403b inset, 0 50px 90px rgba(11, 42, 38, .3), 0 18px 30px rgba(11, 42, 38, .18);
   transform: rotateY(-14deg) rotateX(4deg) rotateZ(1deg);
 }
+.phone-stage { position: relative; display: grid; place-items: center; perspective: 1400px; }
+/* Nio stands at the foot of the phone and waves */
+.nio { position: absolute; left: -42%; bottom: -6%; width: auto; height: 40%; max-width: none; pointer-events: none; filter: drop-shadow(0 18px 20px rgba(11, 42, 38, .22)); }
 html.h .phone { width: auto; height: min(640px, calc(100svh - var(--nav-h) - var(--dock-h) - 60px)); }
 .screen {
   position: relative; height: 100%; border-radius: 38px; overflow: hidden;
@@ -304,6 +299,9 @@ html.h .phone { width: auto; height: min(640px, calc(100svh - var(--nav-h) - var
 .values b { display: block; font-size: 17px; }
 .values span { color: var(--muted); font-size: 15px; }
 .quote { margin: 26px 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2vw, 30px); color: var(--deep); }
+.meet-nio { margin: 22px 0 0; display: flex; align-items: center; gap: 14px; max-width: 460px; padding: 10px 18px 10px 12px; border-radius: 18px; background: #fff; border: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+.meet-nio img { width: 46px; height: auto; flex: none; }
+.meet-nio b { color: var(--ink); }
 
 /* ---- Contact + footer -------------------------------------------------------- */
 .p-contact { background: radial-gradient(60% 60% at 50% 35%, #d4f3e8, rgba(212, 243, 232, 0) 70%), var(--bg); text-align: center; }
@@ -354,6 +352,7 @@ html.h .p-contact .foot { margin-top: 28px; }
   .app-name { font-size: clamp(40px, 4.6vw, 70px); }
   .hero-copy .display { font-size: clamp(40px, 5.2vw, 78px); }
   .up-next { display: none; }
+  .nio { left: -54%; height: 36%; }
 }
 
 /* --------------------------------------------------------------------------
@@ -373,6 +372,7 @@ html.h .p-contact .foot { margin-top: 28px; }
   .float-social { right: 8px; bottom: calc(var(--dock-h) + 8px); gap: 6px; }
   .float-social a { width: 36px; height: 36px; }
   .phone { transform: none; }
+  .nio { left: -11%; bottom: -5%; height: 29%; }
   .app-visual { width: min(230px, 60vw); }
   .app-icon, .app-icon-shine { width: 62%; }
   .app-name { margin-top: 12px; }
@@ -395,5 +395,5 @@ html.js:not(.h) .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html.js .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-  .hero-note .arrow, .bot-light, .bot-eyes { animation: none; }
+  .hero-note .arrow { animation: none; }
 }
