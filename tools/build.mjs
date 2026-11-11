@@ -162,7 +162,7 @@ function home() {
   <header class="nav" id="nav">
     <a class="brand" href="#home" data-goto aria-label="NxtDuo home">
       <img src="/assets/nxtduo-icon-96.webp" alt="" width="48" height="48" decoding="async" />
-      <span class="brand-word">NXT<b>Duo</b></span>
+      <span class="brand-word">Nxt<b>Duo</b></span>
       <span class="brand-tag">App studio</span>
     </a>
     <div class="nav-right">
@@ -269,7 +269,7 @@ function topBar(a, current) {
   return `<a class="skip" href="#main">Skip to content</a>
   <header class="top">
     <div class="wrap">
-      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="40" height="40" alt="" /><span class="brand-word">NXT<b>Duo</b></span><span class="sr-only">home</span></a>
+      <a class="brand" href="/"><img src="/assets/nxtduo-icon-96.webp" width="40" height="40" alt="" /><span class="brand-word">Nxt<b>Duo</b></span><span class="sr-only">home</span></a>
       <nav aria-label="${esc(a.name)}">
         <a class="crumb hide-sm" href="/${a.slug}/"${current === "app" ? ` aria-current="page"` : ""}><img src="${iconSm(a)}" alt="" width="24" height="24" />${esc(a.name)}</a>
         <a href="/${a.slug}/privacy/"${current === "privacy" ? ` aria-current="page"` : ""}>Privacy</a>

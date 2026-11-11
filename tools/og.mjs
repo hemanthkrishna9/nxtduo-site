@@ -33,7 +33,7 @@ p{margin:16px 0 0;font-family:"Instrument Serif",serif;font-style:italic;font-si
 </style>
 <img class="icon" src="${asset(`assets/apps/${a.slug}.webp`)}">
 <div class="copy"><span class="tag">${esc(a.status.label)}</span><h1>${esc(a.name)}</h1><p>${esc(a.tagline)}</p></div>
-<div class="brand"><img src="${asset("assets/nxtduo-icon-96.webp")}"><span>NXT<b>Duo</b></span></div>
+<div class="brand"><img src="${asset("assets/nxtduo-icon-96.webp")}"><span>Nxt<b>Duo</b></span></div>
 <div class="url">nxtduo.com/${a.slug}</div>`;
 }
 
@@ -48,7 +48,7 @@ h1 em{font-family:"Instrument Serif",serif;font-weight:400;color:#13866f}
 </style>
 <h1>Apps that look after the people you <em>love.</em></h1>
 <div class="grid">${icons}</div>
-<div class="brand"><img src="${asset("assets/nxtduo-icon-96.webp")}"><span>NXT<b>Duo</b></span></div>
+<div class="brand"><img src="${asset("assets/nxtduo-icon-96.webp")}"><span>Nxt<b>Duo</b></span></div>
 <div class="url" style="left:64px;right:auto;bottom:118px">nxtduo.com</div>`;
 }
 
