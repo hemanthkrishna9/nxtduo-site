@@ -72,14 +72,66 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .skip:focus { top: 12px; }
 
 /* --------------------------------------------------------------------------
-   Cursor: Nio, the studio mascot, trails the pointer
+   Nio, the studio mascot, plays on the right of the hero, studio and contact
+   panels. The box is placed per panel; .nio-move and the image each loop one
+   animation with a different period, so the motion keeps changing.
    -------------------------------------------------------------------------- */
-.cursor { position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none; opacity: 0; transition: opacity .3s; }
-.cursor.is-on { opacity: 1; }
-.bot { position: absolute; left: 14px; top: 16px; width: 58px; height: auto; max-width: none; transform-origin: 50% 60%; filter: drop-shadow(0 8px 12px rgba(11, 42, 38, .28)); transition: transform .35s var(--ease); }
-.cursor.is-hover .bot { transform: scale(1.2) rotate(-8deg); }
-.cursor.is-down .bot { transform: scale(.9); }
-@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+.nio-play { position: absolute; z-index: 2; pointer-events: none; }
+.nio-move { display: block; height: 100%; transform-origin: 50% 100%; }
+.nio-play img { display: block; height: 100%; width: auto; max-width: none; transform-origin: 50% 100%; filter: drop-shadow(0 14px 16px rgba(11, 42, 38, .22)); animation: nio-wave 1.1s ease-in-out infinite alternate; }
+@keyframes nio-wave { from { transform: rotate(-5deg); } to { transform: rotate(6deg); } }
+
+/* hero: crouch, jump, land with a squash */
+.nio-hero { right: -26%; bottom: -9%; height: 34%; }
+.nio-hero .nio-move { animation: nio-jump 4.6s cubic-bezier(.3, 0, .3, 1) infinite 2.2s; }
+@keyframes nio-jump {
+  0%, 50%, 100% { transform: translateY(0) scale(1, 1); }
+  57% { transform: translateY(0) scale(1.12, .84); }
+  68% { transform: translateY(-18%) scale(.93, 1.09); }
+  78% { transform: translateY(0) scale(1.1, .88); }
+  85% { transform: translateY(-7%) scale(.98, 1.03); }
+  92% { transform: translateY(0) scale(1, 1); }
+}
+
+/* studio: hops along the top of the cards, somersaults, hops back */
+.values-wrap { position: relative; }
+.nio-studio { right: 22px; bottom: calc(100% - 7px); height: clamp(92px, 15vh, 150px); }
+.nio-studio .nio-move { transform-origin: 50% 55%; animation: nio-walk 9s ease-in-out infinite; }
+.nio-studio img { animation-duration: .45s; }
+@keyframes nio-walk {
+  0%, 6% { transform: translate(0, 0) rotate(0deg); }
+  11% { transform: translate(-35%, -16%) rotate(0deg); }
+  16% { transform: translate(-70%, 0) rotate(0deg); }
+  21% { transform: translate(-105%, -16%) rotate(0deg); }
+  26% { transform: translate(-140%, 0) rotate(0deg); }
+  31% { transform: translate(-175%, -16%) rotate(0deg); }
+  36%, 42% { transform: translate(-210%, 0) rotate(0deg); }
+  50% { transform: translate(-210%, -36%) rotate(-200deg); }
+  58%, 66% { transform: translate(-210%, 0) rotate(-360deg); }
+  71% { transform: translate(-175%, -16%) rotate(-360deg); }
+  76% { transform: translate(-140%, 0) rotate(-360deg); }
+  81% { transform: translate(-105%, -16%) rotate(-360deg); }
+  86% { transform: translate(-70%, 0) rotate(-360deg); }
+  91% { transform: translate(-35%, -16%) rotate(-360deg); }
+  96%, 100% { transform: translate(0, 0) rotate(-360deg); }
+}
+
+/* contact: side-to-side shuffle, then a spinning jump */
+.emblem-row { position: relative; display: grid; justify-items: center; }
+.nio-contact { left: calc(100% + clamp(8px, 5vw, 96px)); bottom: 0; height: 104%; }
+.nio-contact .nio-move { transform-origin: 50% 55%; animation: nio-dance 6.4s ease-in-out infinite; }
+@keyframes nio-dance {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  7% { transform: translate(-14%, -9%) rotate(-12deg); }
+  14% { transform: translate(0, 0) rotate(0deg); }
+  21% { transform: translate(14%, -9%) rotate(12deg); }
+  28% { transform: translate(0, 0) rotate(0deg); }
+  35% { transform: translate(-14%, -9%) rotate(-12deg); }
+  42%, 50% { transform: translate(0, 0) rotate(0deg); }
+  62% { transform: translate(0, -46%) rotate(190deg); }
+  74%, 99.99% { transform: translate(0, 0) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) { .nio-play img, .nio-move { animation: none !important; } }
 
 /* --------------------------------------------------------------------------
    Header
@@ -207,8 +259,6 @@ html.h .panel {
   transform: rotateY(-14deg) rotateX(4deg) rotateZ(1deg);
 }
 .phone-stage { position: relative; display: grid; place-items: center; perspective: 1400px; }
-/* Nio stands at the foot of the phone and waves */
-.nio { position: absolute; left: -42%; bottom: -6%; width: auto; height: 40%; max-width: none; pointer-events: none; filter: drop-shadow(0 18px 20px rgba(11, 42, 38, .22)); }
 html.h .phone { width: auto; height: min(640px, calc(100svh - var(--nav-h) - var(--dock-h) - 60px)); }
 .screen {
   position: relative; height: 100%; border-radius: 38px; overflow: hidden;
@@ -352,7 +402,8 @@ html.h .p-contact .foot { margin-top: 28px; }
   .app-name { font-size: clamp(40px, 4.6vw, 70px); }
   .hero-copy .display { font-size: clamp(40px, 5.2vw, 78px); }
   .up-next { display: none; }
-  .nio { left: -54%; height: 36%; }
+  .nio-hero { right: -30%; bottom: -9%; height: 32%; }
+  .nio-studio { right: 150px; height: 66px; }
 }
 
 /* --------------------------------------------------------------------------
@@ -372,7 +423,10 @@ html.h .p-contact .foot { margin-top: 28px; }
   .float-social { right: 8px; bottom: calc(var(--dock-h) + 8px); gap: 6px; }
   .float-social a { width: 36px; height: 36px; }
   .phone { transform: none; }
-  .nio { left: -11%; bottom: -5%; height: 29%; }
+  .nio-hero { right: 1%; bottom: -5%; height: 28%; }
+  .values-wrap { margin-top: 112px; }
+  .nio-studio { right: 14px; height: 104px; }
+  .nio-contact { left: calc(100% + 6px); height: 78%; }
   .app-visual { width: min(230px, 60vw); }
   .app-icon, .app-icon-shine { width: 62%; }
   .app-name { margin-top: 12px; }

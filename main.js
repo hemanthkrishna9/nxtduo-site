@@ -211,48 +211,26 @@
     const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
     tl.from(".hero-copy > *", { y: 40, opacity: 0, duration: 1, stagger: 0.08 }, 0)
       .from(".phone", { y: 80, rotateY: -40, opacity: 0, duration: 1.4 }, 0.1)
-      .from(".nio", { y: 60, scale: 0.6, opacity: 0, duration: 0.9, ease: "back.out(1.6)", transformOrigin: "50% 100%" }, 0.9)
+      .from(".nio-hero", { x: 280, opacity: 0, duration: 1.1, ease: "back.out(1.5)" }, 0.9)
       .from(".apps-grid li", { scale: 0.4, opacity: 0, duration: 0.7, stagger: 0.05, ease: "back.out(1.8)" }, 0.45)
       .from(".dock", { y: 120, duration: 1 }, 0.5);
     gsap.to(".phone", { y: -10, duration: 3.2, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 1.6 });
-    gsap.to(".nio", { rotation: 3, duration: 1.6, yoyo: true, repeat: -1, ease: "sine.inOut", transformOrigin: "50% 100%", delay: 2 });
   }
 
   /* ------------------------------------------------------------------
-     Pointer: Nio follows the cursor, and a slight tilt on the phone
+     Pointer: a slight tilt on the hero phone
      ------------------------------------------------------------------ */
   function pointer() {
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-    if (!fine || reduce || !hasGsap) return;
-    const cursor = $("#cursor");
-    const bot = $(".bot", cursor);
-    const qx = gsap.quickTo(cursor, "x", { duration: 0.4, ease: "power3" });
-    const qy = gsap.quickTo(cursor, "y", { duration: 0.4, ease: "power3" });
-    const qr = gsap.quickTo(bot, "rotation", { duration: 0.5, ease: "power2" });
     const phone = $(".phone");
-    const pr = phone && { y: gsap.quickTo(phone, "rotationY", { duration: 0.9, ease: "power2" }), x: gsap.quickTo(phone, "rotationX", { duration: 0.9, ease: "power2" }) };
-    let last = { x: 0, y: 0, t: 0 };
-    let still;
-
+    if (!fine || reduce || !hasGsap || !phone) return;
+    const ry = gsap.quickTo(phone, "rotationY", { duration: 0.9, ease: "power2" });
+    const rx = gsap.quickTo(phone, "rotationX", { duration: 0.9, ease: "power2" });
     window.addEventListener("pointermove", (e) => {
-      cursor.classList.add("is-on");
-      qx(e.clientX); qy(e.clientY);
-      const now = performance.now();
-      const dt = Math.max(now - last.t, 8);
-      const vx = (e.clientX - last.x) / dt;
-      last = { x: e.clientX, y: e.clientY, t: now };
-      qr(gsap.utils.clamp(-18, 18, vx * 14));
-      if (pr && active === 0) {
-        pr.y(-14 + (e.clientX / window.innerWidth - 0.5) * 16);
-        pr.x(4 - (e.clientY / window.innerHeight - 0.5) * 10);
-      }
-      clearTimeout(still);
-      still = setTimeout(() => qr(0), 120);
+      if (active !== 0) return;
+      ry(-14 + (e.clientX / window.innerWidth - 0.5) * 16);
+      rx(4 - (e.clientY / window.innerHeight - 0.5) * 10);
     });
-    document.addEventListener("pointerover", (e) => cursor.classList.toggle("is-hover", !!e.target.closest("a, button")));
-    window.addEventListener("pointerdown", () => cursor.classList.add("is-down"));
-    window.addEventListener("pointerup", () => cursor.classList.remove("is-down"));
-    document.addEventListener("pointerleave", () => cursor.classList.remove("is-on"));
   }
 
   /* ------------------------------------------------------------------
