@@ -83,6 +83,9 @@ export const apps = [
     accent: "#8b72ff",
     accentInk: "#5b3fe0",
     cta: { label: "Get it on the App Store", href: "/go/nxtdue", external: true },
+    // Own page template (tools/nxtdue-page.mjs). demo1 reuses the live "What it does" line below.
+    page: "clay",
+    clay: { demo1: "Reminders that arrive early" },
     facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",

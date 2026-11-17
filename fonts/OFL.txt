@@ -4,7 +4,11 @@ Copyright 2020 The Plus Jakarta Sans Project Authors (https://github.com/tokotyp
 Instrument Serif (fonts/instrument-serif-italic-latin.woff2):
 Copyright 2022 The Instrument Serif Project Authors (https://github.com/Instrument/instrument-serif)
 
-Both files are the Google Fonts "latin" subsets, unmodified.
+Fredoka (fonts/fredoka-500.ttf, fonts/fredoka-600.ttf):
+Copyright 2016 The Fredoka Project Authors (https://github.com/hafontia/Fredoka-One)
+Unmodified copies from the @expo-google-fonts/fredoka package, the same files the NxtDue app uses.
+
+The Plus Jakarta Sans and Instrument Serif files are the Google Fonts "latin" subsets, unmodified.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
