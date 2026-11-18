@@ -278,46 +278,46 @@ body.clay .facts div { background: var(--surface); }
 .sent-badge { width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: #12be92; flex: none; }
 .rd-wa { margin-top: 20px; } .rd-f { margin-top: 8px; }
 
-/* Family loop, --loop-f.
-   0-9% Family, tap "Invite a family member"   9-16% Invite someone slides up
-   18-32% type email   34-42% type name   46-51% tap Send invite
-   52-58% Invite ready slides in   58-94% hold   94-100% back to Family */
-body.clay { --loop-f: 3.8s; }
+/* Family loop, --loop-f (3.4 s).
+   0-10% Family, tap "Invite a family member"   10-18% Invite someone slides up
+   20-32% type email   34-41% type name   46-52% tap Send invite
+   52-59% Invite ready slides in   59-94% hold   94-100% back to Family */
+body.clay { --loop-f: 3.4s; }
 .ph-fam .scr-inv, .ph-fam .scr-ready, .ph-fam .fam-invite, .ph-fam .inv-send, .ph-fam .inv-v1, .ph-fam .inv-v2,
 .ph-fam .inv-ph1, .ph-fam .inv-ph2, .ph-fam .tap, .cl-fam .cl-steps li, .cl-fam .cl-steps li i { animation-duration: var(--loop-f); animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
 .ph-fam .scr-inv { animation-name: f-inv; transform: translateY(100%); }
-@keyframes f-inv { 0%, 9% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 16%, 95% { transform: translateY(0); opacity: 1; } 99% { transform: translateY(0); opacity: 0; } 99.1%, 100% { transform: translateY(100%); opacity: 0; } }
+@keyframes f-inv { 0%, 10.06% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 17.88%, 94.41% { transform: translateY(0); opacity: 1; } 98.88% { transform: translateY(0); opacity: 0; } 98.99%, 100% { transform: translateY(100%); opacity: 0; } }
 .ph-fam .scr-ready { animation-name: f-ready; transform: translateX(100%); }
-@keyframes f-ready { 0%, 52% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 58%, 95% { transform: translateX(0); opacity: 1; } 99% { transform: translateX(0); opacity: 0; } 99.1%, 100% { transform: translateX(100%); opacity: 0; } }
+@keyframes f-ready { 0%, 52.35% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 59.06%, 94.41% { transform: translateX(0); opacity: 1; } 98.88% { transform: translateX(0); opacity: 0; } 98.99%, 100% { transform: translateX(100%); opacity: 0; } }
 .ph-fam .fam-invite { animation-name: f-press1; }
-@keyframes f-press1 { 0%, 5% { transform: scale(1); } 7% { transform: scale(.96); } 9%, 100% { transform: scale(1); } }
+@keyframes f-press1 { 0%, 5.59% { transform: scale(1); } 7.82% { transform: scale(.96); } 10.06%, 100% { transform: scale(1); } }
 .ph-fam .inv-send { animation-name: f-press2; }
-@keyframes f-press2 { 0%, 48% { transform: scale(1); } 50% { transform: scale(.96); } 52%, 100% { transform: scale(1); } }
+@keyframes f-press2 { 0%, 47.88% { transform: scale(1); } 50.12% { transform: scale(.96); } 52.35%, 100% { transform: scale(1); } }
 .ph-fam .inv-ph1 { animation-name: f-out18; } .ph-fam .inv-ph2 { animation-name: f-out34; }
-@keyframes f-out18 { 0%, 18% { opacity: 1; } 18.1%, 100% { opacity: 0; } }
-@keyframes f-out34 { 0%, 34% { opacity: 1; } 34.1%, 100% { opacity: 0; } }
+@keyframes f-out18 { 0%, 20.12% { opacity: 1; } 20.2%, 100% { opacity: 0; } }
+@keyframes f-out34 { 0%, 34.12% { opacity: 1; } 34.21%, 100% { opacity: 0; } }
 .ph-fam .inv-v1 { animation-name: f-type1; animation-timing-function: steps(1); }
-@keyframes f-type1 { 0%, 18% { clip-path: inset(0 100% 0 0); } 20% { clip-path: inset(0 86% 0 0); } 22% { clip-path: inset(0 72% 0 0); } 24% { clip-path: inset(0 58% 0 0); } 26% { clip-path: inset(0 43% 0 0); } 28% { clip-path: inset(0 29% 0 0); } 30% { clip-path: inset(0 14% 0 0); } 32%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes f-type1 { 0%, 20.12% { clip-path: inset(0 100% 0 0); } 21.8% { clip-path: inset(0 86% 0 0); } 23.48% { clip-path: inset(0 72% 0 0); } 25.16% { clip-path: inset(0 58% 0 0); } 26.84% { clip-path: inset(0 43% 0 0); } 28.52% { clip-path: inset(0 29% 0 0); } 30.2% { clip-path: inset(0 14% 0 0); } 31.88%, 100% { clip-path: inset(0 0 0 0); } }
 .ph-fam .inv-v2 { animation-name: f-type2; animation-timing-function: steps(1); }
-@keyframes f-type2 { 0%, 34% { clip-path: inset(0 100% 0 0); } 36% { clip-path: inset(0 75% 0 0); } 38% { clip-path: inset(0 50% 0 0); } 40% { clip-path: inset(0 25% 0 0); } 42%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes f-type2 { 0%, 34.12% { clip-path: inset(0 100% 0 0); } 35.88% { clip-path: inset(0 75% 0 0); } 37.65% { clip-path: inset(0 50% 0 0); } 39.41% { clip-path: inset(0 25% 0 0); } 41.18%, 100% { clip-path: inset(0 0 0 0); } }
 .ph-fam .tap { animation-name: f-tap; }
 @keyframes f-tap {
   0% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); }
-  5% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
-  9% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
-  9.1%, 45% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
+  5.59% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
+  10.06% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
+  10.17%, 44.53% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
   49% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
-  52%, 100% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
+  52.35%, 100% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
 }
 .ph-fam { --t1x: 197px; --t1y: 393px; --t2x: 197px; --t2y: 612px; }
 .cl-fam .cl-steps li:nth-child(1) { animation-name: fs1; } .cl-fam .cl-steps li:nth-child(2) { animation-name: fs2; } .cl-fam .cl-steps li:nth-child(3) { animation-name: fs3; }
-@keyframes fs1 { 0%, 46% { color: var(--ink); } 46.1%, 100% { color: var(--ink3); } }
-@keyframes fs2 { 0%, 46% { color: var(--ink3); } 46.1%, 54% { color: var(--ink); } 54.1%, 100% { color: var(--ink3); } }
-@keyframes fs3 { 0%, 54% { color: var(--ink3); } 54.1%, 99.9% { color: var(--ink); } 100% { color: var(--ink3); } }
+@keyframes fs1 { 0%, 45.65% { color: var(--ink); } 45.76%, 100% { color: var(--ink3); } }
+@keyframes fs2 { 0%, 45.65% { color: var(--ink3); } 45.76%, 54.59% { color: var(--ink); } 54.7%, 100% { color: var(--ink3); } }
+@keyframes fs3 { 0%, 54.59% { color: var(--ink3); } 54.7%, 99.89% { color: var(--ink); } 100% { color: var(--ink3); } }
 .cl-fam .cl-steps li:nth-child(1) i { animation-name: fb1; } .cl-fam .cl-steps li:nth-child(2) i { animation-name: fb2; } .cl-fam .cl-steps li:nth-child(3) i { animation-name: fb3; }
-@keyframes fb1 { 0% { transform: scaleX(0); } 46% { transform: scaleX(1); } 46.1%, 100% { transform: scaleX(0); } }
-@keyframes fb2 { 0%, 46% { transform: scaleX(0); } 54% { transform: scaleX(1); } 54.1%, 100% { transform: scaleX(0); } }
-@keyframes fb3 { 0%, 54% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+@keyframes fb1 { 0% { transform: scaleX(0); } 45.65% { transform: scaleX(1); } 45.76%, 100% { transform: scaleX(0); } }
+@keyframes fb2 { 0%, 45.65% { transform: scaleX(0); } 54.59% { transform: scaleX(1); } 54.7%, 100% { transform: scaleX(0); } }
+@keyframes fb3 { 0%, 54.59% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 
 @media (max-width: 860px) {
   .cl-rev { grid-template-columns: 1fr; }
@@ -366,70 +366,70 @@ body.clay { --loop-f: 3.8s; }
 .link-list { display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow: hidden; }
 .link-sheet .sheet { padding-bottom: 40px; }
 
-/* Documents loop, --loop-d.
-   0-7% Documents, tap +   7-12% "Add a document" up   14-17% tap Browse files   17-21% down
-   22-28% the file lands   31-34% tap it   34-40% the document opens   42-45% tap Link
-   45-51% "Link to a reminder" up   54-57% tap Car insurance   57-61% down, linked   95-100% back */
-body.clay { --loop-d: 4.6s; }
+/* Documents loop, --loop-d (4 s).
+   0-8% Documents, tap +   8-14% "Add a document" up   16-20% tap Browse files   20-24% down
+   25-32% the file lands   36-39% tap it   39-46% the document opens   48-52% tap Link
+   52-59% "Link to a reminder" up   62-66% tap Car insurance   66-70% down, linked   94-100% back */
+body.clay { --loop-d: 4s; }
 .ph-doc .doc-sheet, .ph-doc .doc-sheet .sheet, .ph-doc .link-sheet, .ph-doc .link-sheet .sheet, .ph-doc .doc-empty, .ph-doc .doc-list,
 .ph-doc .scr-doc .d0, .ph-doc .scr-doc .d1, .ph-doc .scr-docd .d0, .ph-doc .scr-docd .d1, .ph-doc .track i, .ph-doc .scr-docd,
 .ph-doc .doc-row, .ph-doc .doc-browse, .ph-doc .doc-link, .ph-doc .link-car, .ph-doc .tap, .cl-doc .cl-steps li, .cl-doc .cl-steps li i { animation-duration: var(--loop-d); animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
 .ph-hero .sheet-wrap, .sheet-wrap { opacity: 0; }
 .ph-doc .doc-sheet { animation-name: d-sh1; }
-@keyframes d-sh1 { 0%, 7% { opacity: 0; } 9%, 18% { opacity: 1; } 21%, 100% { opacity: 0; } }
+@keyframes d-sh1 { 0%, 8.05% { opacity: 0; } 10.35%, 20.7% { opacity: 1; } 24.15%, 100% { opacity: 0; } }
 .ph-doc .doc-sheet .sheet { animation-name: d-sh1b; }
-@keyframes d-sh1b { 0%, 7% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 12%, 17% { transform: translateY(0); animation-timing-function: ease-in; } 21%, 100% { transform: translateY(100%); } }
+@keyframes d-sh1b { 0%, 8.05% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 13.8%, 19.55% { transform: translateY(0); animation-timing-function: ease-in; } 24.15%, 100% { transform: translateY(100%); } }
 .ph-doc .link-sheet { animation-name: d-sh2; }
-@keyframes d-sh2 { 0%, 45% { opacity: 0; } 47%, 58% { opacity: 1; } 61%, 100% { opacity: 0; } }
+@keyframes d-sh2 { 0%, 51.75% { opacity: 0; } 54.05%, 66.7% { opacity: 1; } 70.15%, 100% { opacity: 0; } }
 .ph-doc .link-sheet .sheet { animation-name: d-sh2b; }
-@keyframes d-sh2b { 0%, 45% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 51%, 57% { transform: translateY(0); animation-timing-function: ease-in; } 61%, 100% { transform: translateY(100%); } }
+@keyframes d-sh2b { 0%, 51.75% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 58.65%, 65.55% { transform: translateY(0); animation-timing-function: ease-in; } 70.15%, 100% { transform: translateY(100%); } }
 .ph-doc .doc-empty { animation-name: d-empty; }
-@keyframes d-empty { 0%, 22% { opacity: 1; } 24%, 99% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes d-empty { 0%, 25.3% { opacity: 1; } 27.6%, 98.85% { opacity: 0; } 100% { opacity: 1; } }
 .ph-doc .doc-list { animation-name: d-list; }
-@keyframes d-list { 0%, 22% { opacity: 0; transform: translateY(-14px); animation-timing-function: cubic-bezier(.22,1,.36,1); } 28%, 99% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes d-list { 0%, 25.3% { opacity: 0; transform: translateY(-14px); animation-timing-function: cubic-bezier(.22,1,.36,1); } 32.2%, 98.85% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 .ph-doc .scr-doc .d0 { animation-name: d-sw0a; } .ph-doc .scr-doc .d1 { animation-name: d-sw1a; }
-@keyframes d-sw0a { 0%, 23.9% { opacity: 1; } 24%, 99.9% { opacity: 0; } }
-@keyframes d-sw1a { 0%, 23.9% { opacity: 0; } 24%, 99.9% { opacity: 1; } }
+@keyframes d-sw0a { 0%, 27.48% { opacity: 1; } 27.6%, 99.89% { opacity: 0; } }
+@keyframes d-sw1a { 0%, 27.48% { opacity: 0; } 27.6%, 99.89% { opacity: 1; } }
 .ph-doc .scr-docd .d0 { animation-name: d-sw0b; } .ph-doc .scr-docd .d1 { animation-name: d-sw1b; }
-@keyframes d-sw0b { 0%, 58.9% { opacity: 1; } 59%, 100% { opacity: 0; } }
-@keyframes d-sw1b { 0%, 58.9% { opacity: 0; } 59%, 100% { opacity: 1; } }
+@keyframes d-sw0b { 0%, 67.73% { opacity: 1; } 67.85%, 100% { opacity: 0; } }
+@keyframes d-sw1b { 0%, 67.73% { opacity: 0; } 67.85%, 100% { opacity: 1; } }
 .ph-doc { --t1x: 353px; --t1y: 96px; --t2x: 197px; --t2y: 772px; --t3x: 197px; --t3y: 291px; --t4x: 196px; --t4y: 491px; --t5x: 197px; --t5y: 705px; }
 .ph-cat { --t1x: 106px; --t1y: 198px; }
 .ph-doc .track i { animation-name: d-track; }
-@keyframes d-track { 0%, 23.9% { width: 0; } 24%, 99.9% { width: 3px; } }
+@keyframes d-track { 0%, 27.48% { width: 0; } 27.6%, 99.89% { width: 3px; } }
 .ph-doc .scr-docd { animation-name: d-detail; transform: translateX(100%); }
-@keyframes d-detail { 0%, 34% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 40%, 95% { transform: translateX(0); opacity: 1; } 99% { transform: translateX(0); opacity: 0; } 99.1%, 100% { transform: translateX(100%); opacity: 0; } }
+@keyframes d-detail { 0%, 39.1% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 46%, 94.25% { transform: translateX(0); opacity: 1; } 98.85% { transform: translateX(0); opacity: 0; } 98.96%, 100% { transform: translateX(100%); opacity: 0; } }
 .ph-doc .doc-row { animation-name: d-p1; } .ph-doc .doc-browse { animation-name: d-p2; } .ph-doc .doc-link { animation-name: d-p3; } .ph-doc .link-car { animation-name: d-p4; }
-@keyframes d-p1 { 0%, 31% { transform: scale(1); } 33% { transform: scale(.97); } 35%, 100% { transform: scale(1); } }
-@keyframes d-p2 { 0%, 14% { transform: scale(1); } 16% { transform: scale(.96); } 18%, 100% { transform: scale(1); } }
-@keyframes d-p3 { 0%, 42% { transform: scale(1); } 44% { transform: scale(.94); } 46%, 100% { transform: scale(1); } }
-@keyframes d-p4 { 0%, 54% { transform: scale(1); background: var(--surface); color: var(--ink); } 56%, 61% { transform: scale(.96); background: var(--violet); color: #fff; } 62%, 100% { transform: scale(1); background: var(--surface); color: var(--ink); } }
+@keyframes d-p1 { 0%, 35.65% { transform: scale(1); } 37.95% { transform: scale(.97); } 40.25%, 100% { transform: scale(1); } }
+@keyframes d-p2 { 0%, 16.1% { transform: scale(1); } 18.4% { transform: scale(.96); } 20.7%, 100% { transform: scale(1); } }
+@keyframes d-p3 { 0%, 48.3% { transform: scale(1); } 50.6% { transform: scale(.94); } 52.9%, 100% { transform: scale(1); } }
+@keyframes d-p4 { 0%, 62.1% { transform: scale(1); background: var(--surface); color: var(--ink); } 64.4%, 70.15% { transform: scale(.96); background: var(--violet); color: #fff; } 70.86%, 100% { transform: scale(1); background: var(--surface); color: var(--ink); } }
 .ph-doc .tap { animation-name: d-tap; }
 @keyframes d-tap {
   0% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); }
-  4% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
-  7% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
-  7.1%, 12% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
-  15% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
-  18% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
-  18.1%, 29% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(1.3); }
-  32% { left: var(--t3x); top: var(--t3y); opacity: 1; transform: scale(1); }
-  35% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(.8); }
-  35.1%, 40% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(1.3); }
-  43% { left: var(--t4x); top: var(--t4y); opacity: 1; transform: scale(1); }
-  46% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(.8); }
-  46.1%, 52% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(1.3); }
-  55% { left: var(--t5x); top: var(--t5y); opacity: 1; transform: scale(1); }
-  58%, 100% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(.8); }
+  4.6% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
+  8.05% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
+  8.16%, 13.8% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
+  17.25% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
+  20.7% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
+  20.82%, 33.35% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(1.3); }
+  36.8% { left: var(--t3x); top: var(--t3y); opacity: 1; transform: scale(1); }
+  40.25% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(.8); }
+  40.37%, 46% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(1.3); }
+  49.45% { left: var(--t4x); top: var(--t4y); opacity: 1; transform: scale(1); }
+  52.9% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(.8); }
+  53.01%, 59.8% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(1.3); }
+  63.25% { left: var(--t5x); top: var(--t5y); opacity: 1; transform: scale(1); }
+  66.7%, 100% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(.8); }
 }
 .cl-doc .cl-steps li:nth-child(1) { animation-name: ds1; } .cl-doc .cl-steps li:nth-child(2) { animation-name: ds2; } .cl-doc .cl-steps li:nth-child(3) { animation-name: ds3; }
-@keyframes ds1 { 0%, 30% { color: var(--ink); } 30.1%, 100% { color: var(--ink3); } }
-@keyframes ds2 { 0%, 30% { color: var(--ink3); } 30.1%, 44% { color: var(--ink); } 44.1%, 100% { color: var(--ink3); } }
-@keyframes ds3 { 0%, 44% { color: var(--ink3); } 44.1%, 99.9% { color: var(--ink); } 100% { color: var(--ink3); } }
+@keyframes ds1 { 0%, 34.5% { color: var(--ink); } 34.61%, 100% { color: var(--ink3); } }
+@keyframes ds2 { 0%, 34.5% { color: var(--ink3); } 34.61%, 50.6% { color: var(--ink); } 50.71%, 100% { color: var(--ink3); } }
+@keyframes ds3 { 0%, 50.6% { color: var(--ink3); } 50.71%, 99.89% { color: var(--ink); } 100% { color: var(--ink3); } }
 .cl-doc .cl-steps li:nth-child(1) i { animation-name: db1; } .cl-doc .cl-steps li:nth-child(2) i { animation-name: db2; } .cl-doc .cl-steps li:nth-child(3) i { animation-name: db3; }
-@keyframes db1 { 0% { transform: scaleX(0); } 30% { transform: scaleX(1); } 30.1%, 100% { transform: scaleX(0); } }
-@keyframes db2 { 0%, 30% { transform: scaleX(0); } 44% { transform: scaleX(1); } 44.1%, 100% { transform: scaleX(0); } }
-@keyframes db3 { 0%, 44% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+@keyframes db1 { 0% { transform: scaleX(0); } 34.5% { transform: scaleX(1); } 34.61%, 100% { transform: scaleX(0); } }
+@keyframes db2 { 0%, 34.5% { transform: scaleX(0); } 50.6% { transform: scaleX(1); } 50.71%, 100% { transform: scaleX(0); } }
+@keyframes db3 { 0%, 50.6% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 
 /* --------------------------------------------------------- Categories */
 .scr-cats .abar, .scr-veh .abar { margin-bottom: 16px; }
