@@ -47,21 +47,20 @@ function ic(name, size = "md", color = "currentColor", sw) {
 const statusBar = (light = false) => `<div class="sb${light ? " sb-light" : ""}"><span class="sb-time">9:41</span><span class="sb-island"></span><span class="sb-icons"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M8 2.6c2.4 0 4.6.9 6.2 2.5l1.2-1.2A10.4 10.4 0 0 0 8 .9 10.4 10.4 0 0 0 .6 3.9l1.2 1.2A8.7 8.7 0 0 1 8 2.6zm0 3.4c1.5 0 2.9.6 3.9 1.6l1.2-1.2A7 7 0 0 0 8 4.3a7 7 0 0 0-5.1 2.1l1.2 1.2c1-1 2.4-1.6 3.9-1.6zM8 9.2c.6 0 1.1.2 1.5.6L8 11.4 6.5 9.8c.4-.4.9-.6 1.5-.6z"/></svg><span class="sb-batt"><i></i></span></span></div>`;
 
 /* ------------------------------------------------------------------ Home */
-// Rows exactly as in 01_home.png. Tints: categoryTints in tokens.ts.
-const HOME_ROWS = {
-  now: [
-    { tint: "subscriptions", icon: "tv", title: "Netflix Premium", sub: "Netflix", amt: "₹649", days: 3 },
-    { tint: "vehicle", icon: "car", title: "Pollution certificate (PUC)", sub: "Honda City", amt: "₹150", days: 7 },
-  ],
-  up: [
-    { tint: "vehicle", icon: "car", title: "Car insurance", sub: "Honda City", amt: "₹12,500", days: 14 },
-    { tint: "insurance", icon: "shield", title: "Family health insurance", sub: "Star Health", amt: "₹24,800", days: 22 },
-    { tint: "birthday", icon: "cake", title: "Mom’s birthday", days: 26 },
-  ],
-};
-// DaysPill: amber ("soon", flush) else mint. Threshold 7 matches 01_home.png (14 is mint there);
-// v1.0 tokens.ts urgency.amberWithinDays is 15. Open question to the founder.
-const row = (r) => `<div class="rrow"><span class="tile t-${r.tint}">${ic(r.icon)}</span><span class="rrow-tt"><b>${esc(r.title)}</b>${r.sub ? `<span>${esc(r.sub)} · <em>${esc(r.amt)}</em></span>` : ""}</span><span class="days ${r.days <= 7 ? "soon" : "ok"}"><b>${r.days}</b><s>days</s></span></div>`;
+// The five rows of 01_home.png (DashboardService.cs:20 NextUpCount = 5). Tints: categoryTints in tokens.ts.
+const NEXT_UP = [
+  { tint: "subscriptions", icon: "tv", title: "Netflix Premium", sub: "Netflix", amt: "₹649", days: 3 },
+  { tint: "vehicle", icon: "car", title: "Pollution certificate (PUC)", sub: "Honda City", amt: "₹150", days: 7 },
+  { tint: "vehicle", icon: "car", title: "Car insurance", sub: "Honda City", amt: "₹12,500", days: 14 },
+  { tint: "insurance", icon: "shield", title: "Family health insurance", sub: "Star Health", amt: "₹24,800", days: 22 },
+  { tint: "birthday", icon: "cake", title: "Mom’s birthday", days: 26 },
+];
+// v1.0 tokens.ts urgency.amberWithinDays. Founder 18 Nov: follow the v1.0 code, not the screenshot.
+const AMBER_WITHIN_DAYS = 15;
+// Split as (tabs)/index.tsx:133-138; pill tone as DaysPill.tsx:27 (amber "soon" else mint).
+const NEEDS_NOW = NEXT_UP.filter((r) => r.days <= AMBER_WITHIN_DAYS);
+const LATER = NEXT_UP.filter((r) => r.days > AMBER_WITHIN_DAYS);
+const row = (r) => `<div class="rrow"><span class="tile t-${r.tint}">${ic(r.icon)}</span><span class="rrow-tt"><b>${esc(r.title)}</b>${r.sub ? `<span>${esc(r.sub)} · <em>${esc(r.amt)}</em></span>` : ""}</span><span class="days ${r.days <= AMBER_WITHIN_DAYS ? "soon" : "ok"}"><b>${r.days}</b><s>days</s></span></div>`;
 
 const tabBar = () => `<div class="nav"><span class="nav-it on"><span class="slot">${ic("home")}</span>Home</span><span class="nav-it"><span class="slot">${ic("bell")}</span>Reminders</span><span class="fab">${ic("plus", "lg", "#fff", 2.4)}</span><span class="nav-it"><span class="slot">${ic("folder")}</span>Documents</span><span class="nav-it"><span class="slot">${ic("users")}</span>Family</span></div>`;
 
@@ -71,9 +70,9 @@ ${statusBar()}
 <div class="abar"><span class="av">A</span><span class="abar-tt"><b>Hi, Arjun</b><span>5 need your attention</span></span><span class="ibtn">${ic("search")}</span><span class="ibtn">${ic("settings")}</span></div>
 <div class="stats"><div class="stat st-soon"><i>${ic("clock", "sm")}</i><b>5</b><span>Expiring soon</span></div><div class="stat st-dead"><i>${ic("fire", "sm")}</i><b>0</b><span>Expired</span></div><div class="stat st-ok"><i>${ic("check", "sm")}</i><b>4</b><span>Active</span></div></div>
 <div class="hdr"><b>Needs you now</b><s>See all (9)</s></div>
-${HOME_ROWS.now.map(row).join("")}
+${NEEDS_NOW.map(row).join("")}
 <div class="hdr"><b>Coming up</b></div>
-${HOME_ROWS.up.map(row).join("")}
+${LATER.map(row).join("")}
 ${tabBar()}
 </div>`;
 }
