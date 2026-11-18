@@ -133,8 +133,9 @@ ${statusBar()}
 // step 1 sets neither). 30 days is the first default alert.
 function lockScreen() {
   return `<div class="scr scr-lock">
-${statusBar(true)}
+${statusBar()}
 <div class="lock-time">9:00</div>
+<img class="lock-nio" src="/assets/nio.webp" alt="" width="520" height="742" decoding="async" />
 <div class="notif"><img src="/assets/apps/nxtdue-144.webp" alt="" width="38" height="38" /><span><b>Car insurance expires in 30 days</b><span>Due Fri 18 Dec</span></span></div>
 </div>`;
 }

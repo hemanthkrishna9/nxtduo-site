@@ -22,7 +22,7 @@ body.clay {
   --v-sm: 7px 8px 16px rgba(108,78,246,.36), -4px -4px 10px rgba(255,255,255,.55), inset -3px -3px 7px rgba(58,28,150,.32), inset 3px 3px 7px rgba(255,255,255,.4);
   --v-md: 9px 11px 22px rgba(108,78,246,.38), -6px -6px 15px rgba(255,255,255,.6), inset -4px -4px 9px rgba(58,28,150,.34), inset 4px 4px 9px rgba(255,255,255,.42);
   --v-lg: 8px 12px 22px rgba(108,78,246,.45), -5px -5px 13px rgba(255,255,255,.6), inset -4px -4px 9px rgba(58,28,150,.35), inset 4px 4px 9px rgba(255,255,255,.42);
-  --loop: 3.4s;
+  --loop: 7s;
   background: var(--bg);
   color: var(--ink);
 }
@@ -45,13 +45,13 @@ body.clay .facts div { background: var(--surface); }
 .cl-steps li { position: relative; overflow: hidden; padding: 22px 26px; border-radius: 24px; background: var(--surface); box-shadow: var(--up-sm); font-family: var(--fred); font-weight: 500; font-size: 24px; color: var(--ink3); animation: var(--loop) linear infinite both; }
 .cl-steps li i { position: absolute; left: 0; top: 0; height: 4px; width: 100%; background: var(--grad); transform-origin: left; transform: scaleX(0); animation: var(--loop) linear infinite both; }
 .cl-steps li:nth-child(1) { animation-name: st1; } .cl-steps li:nth-child(2) { animation-name: st2; } .cl-steps li:nth-child(3) { animation-name: st3; }
-@keyframes st1 { 0%, 56% { color: var(--ink); } 56.1%, 100% { color: var(--ink3); } }
-@keyframes st2 { 0%, 56% { color: var(--ink3); } 56.1%, 66% { color: var(--ink); } 66.1%, 100% { color: var(--ink3); } }
-@keyframes st3 { 0%, 66% { color: var(--ink3); } 66.1%, 99.9% { color: var(--ink); } 100% { color: var(--ink3); } }
+@keyframes st1 { 0%, 60.714% { color: var(--ink); } 60.81%, 100% { color: var(--ink3); } }
+@keyframes st2 { 0%, 60.714% { color: var(--ink3); } 60.81%, 69.714% { color: var(--ink); } 69.8%, 100% { color: var(--ink3); } }
+@keyframes st3 { 0%, 69.714% { color: var(--ink3); } 69.8%, 99.929% { color: var(--ink); } 100% { color: var(--ink3); } }
 .cl-steps li:nth-child(1) i { animation-name: bar1; } .cl-steps li:nth-child(2) i { animation-name: bar2; } .cl-steps li:nth-child(3) i { animation-name: bar3; }
-@keyframes bar1 { 0% { transform: scaleX(0); } 56% { transform: scaleX(1); } 56.1%, 100% { transform: scaleX(0); } }
-@keyframes bar2 { 0%, 56% { transform: scaleX(0); } 66% { transform: scaleX(1); } 66.1%, 100% { transform: scaleX(0); } }
-@keyframes bar3 { 0%, 66% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+@keyframes bar1 { 0% { transform: scaleX(0); } 60.714% { transform: scaleX(1); } 60.81%, 100% { transform: scaleX(0); } }
+@keyframes bar2 { 0%, 60.714% { transform: scaleX(0); } 69.714% { transform: scaleX(1); } 69.8%, 100% { transform: scaleX(0); } }
+@keyframes bar3 { 0%, 69.714% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 
 @media (max-width: 860px) {
   .cl-demo { grid-template-columns: 1fr; justify-items: center; text-align: center; }
@@ -157,60 +157,63 @@ body.clay .facts div { background: var(--surface); }
 .btn-next { margin-top: 20px; height: 54px; border-radius: 20px; display: grid; place-items: center; background: var(--grad); box-shadow: var(--v-md); color: #fff; font-size: 14.5px; font-weight: 700; }
 
 /* ------------------------------------------------------------ Lock screen */
-.scr-lock { background: radial-gradient(120% 70% at 50% 0%, #8c74ff 0%, #6c4ef6 45%, #3d2a9e 100%); align-items: center; }
-.lock-time { margin-top: 40px; font: 600 88px/1 -apple-system, "SF Pro Display", system-ui, sans-serif; letter-spacing: -2px; color: rgba(255,255,255,.95); }
-.notif { position: absolute; left: 12px; right: 12px; bottom: 120px; display: flex; gap: 11px; align-items: center; padding: 13px 14px; border-radius: 24px; background: rgba(245, 242, 255, .78); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); font-family: -apple-system, "SF Pro Text", system-ui, sans-serif; color: #000; box-shadow: 0 10px 30px rgba(20, 10, 60, .25); }
+/* Nio wallpaper: soft mint #ebf7f5 and ink #024235 sampled from the founder's Nio picture. Not mirrored. */
+.scr-lock { background: #ebf7f5; align-items: center; }
+.scr-lock .sb-time { visibility: hidden; }
+.lock-time { position: relative; z-index: 1; margin-top: 40px; font: 600 88px/1 -apple-system, "SF Pro Display", system-ui, sans-serif; letter-spacing: -2px; color: #024235; }
+.lock-nio { position: absolute; left: 50%; top: 196px; width: 300px; height: auto; margin-left: -150px; filter: drop-shadow(0 18px 22px rgba(2, 66, 53, .14)); pointer-events: none; }
+.notif { position: absolute; left: 12px; right: 12px; bottom: 120px; display: flex; gap: 11px; align-items: center; padding: 13px 14px; border-radius: 24px; background: rgba(255, 255, 255, .8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); font-family: -apple-system, "SF Pro Text", system-ui, sans-serif; color: #000; box-shadow: 0 10px 30px rgba(2, 66, 53, .16); }
 .notif img { width: 38px; height: 38px; border-radius: 9px; flex: none; }
 .notif > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .notif b { font-size: 15px; line-height: 20px; font-weight: 600; }
 .notif span span { font-size: 15px; line-height: 20px; }
 
-/* ------------------------------------------------------------ The loop
-   0-11% Home, tap +   11-19% New reminder slides up   20-36% type title
-   41% Insurance on, "Due on" -> "Renews on"   50% date set   58-61% tap Save
-   63-68% lock screen   70-78% notification in   96-100% back to Home */
+/* ------------------------------------------------------------ The loop, --loop (7 s; change round 2: slow enough to read)
+   0-1.2 s Home, tap +   1.2-1.6 s New reminder slides up   1.75-2.85 s type title
+   3.4 s Insurance on, "Due on" -> "Renews on"   4 s date set   4.3-4.65 s tap Save
+   4.7-5 s lock screen   5.1-5.5 s notification in   5.5-6.8 s hold   6.8-7 s back to Home */
 .ph-demo .scr-add, .ph-demo .scr-lock, .ph-demo .notif, .ph-demo .fab, .ph-demo .save,
 .ph-demo .typed, .ph-demo .ph-title, .ph-demo .chip-on, .ph-demo .lab-due, .ph-demo .lab-renew,
 .ph-demo .ph-date, .ph-demo .val-date, .tap { animation: var(--loop) linear infinite both; }
 .ph-hero .scr-add, .ph-hero .scr-lock { display: none; }
 .ph-demo .scr-add { animation-name: a-add; transform: translateY(100%); }
-@keyframes a-add { 0%, 11% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 19%, 96% { transform: translateY(0); } 96.1%, 100% { transform: translateY(100%); } }
+@keyframes a-add { 0%, 17.143% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 22.857%, 97.143% { transform: translateY(0); } 97.214%, 100% { transform: translateY(100%); } }
 .ph-demo .fab { animation-name: a-fab; }
-@keyframes a-fab { 0%, 5% { transform: scale(1); } 8% { transform: scale(.9); } 11%, 100% { transform: scale(1); } }
+@keyframes a-fab { 0%, 11.429% { transform: scale(1); } 14.286% { transform: scale(.9); } 17.143%, 100% { transform: scale(1); } }
 .ph-demo .typed { animation-name: a-type; animation-timing-function: steps(1); }
-@keyframes a-type { 0%, 20% { clip-path: inset(0 100% 0 0); } 21.2% { clip-path: inset(0 92% 0 0); } 22.4% { clip-path: inset(0 85% 0 0); } 23.6% { clip-path: inset(0 77% 0 0); } 24.8% { clip-path: inset(0 69% 0 0); } 26% { clip-path: inset(0 62% 0 0); } 27.2% { clip-path: inset(0 54% 0 0); } 28.4% { clip-path: inset(0 46% 0 0); } 29.6% { clip-path: inset(0 38% 0 0); } 30.8% { clip-path: inset(0 31% 0 0); } 32% { clip-path: inset(0 23% 0 0); } 33.2% { clip-path: inset(0 15% 0 0); } 34.4% { clip-path: inset(0 8% 0 0); } 35.6%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes a-type { 0%, 25% { clip-path: inset(0 100% 0 0); } 26.209% { clip-path: inset(0 92% 0 0); } 27.418% { clip-path: inset(0 85% 0 0); } 28.626% { clip-path: inset(0 77% 0 0); } 29.835% { clip-path: inset(0 69% 0 0); } 31.044% { clip-path: inset(0 62% 0 0); } 32.253% { clip-path: inset(0 54% 0 0); } 33.462% { clip-path: inset(0 46% 0 0); } 34.67% { clip-path: inset(0 38% 0 0); } 35.879% { clip-path: inset(0 31% 0 0); } 37.088% { clip-path: inset(0 23% 0 0); } 38.297% { clip-path: inset(0 15% 0 0); } 39.505% { clip-path: inset(0 8% 0 0); } 40.714%, 100% { clip-path: inset(0 0 0 0); } }
 .ph-demo .ph-title { animation-name: a-out20; }
-@keyframes a-out20 { 0%, 20% { opacity: 1; } 20.1%, 100% { opacity: 0; } }
+@keyframes a-out20 { 0%, 25% { opacity: 1; } 25.101%, 100% { opacity: 0; } }
 .ph-demo .chip-on, .ph-demo .lab-renew { animation-name: a-in41; }
-@keyframes a-in41 { 0%, 40% { opacity: 0; } 43%, 100% { opacity: 1; } }
+@keyframes a-in41 { 0%, 45.918% { opacity: 0; } 48.98%, 100% { opacity: 1; } }
 .ph-demo .lab-due { animation-name: a-out41; }
-@keyframes a-out41 { 0%, 40% { opacity: 1; } 43%, 100% { opacity: 0; } }
+@keyframes a-out41 { 0%, 45.918% { opacity: 1; } 48.98%, 100% { opacity: 0; } }
 .ph-demo .ph-date { animation-name: a-out50; }
-@keyframes a-out50 { 0%, 49% { opacity: 1; } 51%, 100% { opacity: 0; } }
+@keyframes a-out50 { 0%, 54.49% { opacity: 1; } 56.531%, 100% { opacity: 0; } }
 .ph-demo .val-date { animation-name: a-in50; opacity: 0; }
-@keyframes a-in50 { 0%, 49% { opacity: 0; } 52%, 100% { opacity: 1; } }
+@keyframes a-in50 { 0%, 54.49% { opacity: 0; } 57.551%, 100% { opacity: 1; } }
 .ph-demo .save { animation-name: a-save; }
-@keyframes a-save { 0%, 57% { transform: scale(1); } 59.5% { transform: scale(.88); } 62%, 100% { transform: scale(1); } }
+@keyframes a-save { 0%, 61.667% { transform: scale(1); } 64.048% { transform: scale(.88); } 66.429%, 100% { transform: scale(1); } }
 .ph-demo .scr-lock { animation-name: a-lock; opacity: 0; }
-@keyframes a-lock { 0%, 63% { opacity: 0; } 68%, 96% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes a-lock { 0%, 67.143% { opacity: 0; } 71.429%, 97.143% { opacity: 1; } 100% { opacity: 0; } }
 .ph-demo .notif { animation-name: a-notif; }
-@keyframes a-notif { 0%, 70% { opacity: 0; transform: translateY(60px) scale(.96); animation-timing-function: cubic-bezier(.22,1,.36,1); } 78%, 100% { opacity: 1; transform: none; } }
+@keyframes a-notif { 0%, 72.857% { opacity: 0; transform: translateY(60px) scale(.96); animation-timing-function: cubic-bezier(.22,1,.36,1); } 78.571%, 100% { opacity: 1; transform: none; } }
 
 /* the finger: + (196,771), Insurance (244,270), date field (117,427), Save (360,96) */
 .tap { position: absolute; z-index: 5; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: 50%; background: rgba(44, 39, 72, .22); border: 2px solid rgba(255, 255, 255, .85); opacity: 0; animation-name: a-tap; pointer-events: none; }
 @keyframes a-tap {
   0% { left: 196px; top: 771px; opacity: 0; transform: scale(1.3); }
-  4% { left: 196px; top: 771px; opacity: 1; transform: scale(1); }
-  10% { left: 196px; top: 771px; opacity: 0; transform: scale(.8); }
-  10.1%, 37% { left: 244px; top: 270px; opacity: 0; transform: scale(1.3); }
-  40% { left: 244px; top: 270px; opacity: 1; transform: scale(1); }
-  44% { left: 244px; top: 270px; opacity: 0; transform: scale(.8); }
-  44.1%, 46% { left: 117px; top: 427px; opacity: 0; transform: scale(1.3); }
-  49% { left: 117px; top: 427px; opacity: 1; transform: scale(1); }
-  53% { left: 117px; top: 427px; opacity: 0; transform: scale(.8); }
-  53.1%, 56% { left: 360px; top: 96px; opacity: 0; transform: scale(1.3); }
-  59% { left: 360px; top: 96px; opacity: 1; transform: scale(1); }
-  62%, 100% { left: 360px; top: 96px; opacity: 0; transform: scale(.8); }
+  10% { left: 196px; top: 771px; opacity: 1; transform: scale(1); }
+  16.19% { left: 196px; top: 771px; opacity: 0; transform: scale(.8); }
+  16.286%, 42.857% { left: 244px; top: 270px; opacity: 0; transform: scale(1.3); }
+  45.918% { left: 244px; top: 270px; opacity: 1; transform: scale(1); }
+  50% { left: 244px; top: 270px; opacity: 0; transform: scale(.8); }
+  50.071%, 51.429% { left: 117px; top: 427px; opacity: 0; transform: scale(1.3); }
+  54.49% { left: 117px; top: 427px; opacity: 1; transform: scale(1); }
+  58.571% { left: 117px; top: 427px; opacity: 0; transform: scale(.8); }
+  58.643%, 60.714% { left: 360px; top: 96px; opacity: 0; transform: scale(1.3); }
+  63.571% { left: 360px; top: 96px; opacity: 1; transform: scale(1); }
+  66.429%, 100% { left: 360px; top: 96px; opacity: 0; transform: scale(.8); }
 }
 
 /* Reduced motion: no loop, no entrance. The demo shows its end: the notification. */
@@ -278,46 +281,46 @@ body.clay .facts div { background: var(--surface); }
 .sent-badge { width: 44px; height: 44px; border-radius: 16px; display: grid; place-items: center; background: #12be92; flex: none; }
 .rd-wa { margin-top: 20px; } .rd-f { margin-top: 8px; }
 
-/* Family loop, --loop-f (3.4 s).
-   0-10% Family, tap "Invite a family member"   10-18% Invite someone slides up
-   20-32% type email   34-41% type name   46-52% tap Send invite
-   52-59% Invite ready slides in   59-94% hold   94-100% back to Family */
-body.clay { --loop-f: 3.4s; }
+/* Family loop, --loop-f (7.05 s).
+   0-1.2 s Family, tap "Invite a family member"   1.2-1.65 s Invite someone slides up
+   2.2-3.4 s type email   3.6-4.2 s type name   4.55-5.15 s tap Send invite
+   5.15-5.6 s Invite ready slides in   5.6-6.8 s hold   6.8-7.05 s back to Family */
+body.clay { --loop-f: 7.05s; }
 .ph-fam .scr-inv, .ph-fam .scr-ready, .ph-fam .fam-invite, .ph-fam .inv-send, .ph-fam .inv-v1, .ph-fam .inv-v2,
 .ph-fam .inv-ph1, .ph-fam .inv-ph2, .ph-fam .tap, .cl-fam .cl-steps li, .cl-fam .cl-steps li i { animation-duration: var(--loop-f); animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
 .ph-fam .scr-inv { animation-name: f-inv; transform: translateY(100%); }
-@keyframes f-inv { 0%, 10.06% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 17.88%, 94.41% { transform: translateY(0); opacity: 1; } 98.88% { transform: translateY(0); opacity: 0; } 98.99%, 100% { transform: translateY(100%); opacity: 0; } }
+@keyframes f-inv { 0%, 17.021% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 23.404%, 96.454% { transform: translateY(0); opacity: 1; } 99.291% { transform: translateY(0); opacity: 0; } 99.36%, 100% { transform: translateY(100%); opacity: 0; } }
 .ph-fam .scr-ready { animation-name: f-ready; transform: translateX(100%); }
-@keyframes f-ready { 0%, 52.35% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 59.06%, 94.41% { transform: translateX(0); opacity: 1; } 98.88% { transform: translateX(0); opacity: 0; } 98.99%, 100% { transform: translateX(100%); opacity: 0; } }
+@keyframes f-ready { 0%, 73.05% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 79.433%, 96.454% { transform: translateX(0); opacity: 1; } 99.291% { transform: translateX(0); opacity: 0; } 99.36%, 100% { transform: translateX(100%); opacity: 0; } }
 .ph-fam .fam-invite { animation-name: f-press1; }
-@keyframes f-press1 { 0%, 5.59% { transform: scale(1); } 7.82% { transform: scale(.96); } 10.06%, 100% { transform: scale(1); } }
+@keyframes f-press1 { 0%, 11.348% { transform: scale(1); } 14.178% { transform: scale(.96); } 17.021%, 100% { transform: scale(1); } }
 .ph-fam .inv-send { animation-name: f-press2; }
-@keyframes f-press2 { 0%, 47.88% { transform: scale(1); } 50.12% { transform: scale(.96); } 52.35%, 100% { transform: scale(1); } }
+@keyframes f-press2 { 0%, 68.26% { transform: scale(1); } 70.689% { transform: scale(.96); } 73.05%, 100% { transform: scale(1); } }
 .ph-fam .inv-ph1 { animation-name: f-out18; } .ph-fam .inv-ph2 { animation-name: f-out34; }
-@keyframes f-out18 { 0%, 20.12% { opacity: 1; } 20.2%, 100% { opacity: 0; } }
-@keyframes f-out34 { 0%, 34.12% { opacity: 1; } 34.21%, 100% { opacity: 0; } }
+@keyframes f-out18 { 0%, 31.206% { opacity: 1; } 31.321%, 100% { opacity: 0; } }
+@keyframes f-out34 { 0%, 51.064% { opacity: 1; } 51.172%, 100% { opacity: 0; } }
 .ph-fam .inv-v1 { animation-name: f-type1; animation-timing-function: steps(1); }
-@keyframes f-type1 { 0%, 20.12% { clip-path: inset(0 100% 0 0); } 21.8% { clip-path: inset(0 86% 0 0); } 23.48% { clip-path: inset(0 72% 0 0); } 25.16% { clip-path: inset(0 58% 0 0); } 26.84% { clip-path: inset(0 43% 0 0); } 28.52% { clip-path: inset(0 29% 0 0); } 30.2% { clip-path: inset(0 14% 0 0); } 31.88%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes f-type1 { 0%, 31.206% { clip-path: inset(0 100% 0 0); } 33.637% { clip-path: inset(0 86% 0 0); } 36.069% { clip-path: inset(0 72% 0 0); } 38.501% { clip-path: inset(0 58% 0 0); } 40.932% { clip-path: inset(0 43% 0 0); } 43.364% { clip-path: inset(0 29% 0 0); } 45.795% { clip-path: inset(0 14% 0 0); } 48.227%, 100% { clip-path: inset(0 0 0 0); } }
 .ph-fam .inv-v2 { animation-name: f-type2; animation-timing-function: steps(1); }
-@keyframes f-type2 { 0%, 34.12% { clip-path: inset(0 100% 0 0); } 35.88% { clip-path: inset(0 75% 0 0); } 37.65% { clip-path: inset(0 50% 0 0); } 39.41% { clip-path: inset(0 25% 0 0); } 41.18%, 100% { clip-path: inset(0 0 0 0); } }
+@keyframes f-type2 { 0%, 51.064% { clip-path: inset(0 100% 0 0); } 53.185% { clip-path: inset(0 75% 0 0); } 55.319% { clip-path: inset(0 50% 0 0); } 57.441% { clip-path: inset(0 25% 0 0); } 59.574%, 100% { clip-path: inset(0 0 0 0); } }
 .ph-fam .tap { animation-name: f-tap; }
 @keyframes f-tap {
   0% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); }
-  5.59% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
-  10.06% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
-  10.17%, 44.53% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
-  49% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
-  52.35%, 100% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
+  11.348% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
+  17.021% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
+  17.111%, 64.539% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
+  69.504% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
+  73.05%, 100% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
 }
 .ph-fam { --t1x: 197px; --t1y: 393px; --t2x: 197px; --t2y: 612px; }
 .cl-fam .cl-steps li:nth-child(1) { animation-name: fs1; } .cl-fam .cl-steps li:nth-child(2) { animation-name: fs2; } .cl-fam .cl-steps li:nth-child(3) { animation-name: fs3; }
-@keyframes fs1 { 0%, 45.65% { color: var(--ink); } 45.76%, 100% { color: var(--ink3); } }
-@keyframes fs2 { 0%, 45.65% { color: var(--ink3); } 45.76%, 54.59% { color: var(--ink); } 54.7%, 100% { color: var(--ink3); } }
-@keyframes fs3 { 0%, 54.59% { color: var(--ink3); } 54.7%, 99.89% { color: var(--ink); } 100% { color: var(--ink3); } }
+@keyframes fs1 { 0%, 65.783% { color: var(--ink); } 65.905%, 100% { color: var(--ink3); } }
+@keyframes fs2 { 0%, 65.783% { color: var(--ink3); } 65.905%, 75.18% { color: var(--ink); } 75.285%, 100% { color: var(--ink3); } }
+@keyframes fs3 { 0%, 75.18% { color: var(--ink3); } 75.285%, 99.93% { color: var(--ink); } 100% { color: var(--ink3); } }
 .cl-fam .cl-steps li:nth-child(1) i { animation-name: fb1; } .cl-fam .cl-steps li:nth-child(2) i { animation-name: fb2; } .cl-fam .cl-steps li:nth-child(3) i { animation-name: fb3; }
-@keyframes fb1 { 0% { transform: scaleX(0); } 45.65% { transform: scaleX(1); } 45.76%, 100% { transform: scaleX(0); } }
-@keyframes fb2 { 0%, 45.65% { transform: scaleX(0); } 54.59% { transform: scaleX(1); } 54.7%, 100% { transform: scaleX(0); } }
-@keyframes fb3 { 0%, 54.59% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+@keyframes fb1 { 0% { transform: scaleX(0); } 65.783% { transform: scaleX(1); } 65.905%, 100% { transform: scaleX(0); } }
+@keyframes fb2 { 0%, 65.783% { transform: scaleX(0); } 75.18% { transform: scaleX(1); } 75.285%, 100% { transform: scaleX(0); } }
+@keyframes fb3 { 0%, 75.18% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 
 @media (max-width: 860px) {
   .cl-rev { grid-template-columns: 1fr; }
@@ -366,70 +369,70 @@ body.clay { --loop-f: 3.4s; }
 .link-list { display: flex; flex-direction: column; gap: 8px; max-height: 320px; overflow: hidden; }
 .link-sheet .sheet { padding-bottom: 40px; }
 
-/* Documents loop, --loop-d (4 s).
-   0-8% Documents, tap +   8-14% "Add a document" up   16-20% tap Browse files   20-24% down
-   25-32% the file lands   36-39% tap it   39-46% the document opens   48-52% tap Link
-   52-59% "Link to a reminder" up   62-66% tap Car insurance   66-70% down, linked   94-100% back */
-body.clay { --loop-d: 4s; }
+/* Documents loop, --loop-d (8.15 s).
+   0-0.9 s Documents, tap +   0.9-1.35 s "Add a document" up   2.1-2.4 s tap Browse files   2.4-2.7 s down
+   2.8-3.2 s the file lands   3.9-4.2 s tap it   4.1-4.6 s the document opens   5.2-5.5 s tap Link
+   5.4-5.9 s "Link to a reminder" up   6.4-6.75 s tap Car insurance   6.7-7 s down, linked   7.9-8.15 s back */
+body.clay { --loop-d: 8.15s; }
 .ph-doc .doc-sheet, .ph-doc .doc-sheet .sheet, .ph-doc .link-sheet, .ph-doc .link-sheet .sheet, .ph-doc .doc-empty, .ph-doc .doc-list,
 .ph-doc .scr-doc .d0, .ph-doc .scr-doc .d1, .ph-doc .scr-docd .d0, .ph-doc .scr-docd .d1, .ph-doc .track i, .ph-doc .scr-docd,
 .ph-doc .doc-row, .ph-doc .doc-browse, .ph-doc .doc-link, .ph-doc .link-car, .ph-doc .tap, .cl-doc .cl-steps li, .cl-doc .cl-steps li i { animation-duration: var(--loop-d); animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
 .ph-hero .sheet-wrap, .sheet-wrap { opacity: 0; }
 .ph-doc .doc-sheet { animation-name: d-sh1; }
-@keyframes d-sh1 { 0%, 8.05% { opacity: 0; } 10.35%, 20.7% { opacity: 1; } 24.15%, 100% { opacity: 0; } }
+@keyframes d-sh1 { 0%, 11.043% { opacity: 0; } 13.252%, 29.448% { opacity: 1; } 33.129%, 100% { opacity: 0; } }
 .ph-doc .doc-sheet .sheet { animation-name: d-sh1b; }
-@keyframes d-sh1b { 0%, 8.05% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 13.8%, 19.55% { transform: translateY(0); animation-timing-function: ease-in; } 24.15%, 100% { transform: translateY(100%); } }
+@keyframes d-sh1b { 0%, 11.043% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 16.564%, 28.221% { transform: translateY(0); animation-timing-function: ease-in; } 33.129%, 100% { transform: translateY(100%); } }
 .ph-doc .link-sheet { animation-name: d-sh2; }
-@keyframes d-sh2 { 0%, 51.75% { opacity: 0; } 54.05%, 66.7% { opacity: 1; } 70.15%, 100% { opacity: 0; } }
+@keyframes d-sh2 { 0%, 66.258% { opacity: 0; } 68.466%, 82.822% { opacity: 1; } 85.89%, 100% { opacity: 0; } }
 .ph-doc .link-sheet .sheet { animation-name: d-sh2b; }
-@keyframes d-sh2b { 0%, 51.75% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 58.65%, 65.55% { transform: translateY(0); animation-timing-function: ease-in; } 70.15%, 100% { transform: translateY(100%); } }
+@keyframes d-sh2b { 0%, 66.258% { transform: translateY(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 72.393%, 82.209% { transform: translateY(0); animation-timing-function: ease-in; } 85.89%, 100% { transform: translateY(100%); } }
 .ph-doc .doc-empty { animation-name: d-empty; }
-@keyframes d-empty { 0%, 25.3% { opacity: 1; } 27.6%, 98.85% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes d-empty { 0%, 34.356% { opacity: 1; } 35.992%, 99.387% { opacity: 0; } 100% { opacity: 1; } }
 .ph-doc .doc-list { animation-name: d-list; }
-@keyframes d-list { 0%, 25.3% { opacity: 0; transform: translateY(-14px); animation-timing-function: cubic-bezier(.22,1,.36,1); } 32.2%, 98.85% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes d-list { 0%, 34.356% { opacity: 0; transform: translateY(-14px); animation-timing-function: cubic-bezier(.22,1,.36,1); } 39.264%, 99.387% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 .ph-doc .scr-doc .d0 { animation-name: d-sw0a; } .ph-doc .scr-doc .d1 { animation-name: d-sw1a; }
-@keyframes d-sw0a { 0%, 27.48% { opacity: 1; } 27.6%, 99.89% { opacity: 0; } }
-@keyframes d-sw1a { 0%, 27.48% { opacity: 0; } 27.6%, 99.89% { opacity: 1; } }
+@keyframes d-sw0a { 0%, 35.906% { opacity: 1; } 35.992%, 99.941% { opacity: 0; } }
+@keyframes d-sw1a { 0%, 35.906% { opacity: 0; } 35.992%, 99.941% { opacity: 1; } }
 .ph-doc .scr-docd .d0 { animation-name: d-sw0b; } .ph-doc .scr-docd .d1 { animation-name: d-sw1b; }
-@keyframes d-sw0b { 0%, 67.73% { opacity: 1; } 67.85%, 100% { opacity: 0; } }
-@keyframes d-sw1b { 0%, 67.73% { opacity: 0; } 67.85%, 100% { opacity: 1; } }
+@keyframes d-sw0b { 0%, 83.738% { opacity: 1; } 83.845%, 100% { opacity: 0; } }
+@keyframes d-sw1b { 0%, 83.738% { opacity: 0; } 83.845%, 100% { opacity: 1; } }
 .ph-doc { --t1x: 353px; --t1y: 96px; --t2x: 197px; --t2y: 772px; --t3x: 197px; --t3y: 291px; --t4x: 196px; --t4y: 491px; --t5x: 197px; --t5y: 705px; }
 .ph-cat { --t1x: 106px; --t1y: 198px; }
 .ph-doc .track i { animation-name: d-track; }
-@keyframes d-track { 0%, 27.48% { width: 0; } 27.6%, 99.89% { width: 3px; } }
+@keyframes d-track { 0%, 35.906% { width: 0; } 35.992%, 99.941% { width: 3px; } }
 .ph-doc .scr-docd { animation-name: d-detail; transform: translateX(100%); }
-@keyframes d-detail { 0%, 39.1% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 46%, 94.25% { transform: translateX(0); opacity: 1; } 98.85% { transform: translateX(0); opacity: 0; } 98.96%, 100% { transform: translateX(100%); opacity: 0; } }
+@keyframes d-detail { 0%, 50.307% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 56.442%, 96.933% { transform: translateX(0); opacity: 1; } 99.387% { transform: translateX(0); opacity: 0; } 99.445%, 100% { transform: translateX(100%); opacity: 0; } }
 .ph-doc .doc-row { animation-name: d-p1; } .ph-doc .doc-browse { animation-name: d-p2; } .ph-doc .doc-link { animation-name: d-p3; } .ph-doc .link-car { animation-name: d-p4; }
-@keyframes d-p1 { 0%, 35.65% { transform: scale(1); } 37.95% { transform: scale(.97); } 40.25%, 100% { transform: scale(1); } }
-@keyframes d-p2 { 0%, 16.1% { transform: scale(1); } 18.4% { transform: scale(.96); } 20.7%, 100% { transform: scale(1); } }
-@keyframes d-p3 { 0%, 48.3% { transform: scale(1); } 50.6% { transform: scale(.94); } 52.9%, 100% { transform: scale(1); } }
-@keyframes d-p4 { 0%, 62.1% { transform: scale(1); background: var(--surface); color: var(--ink); } 64.4%, 70.15% { transform: scale(.96); background: var(--violet); color: #fff; } 70.86%, 100% { transform: scale(1); background: var(--surface); color: var(--ink); } }
+@keyframes d-p1 { 0%, 46.626% { transform: scale(1); } 49.08% { transform: scale(.97); } 51.534%, 100% { transform: scale(1); } }
+@keyframes d-p2 { 0%, 22.699% { transform: scale(1); } 26.994% { transform: scale(.96); } 29.448%, 100% { transform: scale(1); } }
+@keyframes d-p3 { 0%, 61.35% { transform: scale(1); } 65.031% { transform: scale(.94); } 67.485%, 100% { transform: scale(1); } }
+@keyframes d-p4 { 0%, 78.528% { transform: scale(1); background: var(--surface); color: var(--ink); } 80.982%, 85.89% { transform: scale(.96); background: var(--violet); color: #fff; } 86.215%, 100% { transform: scale(1); background: var(--surface); color: var(--ink); } }
 .ph-doc .tap { animation-name: d-tap; }
 @keyframes d-tap {
   0% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); }
-  4.6% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
-  8.05% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
-  8.16%, 13.8% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
-  17.25% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
-  20.7% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
-  20.82%, 33.35% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(1.3); }
-  36.8% { left: var(--t3x); top: var(--t3y); opacity: 1; transform: scale(1); }
-  40.25% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(.8); }
-  40.37%, 46% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(1.3); }
-  49.45% { left: var(--t4x); top: var(--t4y); opacity: 1; transform: scale(1); }
-  52.9% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(.8); }
-  53.01%, 59.8% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(1.3); }
-  63.25% { left: var(--t5x); top: var(--t5y); opacity: 1; transform: scale(1); }
-  66.7%, 100% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(.8); }
+  7.362% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); }
+  11.043% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); }
+  11.149%, 16.564% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(1.3); }
+  25.767% { left: var(--t2x); top: var(--t2y); opacity: 1; transform: scale(1); }
+  29.448% { left: var(--t2x); top: var(--t2y); opacity: 0; transform: scale(.8); }
+  29.576%, 44.172% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(1.3); }
+  47.853% { left: var(--t3x); top: var(--t3y); opacity: 1; transform: scale(1); }
+  51.534% { left: var(--t3x); top: var(--t3y); opacity: 0; transform: scale(.8); }
+  51.636%, 56.442% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(1.3); }
+  63.804% { left: var(--t4x); top: var(--t4y); opacity: 1; transform: scale(1); }
+  67.485% { left: var(--t4x); top: var(--t4y); opacity: 0; transform: scale(.8); }
+  67.579%, 75.46% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(1.3); }
+  79.755% { left: var(--t5x); top: var(--t5y); opacity: 1; transform: scale(1); }
+  82.822%, 100% { left: var(--t5x); top: var(--t5y); opacity: 0; transform: scale(.8); }
 }
 .cl-doc .cl-steps li:nth-child(1) { animation-name: ds1; } .cl-doc .cl-steps li:nth-child(2) { animation-name: ds2; } .cl-doc .cl-steps li:nth-child(3) { animation-name: ds3; }
-@keyframes ds1 { 0%, 34.5% { color: var(--ink); } 34.61%, 100% { color: var(--ink3); } }
-@keyframes ds2 { 0%, 34.5% { color: var(--ink3); } 34.61%, 50.6% { color: var(--ink); } 50.71%, 100% { color: var(--ink3); } }
-@keyframes ds3 { 0%, 50.6% { color: var(--ink3); } 50.71%, 99.89% { color: var(--ink); } 100% { color: var(--ink3); } }
+@keyframes ds1 { 0%, 45.399% { color: var(--ink); } 45.516%, 100% { color: var(--ink3); } }
+@keyframes ds2 { 0%, 45.399% { color: var(--ink3); } 45.516%, 65.031% { color: var(--ink); } 65.148%, 100% { color: var(--ink3); } }
+@keyframes ds3 { 0%, 65.031% { color: var(--ink3); } 65.148%, 99.941% { color: var(--ink); } 100% { color: var(--ink3); } }
 .cl-doc .cl-steps li:nth-child(1) i { animation-name: db1; } .cl-doc .cl-steps li:nth-child(2) i { animation-name: db2; } .cl-doc .cl-steps li:nth-child(3) i { animation-name: db3; }
-@keyframes db1 { 0% { transform: scaleX(0); } 34.5% { transform: scaleX(1); } 34.61%, 100% { transform: scaleX(0); } }
-@keyframes db2 { 0%, 34.5% { transform: scaleX(0); } 50.6% { transform: scaleX(1); } 50.71%, 100% { transform: scaleX(0); } }
-@keyframes db3 { 0%, 50.6% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
+@keyframes db1 { 0% { transform: scaleX(0); } 45.399% { transform: scaleX(1); } 45.516%, 100% { transform: scaleX(0); } }
+@keyframes db2 { 0%, 45.399% { transform: scaleX(0); } 65.031% { transform: scaleX(1); } 65.148%, 100% { transform: scaleX(0); } }
+@keyframes db3 { 0%, 65.031% { transform: scaleX(0); } 100% { transform: scaleX(1); } }
 
 /* --------------------------------------------------------- Categories */
 .scr-cats .abar, .scr-veh .abar { margin-bottom: 16px; }
@@ -444,15 +447,15 @@ body.clay { --loop-d: 4s; }
 .track-ok i { width: 100%; background: #12be92; }
 .veh-hdr { margin-top: 20px; }
 
-/* Categories loop, --loop-c: tap Vehicle (10-16%), Vehicle opens (16-24%), hold, back. */
-body.clay { --loop-c: 3.4s; }
+/* Categories loop, --loop-c (6 s): tap Vehicle (0.5-1.35 s), Vehicle opens (1.35-1.8 s), hold to 4.6 s, back by 5.1 s, grid holds. */
+body.clay { --loop-c: 6s; }
 .ph-cat .scr-veh, .ph-cat .cat-veh, .ph-cat .tap { animation-duration: var(--loop-c); animation-timing-function: linear; animation-iteration-count: infinite; animation-fill-mode: both; }
 .ph-cat .scr-veh { animation-name: c-veh; transform: translateX(100%); }
-@keyframes c-veh { 0%, 18% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 26%, 88% { transform: translateX(0); animation-timing-function: cubic-bezier(.55,0,.45,1); } 96%, 100% { transform: translateX(100%); } }
+@keyframes c-veh { 0%, 22.5% { transform: translateX(100%); animation-timing-function: cubic-bezier(.22,1,.36,1); } 30%, 76.667% { transform: translateX(0); animation-timing-function: cubic-bezier(.55,0,.45,1); } 85%, 100% { transform: translateX(100%); } }
 .ph-cat .cat-veh { animation-name: c-press; }
-@keyframes c-press { 0%, 12% { transform: scale(1); } 15% { transform: scale(.95); } 18%, 100% { transform: scale(1); } }
+@keyframes c-press { 0%, 15.833% { transform: scale(1); } 19.167% { transform: scale(.95); } 22.5%, 100% { transform: scale(1); } }
 .ph-cat .tap { animation-name: c-tap; }
-@keyframes c-tap { 0%, 6% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); } 13% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); } 18%, 100% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); } }
+@keyframes c-tap { 0%, 8.333% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(1.3); } 16.667% { left: var(--t1x); top: var(--t1y); opacity: 1; transform: scale(1); } 22.5%, 100% { left: var(--t1x); top: var(--t1y); opacity: 0; transform: scale(.8); } }
 
 /* bento: the phone card plus one card per seeded category, each tile bobbing in turn */
 .cl-cats, .cl-plans { padding: clamp(40px, 7vw, 110px) 0 0; }
@@ -460,7 +463,7 @@ body.clay { --loop-c: 3.4s; }
 .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(180px, auto); gap: 16px; }
 .bento-card { border-radius: 30px; background: var(--surface); box-shadow: var(--up); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; }
 .bento-card > b { font-family: var(--fred); font-weight: 500; font-size: 22px; color: var(--ink); }
-.bento-card > .tile { transform: scale(1.5); margin: 12px 0 8px; animation: c-bob 3.2s cubic-bezier(.45,0,.55,1) infinite both; animation-delay: calc(var(--k) * .4s - 3.2s); }
+.bento-card > .tile { transform: scale(1.5); margin: 12px 0 8px; animation: c-bob 6.4s cubic-bezier(.45,0,.55,1) infinite both; animation-delay: calc(var(--k) * .8s - 6.4s); }
 @keyframes c-bob { 0%, 30%, 100% { transform: scale(1.5) translateY(0); } 12% { transform: scale(1.5) translateY(-7px) rotate(-4deg); } 22% { transform: scale(1.5) translateY(0) rotate(0); } }
 .bento-new { box-shadow: var(--in); background: transparent; }
 .bento-new > b { color: var(--ink2); font-size: 18px; }
