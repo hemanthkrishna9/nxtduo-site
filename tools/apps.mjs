@@ -85,7 +85,8 @@ export const apps = [
     cta: { label: "Get it on the App Store", href: "/go/nxtdue", external: true },
     // Own page template (tools/nxtdue-page.mjs). demo1 reuses the live "What it does" line below.
     page: "clay",
-    clay: { demo1: "Reminders that arrive early" },
+    // Section titles reuse the live "What it does" lines below.
+    clay: { demo1: "Reminders that arrive early", family: "Share with family", docs: "Documents kept with the reminder" },
     facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",
@@ -112,11 +113,11 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>Get the iPhone app free on the <a href="/go/nxtdue">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan. Plans and updates are on <a href="https://www.nxtdue.com">nxtdue.com</a>.</p>`,
+        html: `<p>Get the iPhone app free on the <a href="/go/nxtdue">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan.</p>`,
       },
     ],
     faq: [
-      ["Is NxtDue free?", "There is a free plan. Premium adds more; see nxtdue.com for what each plan includes."],
+      ["Is NxtDue free?", "There is a free plan, and an optional Premium plan."],
       ["Where is my data stored?", "On servers in India. NxtDue shows no ads and does not sell your data."],
       ["Can I delete my data?", "Yes. You can export or delete everything yourself in the app's Settings."],
     ],
