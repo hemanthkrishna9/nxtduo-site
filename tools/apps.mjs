@@ -76,7 +76,7 @@ export const apps = [
     category: "Productivity · Reminders",
     tagline: "Never miss a renewal.",
     summary:
-      "Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. Your data stays in India. No ads, no data selling.",
+      "Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. No ads, no data selling.",
     status: { label: "Live on iPhone", kind: "live" },
     statusNote: "Free on the App Store. Android is in closed testing on Google Play.",
     chips: ["iPhone", "Android", "Free plan"],
@@ -87,11 +87,11 @@ export const apps = [
     page: "clay",
     // Section titles reuse the live "What it does" lines below.
     clay: { demo1: "Reminders that arrive early", family: "Share with family", docs: "Documents kept with the reminder" },
-    facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium", "Data stored in": "India" },
+    facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",
       description:
-        "NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. Data stays in India. No ads, no data selling.",
+        "NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. No ads, no data selling.",
       appCategory: "ProductivityApplication",
       os: "iOS, Android",
       free: true,
@@ -118,7 +118,6 @@ export const apps = [
     ],
     faq: [
       ["Is NxtDue free?", "There is a free plan, and an optional Premium plan."],
-      ["Where is my data stored?", "On servers in India. NxtDue shows no ads and does not sell your data."],
       ["Can I delete my data?", "Yes. You can export or delete everything yourself in the app's Settings."],
     ],
     privacy: { effective: "5 October 2026", intro: "A short summary of how NxtDue handles your data. The full policy is on nxtdue.com." },
