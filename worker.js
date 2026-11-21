@@ -13,6 +13,7 @@ const MOVED = {
 // 302 and no-store: a browser must ask every time, or repeat clicks go uncounted.
 const OUTBOUND = {
   '/go/nxtdue': 'https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092',
+  '/go/nxtdue-android': 'https://play.google.com/store/apps/details?id=com.nxtdue.app',
 };
 
 export default {

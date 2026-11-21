@@ -34,6 +34,7 @@ body.clay .facts div { background: var(--surface); }
 .cl-hero .tag.live::before { background: #12be92; }
 .cl-hero h1 { font-family: var(--fred); font-weight: 600; font-size: clamp(52px, 9.4vw, 128px); line-height: .98; letter-spacing: -.02em; margin: 22px 0 30px; color: var(--ink); }
 .cl-btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 28px; border-radius: 20px; background: var(--grad); box-shadow: var(--v-md); color: #fff; font-weight: 700; font-size: 16px; text-decoration: none; transition: transform .2s; }
+.cl-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .cl-btn:hover { transform: translateY(-2px); }
 .cl-btn:active { transform: scale(.972); }
 .ph-hero { margin-top: clamp(40px, 6vw, 72px); animation: cl-rise 1s cubic-bezier(.22, 1, .36, 1) both; }

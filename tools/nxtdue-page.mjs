@@ -277,7 +277,7 @@ export function nxtdueSections(a, { ext, arrow }) {
   return `<section class="cl-hero" aria-labelledby="cl-title">
       <span class="tag live">${esc(a.status.label)}</span>
       <h1 id="cl-title">${esc(a.tagline)}</h1>
-      <a class="cl-btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>
+      <div class="cl-btns"><a class="cl-btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>${a.cta2 ? `<a class="cl-btn" href="${esc(a.cta2.href)}"${ext(a.cta2)}>${esc(a.cta2.label)} <span aria-hidden="true">${arrow(a.cta2)}</span></a>` : ""}</div>
       ${phone(homeScreen(), "ph-hero")}
     </section>
 
@@ -331,6 +331,6 @@ ${[["Free", "free"], ["Premium", "premium"]].map(([name, key]) => `        <div 
     <section class="cl-end" aria-labelledby="end-title">
       <img src="/assets/apps/nxtdue.webp" alt="" width="120" height="120" loading="lazy" />
       <h2 id="end-title">${esc(a.tagline)}</h2>
-      <a class="cl-btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>
+      <div class="cl-btns"><a class="cl-btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>${a.cta2 ? `<a class="cl-btn" href="${esc(a.cta2.href)}"${ext(a.cta2)}>${esc(a.cta2.label)} <span aria-hidden="true">${arrow(a.cta2)}</span></a>` : ""}</div>
     </section>`;
 }

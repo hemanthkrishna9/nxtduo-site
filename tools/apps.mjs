@@ -77,17 +77,18 @@ export const apps = [
     tagline: "Never miss a renewal.",
     summary:
       "Vehicle insurance, PUC, passports, subscriptions, warranties: add them once and NxtDue reminds you in time, with notifications that actually arrive. No ads, no data selling.",
-    status: { label: "Live on iPhone", kind: "live" },
-    statusNote: "Free on the App Store. Android is in closed testing on Google Play.",
+    status: { label: "Live on iPhone & Android", kind: "live" },
+    statusNote: "Free on the App Store and Google Play.",
     chips: ["iPhone", "Android", "Free plan"],
     accent: "#8b72ff",
     accentInk: "#5b3fe0",
     cta: { label: "Get it on the App Store", href: "/go/nxtdue", external: true },
+    cta2: { label: "Get it on Google Play", href: "/go/nxtdue-android", external: true },
     // Own page template (tools/nxtdue-page.mjs). demo1 reuses the live "What it does" line below.
     page: "clay",
     // Section titles reuse the live "What it does" lines below.
     clay: { demo1: "Reminders that arrive early", family: "Share with family", docs: "Documents kept with the reminder" },
-    facts: { Status: "Live on iPhone · Android in testing", Platforms: "iPhone, Android", Price: "Free plan · Premium" },
+    facts: { Status: "Live on iPhone and Android", Platforms: "iPhone, Android", Price: "Free plan · Premium" },
     seo: {
       title: "NxtDue: renewal reminders for insurance, PUC, passports and more",
       description:
@@ -113,7 +114,7 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>Get the iPhone app free on the <a href="/go/nxtdue">App Store</a>. The Android app is in closed testing on Google Play. There is a free plan and an optional Premium plan.</p>`,
+        html: `<p>Get it free on the <a href="/go/nxtdue">App Store</a> for iPhone or on <a href="/go/nxtdue-android">Google Play</a> for Android. There is a free plan and an optional Premium plan.</p>`,
       },
     ],
     faq: [

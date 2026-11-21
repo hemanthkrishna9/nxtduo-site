@@ -108,6 +108,7 @@ function appPanel(a, i) {
             <ul class="chips reveal" aria-label="Details">${a.chips.map((c) => `<li>${esc(c)}</li>`).join("")}</ul>
             <div class="app-ctas reveal">
               <a class="btn primary" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <i aria-hidden="true">${arrow(a.cta)}</i></a>
+              ${a.cta2 ? `<a class="btn primary" href="${esc(a.cta2.href)}"${ext(a.cta2)}>${esc(a.cta2.label)} <i aria-hidden="true">${arrow(a.cta2)}</i></a>` : ""}
               <a class="btn ghost" href="/${a.slug}/">About ${esc(a.name)}</a>
               <a class="text-link" href="/${a.slug}/privacy/">Privacy</a>
             </div>
