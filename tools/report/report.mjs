@@ -12,6 +12,7 @@ const SITES = [
   { host: "nxtduo.com", name: "nxtduo.com", url: "https://nxtduo.com/" },
   { host: "publik.nxtduo.com", name: "Publik", url: "https://publik.nxtduo.com/" },
   { host: "ramana.nxtduo.com", name: "Talk With Swamy", url: "https://ramana.nxtduo.com/" },
+  { host: "passon.nxtduo.com", name: "PassOn", url: "https://passon.nxtduo.com/" },
 ];
 // The /go/ redirects in worker.js worth a line in the report.
 const BUTTONS = [["/go/nxtdue", "NxtDue App Store button"], ["/go/talk-with-swamy", "Talk With Swamy App Store button"]];
