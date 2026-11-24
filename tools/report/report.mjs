@@ -14,7 +14,7 @@ const SITES = [
   { host: "ramana.nxtduo.com", name: "Talk With Swamy", url: "https://ramana.nxtduo.com/" },
 ];
 // The /go/ redirects in worker.js worth a line in the report.
-const BUTTONS = [["/go/nxtdue", "NxtDue App Store button"]];
+const BUTTONS = [["/go/nxtdue", "NxtDue App Store button"], ["/go/talk-with-swamy", "Talk With Swamy App Store button"]];
 // Successful API calls worth a line in the report, per host.
 const ACTIONS = {
   "publik.nxtduo.com": [["/api/reports", "place cards opened"], ["/api/report", "reports sent"], ["/api/visit", "“I went here”"]],

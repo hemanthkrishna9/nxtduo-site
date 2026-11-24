@@ -30,20 +30,22 @@ export const apps = [
     tagline: "Sit with Ramana Maharshi's words.",
     summary:
       "A quiet chat on the teachings of Sri Ramana Maharshi. Ask in your own words; it answers in his calm style, using only passages from his recorded words in 10 books, and names the book each answer comes from.",
-    status: { label: "Live on the web", kind: "live" },
-    statusNote: "The Android and iPhone apps are in store review.",
-    chips: ["Web", "Android", "iPhone", "Free"],
+    status: { label: "Live on the web & iPhone", kind: "live" },
+    statusNote: "Free on the web and the App Store. Android is coming soon.",
+    chips: ["Web", "iPhone", "Android soon", "Free"],
     accent: "#c9a23a",
     accentInk: "#2e7d4f",
     cta: { label: "Open Talk With Swamy", href: "https://ramana.nxtduo.com", external: true },
-    facts: { Status: "Web live · apps in review", Platforms: "Web, Android, iPhone", Price: "Free", Language: "English" },
+    cta2: { label: "Get it on the App Store", href: "/go/talk-with-swamy", external: true },
+    facts: { Status: "Live on web and iPhone · Android soon", Platforms: "Web, iPhone (Android soon)", Price: "Free", Language: "English" },
     seo: {
       title: "Talk With Swamy: chat with Ramana Maharshi's words",
       description:
         "Talk With Swamy is a free AI chat app that answers questions using only the recorded words of Sri Ramana Maharshi, and names the source book for every answer.",
       appCategory: "LifestyleApplication",
-      os: "Web, Android, iOS",
+      os: "Web, iOS",
       free: true,
+      download: "https://apps.apple.com/app/arunachala-talk-with-swamy/id6820882475",
     },
     legacy: ["arunachala"],
     sections: [
@@ -59,7 +61,7 @@ export const apps = [
       },
       {
         h: "How to get it",
-        html: `<p>Use it now in your browser at <a href="https://ramana.nxtduo.com">ramana.nxtduo.com</a>. New to his teaching? Read <a href="https://ramana.nxtduo.com/who-am-i-nan-yar/">Who am I? (Nan Yar) explained</a> or <a href="https://ramana.nxtduo.com/faq/">the questions and answers</a>. The Android and iPhone apps are in store review. It is free, with no paid tier; to keep it free, each device has a daily message limit.</p>`,
+        html: `<p>Use it now in your browser at <a href="https://ramana.nxtduo.com">ramana.nxtduo.com</a>. New to his teaching? Read <a href="https://ramana.nxtduo.com/who-am-i-nan-yar/">Who am I? (Nan Yar) explained</a> or <a href="https://ramana.nxtduo.com/faq/">the questions and answers</a>. On iPhone, get it free on the <a href="/go/talk-with-swamy">App Store</a>. The Android app is coming soon. It is free, with no paid tier; to keep it free, each device has a daily message limit.</p>`,
       },
     ],
     faq: [
@@ -124,6 +126,55 @@ export const apps = [
     privacy: { effective: "5 October 2026", intro: "A short summary of how NxtDue handles your data. The full policy is on nxtdue.com." },
   },
   {
+    slug: "passon",
+    name: "PassOn",
+    short: "Pass on a ticket you can't use",
+    category: "Community · Tickets",
+    tagline: "Can't go? Pass it on.",
+    summary:
+      "Can't use your movie or event ticket? List it on PassOn and give it free to someone who needs one. You chat on PassOn without sharing your phone number. PassOn never handles money.",
+    status: { label: "Live on the web", kind: "live" },
+    statusNote: "Free at passon.nxtduo.com. The App Store and Google Play apps are coming soon.",
+    chips: ["Web", "Works on phones", "Free", "English · తెలుగు · हिंदी"],
+    accent: "#2bb3a3",
+    accentInk: "#0f4c45",
+    cta: { label: "Open PassOn", href: "https://passon.nxtduo.com", external: true },
+    facts: { Status: "Live on the web · apps coming soon", Platform: "Web (phone and laptop)", Price: "Free", Languages: "English, Telugu, Hindi" },
+    seo: {
+      title: "PassOn: can't go? Pass your movie or event ticket on, free",
+      description:
+        "PassOn is a free website to pass on a movie or event ticket you can't use. Chat without sharing your number. PassOn never handles money.",
+      appCategory: "LifestyleApplication",
+      os: "Web",
+      free: true,
+    },
+    sections: [
+      {
+        h: "How it works",
+        html: `<ol>
+<li>Can't go? List your movie or event ticket. Every ticket on PassOn is free to take.</li>
+<li>People who need a ticket chat with you on PassOn. Nobody sees your phone number unless you choose to share it.</li>
+<li>You give the ticket to one person in the chat. Only that person sees the ticket.</li>
+<li>Once they are inside, they can say thank you by UPI if they want. Never pay before you are inside.</li>
+</ol>`,
+      },
+      {
+        h: "Who it is for",
+        html: `<p>Anyone whose plans changed after booking, and anyone looking for a ticket to a show that is sold out. PassOn is a free help-people project: no ads, no fees, and PassOn never touches money.</p>`,
+      },
+      {
+        h: "How to get it",
+        html: `<p>Open <a href="https://passon.nxtduo.com">passon.nxtduo.com</a> on any phone or laptop. You can add it to your home screen from the browser. The App Store and Google Play apps are coming soon.</p>`,
+      },
+    ],
+    faq: [
+      ["Is PassOn free?", "Yes. Every ticket on PassOn is free to take, and there are no fees or ads."],
+      ["Will people see my phone number?", "No. You chat on PassOn without sharing it. People see it only if you choose to share it."],
+      ["Is there an app?", "Use it now on the web at passon.nxtduo.com. The App Store and Google Play apps are coming soon."],
+    ],
+    privacy: { effective: "20 November 2026", intro: "A short summary of how PassOn handles your data. The full policy is on passon.nxtduo.com." },
+  },
+  {
     slug: "publik",
     name: "Publik",
     short: "Bengaluru's public spaces",
@@ -175,55 +226,6 @@ export const apps = [
     privacy: { effective: "13 October 2026", intro: "Publik is a website with no accounts. This policy explains what it stores, including the photos and notes people post, and the services it uses." },
   },
   {
-    slug: "fablefox",
-    name: "FableFox",
-    short: "Bedtime stories in your voice",
-    category: "Kids · Bedtime stories",
-    tagline: "Little ears. Big dreams.",
-    summary:
-      "Indian bedtime stories told in a parent's own voice. Read two short lines once, and FableFox tells stories from the Ramayana, the Panchatantra and Tenali Raman in your voice, calling your child by the pet name you use at home.",
-    status: { label: "Testing with families", kind: "dev" },
-    statusNote: "A test version is with a small group of families.",
-    chips: ["Android", "हिंदी · తెలుగు · ಕನ್ನಡ · தமிழ் · മലയാളം", "Plays offline"],
-    accent: "#f2a93b",
-    accentInk: "#a84a0c",
-    cta: { label: "Ask to join the test", href: mail("FableFox test"), external: false },
-    facts: { Status: "Testing with families", Platform: "Android", Languages: "Hindi, Telugu, Kannada, Tamil, Malayalam", Works: "Offline at bedtime" },
-    seo: {
-      title: "FableFox: Indian bedtime stories in a parent's own voice",
-      description:
-        "FableFox tells Ramayana, Panchatantra and Tenali Raman bedtime stories in a parent's own voice, in Hindi, Telugu, Kannada, Tamil or Malayalam.",
-      appCategory: "EducationalApplication",
-      os: "Android",
-      free: false,
-    },
-    sections: [
-      {
-        h: "How it works",
-        html: `<ol>
-<li>Choose your language, agree to the consent, and type your child's pet name.</li>
-<li>Read two short lines on screen, about 6 to 20 seconds.</li>
-<li>Hear a short preview in your voice. If it sounds like you, FableFox makes the stories.</li>
-<li>Each story downloads once and plays offline. At bedtime the player locks the screen against small hands and fades out at the end.</li>
-</ol>`,
-      },
-      {
-        h: "Your voice stays yours",
-        html: `<p>Only the person whose voice it is can agree to record it. Your voice makes stories for your family only and is never shared. You can delete your voice and every story at any time from the app. Read the <a href="/fablefox/privacy/">privacy policy</a>.</p>`,
-      },
-      {
-        h: "Who it is for",
-        html: `<p>Parents who travel, work late or live apart from their children for a while, and grandparents who want their voice at bedtime. Also any family that wants the old stories told in their own language.</p>`,
-      },
-    ],
-    faq: [
-      ["Can I use FableFox now?", "A test version is with a small group of families. Email support@nxtduo.com to ask to join."],
-      ["Which languages are there?", "Hindi, Telugu, Kannada, Tamil and Malayalam."],
-      ["Do the stories need the internet?", "Only to download them once. After that they play offline."],
-    ],
-    privacy: { effective: "11 October 2026", intro: "FableFox uses a parent's voice and a child's pet name, so we explain exactly what happens to them." },
-  },
-  {
     slug: "meter-mele",
     name: "Meter Mele",
     alt: { text: "ಮೀಟರ್ ಮೇಲೆ", lang: "kn" },
@@ -273,199 +275,5 @@ export const apps = [
       ["Are the streets real?", "Yes. The roads, buildings and landmarks come from OpenStreetMap data of central Bengaluru."],
     ],
     privacy: { effective: "11 October 2026", intro: "You can play Meter Mele as a guest. This policy explains what we keep if you sign in for the leaderboards." },
-  },
-  {
-    slug: "nxtbrush",
-    name: "NxtBrush",
-    short: "Guided toothbrushing",
-    category: "Health · Family",
-    tagline: "Brush every zone, every time.",
-    summary:
-      "Guided, animated toothbrushing for ages 3 to 80. A mouth map shows the next zone, a timer counts down, a chime says when to move on. It works offline, with any toothbrush.",
-    status: { label: "In development", kind: "dev" },
-    statusNote: "Android first. Not in the stores yet.",
-    chips: ["Android", "Offline", "Ages 3 to 80", "Free"],
-    accent: "#14a3a8",
-    accentInk: "#0b7377",
-    cta: { label: "Ask for early access", href: mail("NxtBrush early access"), external: false },
-    facts: { Status: "In development", Platform: "Android first", Price: "Free, no purchases", Works: "Offline" },
-    seo: {
-      title: "NxtBrush: guided, animated toothbrushing for the whole family",
-      description:
-        "NxtBrush guides you zone by zone with a mouth map, a timer and a chime. For ages 3 to 80, works offline, with any toothbrush.",
-      appCategory: "HealthApplication",
-      os: "Android",
-      free: true,
-    },
-    sections: [
-      {
-        h: "What it does",
-        html: `<p>You stand at the sink and tap Start. The phone does the rest:</p>
-<ul class="features">
-<li><b>Mouth map</b><span>Lights up the zone to brush next, with a short animation of the motion.</span></li>
-<li><b>See, hear, feel</b><span>A timer ring, a soft chime and a gentle vibration at every zone change.</span></li>
-<li><b>Kind streaks</b><span>Small rewards and a family board, with a streak freeze and no guilt.</span></li>
-<li><b>Teeth check</b><span>Optional photos help it give more time to the spots that need it. Coaching, never a diagnosis.</span></li>
-</ul>`,
-      },
-      {
-        h: "Who it is for",
-        html: `<p>Families. The look changes with age: playful for small children, a game for older kids, and calm with bigger text for teens, adults and older people. We built it as a brushing coach for our own kids.</p>`,
-      },
-      {
-        h: "Status",
-        html: `<p>NxtBrush is in development and not in the stores yet. If you want to try it early, <a href="${mail("NxtBrush early access")}">write to us</a>.</p>`,
-      },
-    ],
-    faq: [
-      ["Does NxtBrush need the internet?", "No. Brushing works offline. Only the optional teeth check needs a connection."],
-      ["Is it medical advice?", "No. It gives brushing coaching, not a diagnosis. See a dentist for pain, bleeding that lasts, or anything unusual."],
-      ["Does it need an account?", "No. There is no sign-in, and no ads."],
-    ],
-    privacy: { effective: "1 October 2026", intro: "NxtBrush is built for families, so we collect very little. This policy explains what and why." },
-  },
-  {
-    slug: "chai-empire",
-    name: "Chai Empire",
-    short: "Chai stall tycoon game",
-    category: "Game · Tycoon",
-    tagline: "From one tapri to a chain of hotels.",
-    summary:
-      "A cosy 3D tycoon game. Start as a chaiwala kid with one roadside tapri, brew masala chai, serve customers before their patience runs out, and grow it into a chain of hotels. In English, Hindi and Telugu.",
-    status: { label: "Playable prototype", kind: "dev" },
-    statusNote: "The first stage is playable. Not released yet.",
-    chips: ["3D game", "English · हिंदी · తెలుగు", "Touch or keyboard"],
-    accent: "#ff8a3d",
-    accentInk: "#b4461a",
-    cta: { label: "Ask for early access", href: mail("Chai Empire early access"), external: false },
-    facts: { Status: "Playable prototype", Languages: "English, Hindi, Telugu", Controls: "Touch or keyboard", Release: "Not yet" },
-    seo: {
-      title: "Chai Empire: a cosy chai stall tycoon game",
-      description:
-        "Chai Empire is a cosy 3D tycoon game: grow one roadside chai tapri into a chain of hotels. In English, Hindi and Telugu.",
-      appCategory: "GameApplication",
-      os: "Web",
-      free: true,
-    },
-    sections: [
-      {
-        h: "How it plays",
-        html: `<p>There are no menus to dig through. You walk the kid around the stall and stand in glowing rings to make things happen:</p>
-<ul class="features">
-<li><b>Collect</b><span>Milk from the cow and leaves from the tea bush.</span></li>
-<li><b>Brew</b><span>Chai on the stove, and stock the counter with kulhads.</span></li>
-<li><b>Serve</b><span>Customers before their patience runs out. Fast service earns tips.</span></li>
-<li><b>Grow</b><span>A second cow, a bench, a masala garden, and one day, hotels.</span></li>
-</ul>`,
-      },
-      {
-        h: "Who it is for",
-        html: `<p>Players who like short, relaxing tycoon games, and anyone who has stood at a roadside chai stall. The language button switches between English, Hindi and Telugu.</p>`,
-      },
-      {
-        h: "Status",
-        html: `<p>The first stage is playable from start to finish, and we are polishing it. It is not in any store yet. If you want to try it early, <a href="${mail("Chai Empire early access")}">write to us</a>.</p>`,
-      },
-    ],
-    faq: [
-      ["Can I play Chai Empire now?", "Not publicly yet. It is a playable prototype. Email support@nxtduo.com for early access."],
-      ["Which languages does it support?", "English, Hindi and Telugu."],
-    ],
-    privacy: { effective: "11 October 2026", intro: "Chai Empire is not released yet. Here is what that means for your data today." },
-  },
-  {
-    slug: "saathi",
-    name: "Saathi",
-    short: "Private journaling companion",
-    category: "Wellbeing · Journal",
-    tagline: "A diary that listens, and stays on your phone.",
-    summary:
-      "A journaling companion that runs entirely on your own phone. You write to it like a diary and it replies in a few warm lines, remembers what matters, and never sends your diary to the cloud.",
-    status: { label: "In testing", kind: "dev" },
-    statusNote: "Test builds are running on Android and iPhone.",
-    chips: ["Android", "iPhone", "Fully offline", "No account"],
-    accent: "#d9825b",
-    accentInk: "#a84a24",
-    cta: { label: "Join the test", href: mail("Saathi test"), external: false },
-    facts: { Status: "In testing", Platforms: "Android, iPhone", Privacy: "Runs fully on your phone", Language: "English (understands Hinglish, Tenglish)" },
-    seo: {
-      title: "Saathi: a private, offline journaling companion",
-      description:
-        "Saathi is a journaling companion whose AI runs entirely on your phone. It replies warmly, remembers what matters, and never sends your diary to the cloud.",
-      appCategory: "HealthApplication",
-      os: "Android, iOS",
-      free: true,
-    },
-    sections: [
-      {
-        h: "What it does",
-        html: `<p>You write to Saathi the way you would write a diary. It replies in a few short, warm lines, like a friend who remembers your life. It can bring up the right earlier thing at the right moment, such as asking how Thursday's interview went.</p>
-<p>You stay in charge of what it remembers. Before it keeps a new fact, it asks. You can see, edit or delete your memories.</p>`,
-      },
-      {
-        h: "Private by design",
-        html: `<p>The AI model runs on the phone itself. After a one-time model download, Saathi works with no internet at all. Your entries are encrypted on the phone, there is no account, and there is no cloud copy of your diary. If someone writes that they are in danger, safety comes first: it shows real helplines for their country.</p>`,
-      },
-      {
-        h: "Status",
-        html: `<p>Saathi is in testing on Android and iPhone. If you want to try it, <a href="${mail("Saathi test")}">write to us</a>.</p>`,
-      },
-    ],
-    faq: [
-      ["Does Saathi send my diary to the cloud?", "No. The AI runs on your phone, and your diary stays there, encrypted."],
-      ["Does it need the internet?", "Only once, to download the AI model (about 3.5 GB). After that it works offline."],
-      ["Can I use Saathi today?", "It is in testing. Email support@nxtduo.com to join."],
-    ],
-    privacy: { effective: "11 October 2026", intro: "Saathi is built so that we never see your diary. This policy explains how." },
-  },
-  {
-    slug: "thodu",
-    name: "Thodu",
-    alt: { text: "తోడు", lang: "te" },
-    short: "Telugu calls to parents",
-    category: "Family · Elder care",
-    tagline: "A Telugu check-in call, on your behalf.",
-    summary:
-      "For children who live far from their parents. Thodu would phone your amma and nanna in Telugu, ask what you would ask, and send you a short note on how they really are.",
-    status: { label: "Concept", kind: "idea" },
-    statusNote: "Nothing is built yet. We are talking to families first.",
-    chips: ["Telugu", "Normal phone call", "No app for parents"],
-    accent: "#4fa3ff",
-    accentInk: "#1f5fbf",
-    cta: { label: "Tell us you need this", href: mail("Thodu"), external: false },
-    facts: { Status: "Concept", Language: "Telugu", "For parents": "A normal phone call", Release: "Not yet" },
-    seo: {
-      title: "Thodu: a Telugu check-in call to your parents",
-      description:
-        "Thodu is a concept: a Telugu phone call to your parents on your behalf, with a short note on how they really are.",
-      appCategory: "LifestyleApplication",
-      os: "Phone call",
-      free: true,
-    },
-    sections: [
-      {
-        h: "The idea",
-        html: `<p>Parents often say "all fine" when it is not. A BP tablet gets skipped, a doctor visit goes unmentioned. Thodu is planned to work like this:</p>
-<ol>
-<li>You add a parent and choose what to check: "Did you take the BP tablet?", "What did the doctor say?"</li>
-<li>Thodu calls them in Telugu at the time you choose, and says it is calling on your behalf.</li>
-<li>You get a short summary, and an alert if something sounds wrong.</li>
-</ol>
-<p>The plan is a normal phone call, so the parent does not need a smartphone or an app.</p>`,
-      },
-      {
-        h: "Who it is for",
-        html: `<p>Telugu families with children in another city or another country, and parents living on their own back home. <span lang="te">తోడు</span> means companion or support. It is a bridge to you, never a replacement for your own calls.</p>`,
-      },
-      {
-        h: "Status",
-        html: `<p>Thodu is a concept. We are still talking to families before we build anything. If this is something your family needs, <a href="${mail("Thodu")}">write to us</a>.</p>`,
-      },
-    ],
-    faq: [
-      ["Is Thodu available?", "No. It is a concept and is not built yet."],
-      ["Will my parents need a smartphone?", "The plan is no. Thodu would make a normal phone call, so it works on a basic phone."],
-    ],
-    privacy: { effective: "11 October 2026", intro: "Thodu is not built yet, so it collects nothing. Here is what we keep if you write to us." },
   },
 ];

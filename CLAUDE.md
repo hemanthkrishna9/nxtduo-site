@@ -11,17 +11,17 @@ Static showcase site for NxtDuo, the user's two-person app studio. No framework 
 
 ## Rules
 - Commits: author `hemanthkrishna9` only. **No "Co-Authored-By: Claude" or "Generated with Claude Code" lines**, ever.
-- This is often run from a monitored work laptop: no tunnels, no exposed ports. Pushing to this repo is approved; ask before other logins or deploys.
+- This is often run from a monitored work laptop: no tunnels, no exposed ports. Only the founder pushes to this repo (a push to main goes live); Avengers employees never push. Ask before other logins or deploys.
 - The repo is public. Never commit tokens, account IDs or personal emails.
 - Verify after a push: fetch the page (use `node --use-system-ca`, plain curl fails behind the corporate proxy).
 
 ## Content
-- Since 2026-10-11 the site shows 9 apps in this order (the user's): Talk With Swamy, NxtDue, Publik, FableFox, Meter Mele, NxtBrush, Chai Empire, Saathi, Thodu. More apps will be added.
+- Since 2026-11-24 the site shows 5 apps in this order: Talk With Swamy, NxtDue, PassOn, Publik, Meter Mele. FableFox, NxtBrush, Chai Empire, Saathi and Thodu were removed (not planned); `GONE` in `worker.js` sends their old URLs to the home page.
 - Every app has `/<slug>/` and `/<slug>/privacy/`. These URLs go into the App Store, Google Play and social posts, so never change a slug without adding a 301 to `MOVED` in `worker.js`. `/arunachala/*` (Talk With Swamy's old name) already redirects.
 - Home: hero with a phone home screen of all app icons, one panel per app, studio, contact, plus a fixed dock with every app icon. Use app icons, not screenshots.
 - Horizontal scroll on wide screens: GSAP ScrollTrigger pin + snap, no Lenis; GSAP is served from `vendor/` so a CDN outage cannot break the page. Entrances are scrubbed to scroll position so they cannot get stuck. Narrow screens, and pages where GSAP fails to load, fall back to a vertical page.
 - Nio is the studio mascot (added 2026-11-11): `assets/nio.webp` and `assets/nio-160.webp`, cut out of the owner's render. Nio plays on the right of the hero phone (jump), on top of the studio value cards (hops and a somersault) and beside the contact emblem (dance); all CSS keyframes in `style.css`. There is a "Meet Nio" card in the studio panel. No cursor follower: the owner removed it on 2026-11-11. Nio must not cover app icons or labels on the hero phone, and must not be mirrored (the N on the hoodie).
-- Placeholder icons drawn by Claude, to replace when real ones exist: Publik, Chai Empire, Thodu.
+- Placeholder icons drawn by Claude, to replace when real ones exist: Publik.
 - Keep status claims honest (live / in review / testing / prototype / concept). Do not add invented stats or founder biography. Privacy pages must match what each app really does.
 - Also not shown: trading research (ha-breakout, jev-intraday) and the pencil-anim videos.
 - Contact: support@nxtduo.com.

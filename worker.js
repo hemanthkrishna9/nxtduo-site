@@ -9,11 +9,15 @@ const MOVED = {
   '/arunachala/privacy/': '/talk-with-swamy/privacy/',
 };
 
+// Apps taken off the site on 2026-11-24. 302, not 301, so a page can come back later.
+const GONE = ['fablefox', 'nxtbrush', 'chai-empire', 'saathi', 'thodu'];
+
 // Store buttons pass through here so the daily report can count the clicks.
 // 302 and no-store: a browser must ask every time, or repeat clicks go uncounted.
 const OUTBOUND = {
   '/go/nxtdue': 'https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092',
   '/go/nxtdue-android': 'https://play.google.com/store/apps/details?id=com.nxtdue.app',
+  '/go/talk-with-swamy': 'https://apps.apple.com/app/arunachala-talk-with-swamy/id6820882475',
 };
 
 export default {
@@ -31,6 +35,10 @@ export default {
     if (to) {
       url.pathname = to;
       return Response.redirect(url.toString(), 301);
+    }
+    if (GONE.includes(url.pathname.split('/')[1])) {
+      url.pathname = '/';
+      return Response.redirect(url.toString(), 302);
     }
     const res = await env.ASSETS.fetch(request);
     if (res.status === 307) {

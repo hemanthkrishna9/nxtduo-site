@@ -174,7 +174,7 @@ ${apps.map((a) => `    <a href="#${a.slug}" data-goto><img src="${iconSm(a)}" al
           <div class="hero-copy">
             <p class="eyebrow">NxtDuo · an independent studio of two</p>
             <h1 class="display" id="hero-title">Apps that look after the people you <span class="serif">love.</span></h1>
-            <p class="lead">We build calm, honest apps for family life: reminders that keep you on time, bedtime stories in a parent&rsquo;s own voice, a brushing coach for the kids, a private place for your thoughts. Each one is made for our own family first, then shared with yours.</p>
+            <p class="lead">We build calm, honest apps for family life: reminders that keep you on time, a quiet chat with Ramana Maharshi&rsquo;s words, a free way to pass on a ticket you can&rsquo;t use, and a guide to Bengaluru&rsquo;s parks and lakes. Each one is made for our own family first, then shared with yours.</p>
             <div class="cta">
               <a class="btn primary" href="#${apps[0].slug}" data-goto>Start with ${esc(apps[0].name)} <i aria-hidden="true">→</i></a>
               <a class="btn ghost" href="#studio" data-goto>About the studio</a>
@@ -207,7 +207,7 @@ ${apps.map(appPanel).join("\n")}
           <div>
             <p class="eyebrow reveal">The studio</p>
             <h2 class="display reveal" id="studio-title">Two people. One <span class="serif">studio.</span></h2>
-            <p class="lead reveal">NxtDuo is a small, independent studio making apps for families everywhere. We build things we want for our own family first: a reminder app because we kept missing renewals, bedtime stories for when we are away, a brushing coach for the kids.</p>
+            <p class="lead reveal">NxtDuo is a small, independent studio making apps for families everywhere. We build things we want for our own family first: a reminder app because we kept missing renewals, a guide to the parks and playgrounds near us, a way to pass on a ticket instead of wasting it.</p>
             <p class="quote reveal">With great power comes great responsibility.</p>
             <p class="meet-nio reveal"><img src="/assets/nio-160.webp" alt="" width="160" height="229" loading="lazy" decoding="async" /><span><b>Meet Nio.</b> Our mascot and the face of NxtDuo. Look out for Nio in our videos and around this site.</span></p>
           </div>
@@ -324,7 +324,7 @@ function appPage(a) {
         <p class="intro">${esc(a.summary)}</p>
         <div class="ctas">
           <a class="btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>
-          <a class="btn ghost" href="/${a.slug}/privacy/">Privacy policy</a>
+          ${a.cta2 ? `<a class="btn" href="${esc(a.cta2.href)}"${ext(a.cta2)}>${esc(a.cta2.label)} <span aria-hidden="true">${arrow(a.cta2)}</span></a>\n          ` : ""}<a class="btn ghost" href="/${a.slug}/privacy/">Privacy policy</a>
         </div>
         <p class="cta-note">${esc(a.statusNote)}</p>
       </div>
