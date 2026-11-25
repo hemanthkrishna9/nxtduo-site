@@ -44,6 +44,7 @@ export const apps = [
         "Talk With Swamy is a free AI chat app that answers questions using only the recorded words of Sri Ramana Maharshi, and names the source book for every answer.",
       appCategory: "LifestyleApplication",
       os: "Web, iOS",
+      sameAs: ["https://apps.apple.com/app/arunachala-talk-with-swamy/id6820882475"],
       free: true,
       download: "https://apps.apple.com/app/arunachala-talk-with-swamy/id6820882475",
     },
@@ -97,6 +98,7 @@ export const apps = [
         "NxtDue reminds you before insurance, PUC, passports, subscriptions and warranties expire. No ads, no data selling.",
       appCategory: "ProductivityApplication",
       os: "iOS, Android",
+      sameAs: ["https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092", "https://play.google.com/store/apps/details?id=com.nxtdue.app"],
       free: true,
       download: "https://apps.apple.com/app/nxtdue-renewal-reminders/id6804763092",
     },
@@ -146,6 +148,7 @@ export const apps = [
         "PassOn is a free website to pass on a movie or event ticket you can't use. Chat without sharing your number. PassOn never handles money.",
       appCategory: "LifestyleApplication",
       os: "Web",
+      sameAs: ["https://passon.nxtduo.com/"],
       free: true,
     },
     sections: [
@@ -195,6 +198,7 @@ export const apps = [
         "Publik is a free guide to about 1,880 public spaces in Bengaluru: parks, playgrounds, lakes, libraries and public toilets, with timings, directions and photos.",
       appCategory: "TravelApplication",
       os: "Web",
+      sameAs: ["https://publik.nxtduo.com/"],
       free: true,
     },
     sections: [
@@ -247,6 +251,7 @@ export const apps = [
         "Meter Mele is a free browser game: drive an auto through real Bengaluru streets, beat the meter, dodge potholes and climb the leaderboards.",
       appCategory: "GameApplication",
       os: "Web",
+      sameAs: ["https://meter-mele.pages.dev/"],
       free: true,
     },
     sections: [

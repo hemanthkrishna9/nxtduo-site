@@ -276,7 +276,7 @@ export function nxtdueSections(a, { ext, arrow }) {
   const famAlt = "NxtDue demo: on Family, tap Invite a family member, type amma@gmail.com and Amma, keep Can edit, tap Send invite. The phone shows Invite ready, with WhatsApp and Copy link.";
   return `<section class="cl-hero" aria-labelledby="cl-title">
       <span class="tag live">${esc(a.status.label)}</span>
-      <h1 id="cl-title">${esc(a.tagline)}</h1>
+      <h1 id="cl-title">${esc(a.name)}. ${esc(a.tagline)}</h1>
       <div class="cl-btns"><a class="cl-btn" href="${esc(a.cta.href)}"${ext(a.cta)}>${esc(a.cta.label)} <span aria-hidden="true">${arrow(a.cta)}</span></a>${a.cta2 ? `<a class="cl-btn" href="${esc(a.cta2.href)}"${ext(a.cta2)}>${esc(a.cta2.label)} <span aria-hidden="true">${arrow(a.cta2)}</span></a>` : ""}</div>
       ${phone(homeScreen(), "ph-hero")}
     </section>

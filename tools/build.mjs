@@ -125,7 +125,7 @@ function home() {
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
-      { ...ORG, description: "A two-person app studio making apps for families around the world.", founder: [{ "@type": "Person", name: "Hemanth Krishna" }, { "@type": "Person", name: "Mahesh Chandu" }], areaServed: "Worldwide" },
+      { ...ORG, description: "A two-person app studio making apps for families around the world.", areaServed: "Worldwide" },
       { "@type": "WebSite", "@id": `${SITE}/#website`, name: "NxtDuo", url: `${SITE}/`, inLanguage: "en", publisher: { "@id": `${SITE}/#organization` } },
       { "@type": "ItemList", "@id": `${SITE}/#apps`, name: "Apps by NxtDuo", numberOfItems: N, itemListElement: apps.map((a, i) => ({ "@type": "ListItem", position: i + 1, name: a.name, url: `${SITE}/${a.slug}/` })) },
     ],
@@ -297,7 +297,7 @@ function appPage(a) {
     "@graph": [
       ORG,
       { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "NxtDuo", item: `${SITE}/` }, { "@type": "ListItem", position: 2, name: a.name, item: url }] },
-      { "@type": "SoftwareApplication", "@id": `${url}#app`, name: a.name, description: a.seo.description, image: `${SITE}${icon(a).replace(".webp", ".webp")}`, publisher: { "@id": `${SITE}/#organization` }, url, applicationCategory: a.seo.appCategory, operatingSystem: a.seo.os, ...(a.seo.download ? { downloadUrl: a.seo.download } : {}), ...(a.seo.free ? { isAccessibleForFree: true } : {}) },
+      { "@type": "SoftwareApplication", "@id": `${url}#app`, name: a.name, description: a.seo.description, image: `${SITE}${icon(a).replace(".webp", ".webp")}`, publisher: { "@id": `${SITE}/#organization` }, url, applicationCategory: a.seo.appCategory, operatingSystem: a.seo.os, ...(a.seo.download ? { downloadUrl: a.seo.download } : {}), ...(a.seo.free ? { isAccessibleForFree: true } : {}), ...(a.seo.sameAs ? { sameAs: a.seo.sameAs } : {}) },
       { "@type": "FAQPage", "@id": `${url}#faq`, mainEntity: a.faq.map(([q, ans]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: ans } })) },
     ],
   };
